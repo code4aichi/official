@@ -21,3 +21,11 @@
 /* 問い合わせフォームのラベル表示とスパム対策欄の非表示 */
 .contact-form label>span{display:block;font-size:13px;height:auto;overflow:visible;margin:0 0 6px;font-weight:700;color:#253544}
 .contact-form .spam-trap,.contact-form input[name="_honey"]{display:none!important;visibility:hidden!important;position:absolute!important}
+
+/* Inline delivery feedback for the AJAX contact form */
+.contact-form .form-status{margin:0;padding:12px 15px;border-radius:6px;font-size:14px;font-weight:700;line-height:1.7}
+.contact-form .form-status[hidden]{display:none!important}
+.contact-form .is-pending{background:#eef6fc;color:#155783}
+.contact-form .is-success{background:#e7f8f2;color:#14634e}
+.contact-form .is-error{background:#fff1ee;color:#a33222}
+.contact-form button:disabled{opacity:.65;cursor:wait;transform:none;box-shadow:none}
