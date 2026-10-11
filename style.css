@@ -14,3 +14,6 @@
 .field-pin{position:absolute;z-index:2;border:3px solid white;border-radius:50%;width:26px;height:26px;font-size:0;background:var(--orange);box-shadow:0 2px 12px #1235}
 .pin-one{top:24%;left:29%}.pin-two{top:36%;right:24%;background:var(--teal)}.pin-three{bottom:28%;right:39%;background:var(--blue)}
 @media(max-width:600px){.project-cards{grid-template-columns:1fr;gap:18px}.project .card-image{height:200px}}
+
+/* Bot対策用の非表示項目 */
+.spam-trap{position:absolute!important;left:-9999px!important;width:1px!important;height:1px!important;opacity:0!important;pointer-events:none!important}
