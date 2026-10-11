@@ -17,3 +17,7 @@
 
 /* Bot対策用の非表示項目 */
 .spam-trap{position:absolute!important;left:-9999px!important;width:1px!important;height:1px!important;opacity:0!important;pointer-events:none!important}
+
+/* 問い合わせフォームのラベル表示とスパム対策欄の非表示 */
+.contact-form label>span{display:block;font-size:13px;height:auto;overflow:visible;margin:0 0 6px;font-weight:700;color:#253544}
+.contact-form .spam-trap,.contact-form input[name="_honey"]{display:none!important;visibility:hidden!important;position:absolute!important}
