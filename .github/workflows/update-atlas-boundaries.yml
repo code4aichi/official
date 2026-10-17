@@ -24,6 +24,8 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Install geometry processing dependency
+        run: python -m pip install "shapely>=2.0,<3"
       - name: Validate existing statistics
         run: python atlas/tools/validate.py
       - name: Fetch and verify boundaries
@@ -45,6 +47,5 @@ jobs:
           title: 'data: update AICHI DATA ATLAS boundaries'
           body: |
             GeoJSON auto-refresh for AICHI DATA ATLAS.
-            Contains only validated 69 administrative areas mapped to 54 municipalities.
+            Contains 54 municipality boundaries. Nagoya ward borders are dissolved into a single city geometry.
             Please review and merge to trigger the existing GitHub Pages deployment.
-
