@@ -226,3 +226,15 @@ html{scroll-padding-top:88px}body{overflow-x:hidden}
 @media (max-width:780px){.city-picker{align-items:stretch}.city-picker-control{flex:1 1 170px}.year-picker-label{justify-content:space-between;flex:1 1 180px}.year-picker-label select{width:100%;min-width:120px}.city-picker-count{display:none}}
 .year-picker-label select{width:160px;max-width:100%;height:43px}
 @media(max-width:780px){.year-picker-label select{width:100%}}
+
+/* v1.2 世帯・暮らし */
+.city-detail-tabs{flex-wrap:wrap}.city-detail-tab{flex:1 1 auto;min-width:72px}
+.household-panel{display:grid;gap:13px;min-width:0}.household-note{font-size:12px;color:var(--muted);margin:0}
+.household-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.household-stat{background:#f2f8fb;border:1px solid #e0edf2;border-radius:11px;padding:11px;min-width:0;display:flex;flex-direction:column;gap:3px}
+.household-stat span{font-size:11px;color:#536a7f}.household-stat strong{font-size:clamp(18px,2.4vw,25px);color:var(--navy);font-variant-numeric:tabular-nums}
+.household-structure h4{font-size:12px;margin:0 0 8px;color:var(--navy)}.hh-stacked{display:flex;overflow:hidden;height:22px;border-radius:8px;background:#e9f0f7}
+.hh-segment{height:100%;flex:none}.hh-legend{display:flex;gap:7px 11px;flex-wrap:wrap;margin-top:8px}
+.hh-legend span{font-size:10px;color:var(--muted);display:inline-flex;align-items:center;gap:4px}.hh-legend i{display:inline-block;width:9px;height:9px;border-radius:2px}
+.household-pref{font-size:12px;line-height:1.65;background:#e9f7f8;border-radius:8px;padding:11px;color:#174f62}
+@media(max-width:480px){.household-stats{gap:6px}.household-stat{padding:8px}.city-detail-tab{min-width:0;padding:8px 3px;font-size:10px}}
