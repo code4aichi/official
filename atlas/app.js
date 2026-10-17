@@ -15,12 +15,12 @@ function renderComparison(){els.comp.replaceChildren();for(const code of [els.a.
 function notify(message){els.toast.textContent=message;els.toast.classList.add('show');setTimeout(()=>els.toast.classList.remove('show'),2500)}
 function color(p){if(p>=300000)return '#163c49';if(p>=100000)return '#087b77';if(p>=50000)return '#3eaa9b';if(p>=20000)return '#99d8c8';return '#deeee9'}
 // Geographic boundary coordinates are read from published GeoJSON, never approximated.
-// Nagoya's 16 wards are colored as one city (23100) for the 54-municipality comparison.
-const boundaryIds=c=>c.code==='23100'?Array.from({length:16},(_,i)=>String(23101+i)): [c.code];
+// Nagoya's 16 ward geometries are dissolved into one city geometry at build time.
+const boundaryIds=c=>[c.code];
 const primary=(code)=>`https://raw.githubusercontent.com/sankichi92/shikuchoson-boundaries/gh-pages/${code}.geojson`;
 const secondary=(code)=>`https://shikuchoson-boundaries.sankichi.app/${code}.geojson`;
 async function remoteBoundary(code){for(const base of [primary,secondary]){try{const r=await fetch(base(code),{signal:AbortSignal.timeout(9000)});if(r.ok){const item=await r.json();if(item.geometry||item.features)return item}}catch(e){/* fallback source */}}return null}
-async function loadBoundaryData(allowRemote=false){try{const r=await fetch('./data/aichi-boundaries.geojson',{cache:'default'});if(r.ok){const j=await r.json();if(j.type==='FeatureCollection' && Array.isArray(j.features) && j.features.length===69 && new Set(j.features.map(f=>String(f.properties?.code))).size===54 && j.features.every(f=>['Polygon','MultiPolygon'].includes(f.geometry?.type))){return j.features.map(f=>({code:String(f.properties.code),geometry:f.geometry}));}}}catch(e){}
+async function loadBoundaryData(allowRemote=false){try{const r=await fetch('./data/aichi-boundaries.geojson',{cache:'default'});if(r.ok){const j=await r.json();if(j.type==='FeatureCollection' && Array.isArray(j.features) && j.features.length===54 && new Set(j.features.map(f=>String(f.properties?.code))).size===54 && j.features.every(f=>['Polygon','MultiPolygon'].includes(f.geometry?.type))){return j.features.map(f=>({code:String(f.properties.code),geometry:f.geometry}));}}}catch(e){}
   if(!allowRemote)return [];
   const jobs=municipalities.flatMap(c=>boundaryIds(c).map(id=>({code:c.code,id})));let pos=0;const collected=[];
   async function worker(){while(pos<jobs.length){const job=jobs[pos++],geo=await remoteBoundary(job.id);if(!geo)continue;const item=geo.type==='FeatureCollection'?geo.features[0]:geo;const geom=item.geometry||item; if(geom?.coordinates)collected.push({code:job.code,geometry:geom});}}

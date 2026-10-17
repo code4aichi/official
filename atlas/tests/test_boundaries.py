@@ -26,10 +26,18 @@ class GeoJSONTests(unittest.TestCase):
         with self.assertRaises(ValueError):f.validate_geometry(unclosed)
 
     def test_full_collection_validation(self):
-        fc={'type':'FeatureCollection','features':[{'type':'Feature','properties':{'code':code,'source_code':unit,'name':name},'geometry':self.geom} for code,unit,name in f.expected_units(self.cities)]}
-        self.assertEqual(f.validate_collection(fc,self.cities),69)
+        fc={'type':'FeatureCollection','features':[{'type':'Feature','properties':{'code':c['code'],'name':c['name']},'geometry':self.geom} for c in self.cities]}
+        self.assertEqual(f.validate_collection(fc,self.cities),54)
         fc['features'].pop()
-        with self.assertRaises(ValueError):f.validate_collection(fc,self.cities)
+        with self.assertRaises(ValueError): f.validate_collection(fc,self.cities)
+
+    def test_dissolve_adjacent_wards(self):
+        a={'type':'Polygon','coordinates':[[[137.0,35.0],[137.1,35.0],[137.1,35.1],[137.0,35.1],[137.0,35.0]]]}
+        b={'type':'Polygon','coordinates':[[[137.1,35.0],[137.2,35.0],[137.2,35.1],[137.1,35.1],[137.1,35.0]]]}
+        merged=f.dissolve_geometries([a,b])
+        from shapely.geometry import shape
+        self.assertAlmostEqual(shape(merged).area,0.02,places=8)
+        self.assertEqual(merged['type'],'Polygon')
 
     def test_fetch_failure_never_saves_partial(self):
         with patch.object(f,'fetch_geometry',side_effect=RuntimeError('network unavailable')):

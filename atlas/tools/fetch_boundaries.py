@@ -10,6 +10,8 @@ import json
 import math
 import os
 from pathlib import Path
+from shapely.geometry import shape, mapping
+from shapely.ops import unary_union
 import tempfile
 import time
 import urllib.error
@@ -87,34 +89,53 @@ def validate_geometry(geometry):
 
 
 def validate_collection(fc, cities):
+    """The published boundary file contains exactly one feature per municipality."""
     if fc.get('type')!='FeatureCollection': raise ValueError('not FeatureCollection')
     features=fc.get('features')
-    if not isinstance(features,list) or len(features)!=69: raise ValueError('expected 69 boundary units')
-    expected=expected_units(cities)
-    valid={(code,unit) for code,unit,_ in expected}
+    if not isinstance(features,list) or len(features)!=54:
+        raise ValueError('expected exactly 54 municipalities (Nagoya wards must be dissolved)')
+    expected={str(c['code']) for c in cities}
     seen=set()
     for f in features:
         if f.get('type')!='Feature': raise ValueError('not feature')
         p=f.get('properties') or {}
-        ident=(str(p.get('code')),str(p.get('source_code')))
-        if ident not in valid or ident in seen: raise ValueError('unexpected or duplicated municipality code '+str(ident))
-        seen.add(ident)
+        code=str(p.get('code'))
+        if code not in expected or code in seen:
+            raise ValueError('unexpected or repeated municipality '+code)
+        seen.add(code)
         validate_geometry(f.get('geometry'))
-    if seen!=valid: raise ValueError('boundary units missing')
-    if len({f['properties']['code'] for f in features})!=54: raise ValueError('expected 54 distinct municipalities')
-    return len(features)
+    if seen!=expected: raise ValueError('boundary municipalities missing')
+    return 54
+
+
+def dissolve_geometries(geometries):
+    """Remove shared ward edges by taking a geometric union, not by hiding strokes."""
+    combined=unary_union([shape(g) for g in geometries])
+    if combined.is_empty or combined.geom_type not in ('Polygon','MultiPolygon'):
+        raise ValueError('failed to dissolve ward polygons')
+    # shapely.mapping returns tuples; JSON will serialize them as coordinate arrays.
+    result=json.loads(json.dumps(mapping(combined)))
+    validate_geometry(result)
+    return result
 
 
 def build(cities):
-    features=[]
-    for idx,(code,unit,name) in enumerate(expected_units(cities),1):
-        geometry=fetch_geometry(unit)
-        features.append({'type':'Feature','properties':{'code':code,'name':name,'source_code':unit},'geometry':geometry})
+    units=expected_units(cities)
+    downloaded={}
+    for idx,(code,unit,name) in enumerate(units,1):
+        downloaded.setdefault(code,[]).append(fetch_geometry(unit))
         print(f'[{idx:02d}/69] {unit} {name} OK',flush=True)
+    features=[]
+    for city in cities:
+        code=city['code']
+        geometries=downloaded[code]
+        geometry=dissolve_geometries(geometries) if len(geometries)>1 else geometries[0]
+        features.append({'type':'Feature',
+                         'properties':{'code':code,'name':city['name']},
+                         'geometry':geometry})
     fc={'type':'FeatureCollection','features':features}
     validate_collection(fc,cities)
     return fc
-
 
 def serialize(obj): return (json.dumps(obj,ensure_ascii=False,separators=(',',':'))+'\n').encode('utf8')
 
