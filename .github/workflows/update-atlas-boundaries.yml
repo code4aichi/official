@@ -1,1 +1,50 @@
+name: Update AICHI DATA ATLAS boundaries
+
+on:
+  schedule:
+    - cron: '17 2 1 * *' # Every 1st day of month (UTC)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: aichi-atlas-boundary-update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate existing statistics
+        run: python atlas/tools/validate.py
+      - name: Fetch and verify boundaries
+        run: python atlas/tools/fetch_boundaries.py
+      - name: Check final GeoJSON
+        run: python atlas/tools/fetch_boundaries.py --check
+      - name: Unit tests
+        run: python -m unittest discover -s atlas/tests -v
+      # Pull request instead of direct token commit: merging via human user
+      # triggers the existing GitHub Pages branch-based deployment.
+      - name: Open update pull request when changed
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          add-paths: atlas/data/aichi-boundaries.geojson
+          branch: automation/atlas-boundaries
+          delete-branch: true
+          commit-message: 'data: update AICHI DATA ATLAS boundaries'
+          title: 'data: update AICHI DATA ATLAS boundaries'
+          body: |
+            GeoJSON auto-refresh for AICHI DATA ATLAS.
+            Contains only validated 69 administrative areas mapped to 54 municipalities.
+            Please review and merge to trigger the existing GitHub Pages deployment.
 
