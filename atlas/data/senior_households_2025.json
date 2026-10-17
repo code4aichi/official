@@ -1,0 +1,562 @@
+{
+  "schema_version": 1,
+  "year": 2025,
+  "source": {
+    "dataset": "令和7年国勢調査 人口等基本集計",
+    "table": "第9-1表 世帯の家族類型、世帯員の年齢による世帯の種類別一般世帯数及び3世代世帯数",
+    "file": "b09_01.xlsx",
+    "notes": "割合の分母は一般世帯数。65歳以上の単独世帯は第9-1表のR7、夫65歳以上・妻60歳以上の夫婦のみの世帯はR6、3世代世帯はR1。高齢者のいる全世帯とは異なる。"
+  },
+  "prefecture": {
+    "general_households": 3362095,
+    "elderly_single_households": 371499,
+    "elderly_single_rate": 11.04963,
+    "elderly_couple_households": 360363,
+    "elderly_couple_rate": 10.71841,
+    "three_generation_households": 103573,
+    "three_generation_rate": 3.08061,
+    "elderly_share_of_single": 28.00509
+  },
+  "cities": {
+    "23100": {
+      "general_households": 1183811,
+      "elderly_single_households": 141085,
+      "elderly_single_rate": 11.91787,
+      "elderly_share_of_single": 24.60134,
+      "elderly_couple_households": 106428,
+      "elderly_couple_rate": 8.99029,
+      "three_generation_households": 19349,
+      "three_generation_rate": 1.63447
+    },
+    "23201": {
+      "general_households": 154464,
+      "elderly_single_households": 17609,
+      "elderly_single_rate": 11.40007,
+      "elderly_share_of_single": 31.9629,
+      "elderly_couple_households": 17543,
+      "elderly_couple_rate": 11.35734,
+      "three_generation_households": 6633,
+      "three_generation_rate": 4.2942
+    },
+    "23202": {
+      "general_households": 161457,
+      "elderly_single_households": 15929,
+      "elderly_single_rate": 9.86578,
+      "elderly_share_of_single": 28.68436,
+      "elderly_couple_households": 18851,
+      "elderly_couple_rate": 11.67555,
+      "three_generation_households": 6064,
+      "three_generation_rate": 3.7558
+    },
+    "23203": {
+      "general_households": 153197,
+      "elderly_single_households": 18283,
+      "elderly_single_rate": 11.93431,
+      "elderly_share_of_single": 37.7787,
+      "elderly_couple_households": 19083,
+      "elderly_couple_rate": 12.45651,
+      "three_generation_households": 6828,
+      "three_generation_rate": 4.45701
+    },
+    "23204": {
+      "general_households": 52744,
+      "elderly_single_households": 7098,
+      "elderly_single_rate": 13.45745,
+      "elderly_share_of_single": 41.99503,
+      "elderly_couple_households": 7761,
+      "elderly_couple_rate": 14.71447,
+      "three_generation_households": 1503,
+      "three_generation_rate": 2.84961
+    },
+    "23205": {
+      "general_households": 49624,
+      "elderly_single_households": 5760,
+      "elderly_single_rate": 11.60729,
+      "elderly_share_of_single": 32.30873,
+      "elderly_couple_households": 5707,
+      "elderly_couple_rate": 11.50048,
+      "three_generation_households": 1504,
+      "three_generation_rate": 3.03079
+    },
+    "23206": {
+      "general_households": 133839,
+      "elderly_single_households": 16219,
+      "elderly_single_rate": 12.11829,
+      "elderly_share_of_single": 33.81353,
+      "elderly_couple_households": 16546,
+      "elderly_couple_rate": 12.36261,
+      "three_generation_households": 3233,
+      "three_generation_rate": 2.41559
+    },
+    "23207": {
+      "general_households": 75491,
+      "elderly_single_households": 8316,
+      "elderly_single_rate": 11.01588,
+      "elderly_share_of_single": 34.05824,
+      "elderly_couple_households": 8755,
+      "elderly_couple_rate": 11.59741,
+      "three_generation_households": 3554,
+      "three_generation_rate": 4.70785
+    },
+    "23208": {
+      "general_households": 25045,
+      "elderly_single_households": 3525,
+      "elderly_single_rate": 14.07467,
+      "elderly_share_of_single": 40.76087,
+      "elderly_couple_households": 3266,
+      "elderly_couple_rate": 13.04053,
+      "three_generation_households": 975,
+      "three_generation_rate": 3.89299
+    },
+    "23209": {
+      "general_households": 29340,
+      "elderly_single_households": 2849,
+      "elderly_single_rate": 9.71029,
+      "elderly_share_of_single": 28.62741,
+      "elderly_couple_households": 2942,
+      "elderly_couple_rate": 10.02727,
+      "three_generation_households": 1588,
+      "three_generation_rate": 5.41241
+    },
+    "23210": {
+      "general_households": 69183,
+      "elderly_single_households": 6360,
+      "elderly_single_rate": 9.19301,
+      "elderly_share_of_single": 22.89994,
+      "elderly_couple_households": 6531,
+      "elderly_couple_rate": 9.44018,
+      "three_generation_households": 1525,
+      "three_generation_rate": 2.2043
+    },
+    "23211": {
+      "general_households": 181171,
+      "elderly_single_households": 14963,
+      "elderly_single_rate": 8.25905,
+      "elderly_share_of_single": 21.30935,
+      "elderly_couple_households": 19976,
+      "elderly_couple_rate": 11.02605,
+      "three_generation_households": 7768,
+      "three_generation_rate": 4.28766
+    },
+    "23212": {
+      "general_households": 78942,
+      "elderly_single_households": 6840,
+      "elderly_single_rate": 8.66459,
+      "elderly_share_of_single": 24.87092,
+      "elderly_couple_households": 7744,
+      "elderly_couple_rate": 9.80973,
+      "three_generation_households": 3168,
+      "three_generation_rate": 4.01307
+    },
+    "23213": {
+      "general_households": 65116,
+      "elderly_single_households": 6113,
+      "elderly_single_rate": 9.38786,
+      "elderly_share_of_single": 31.47624,
+      "elderly_couple_households": 7196,
+      "elderly_couple_rate": 11.05105,
+      "three_generation_households": 4709,
+      "three_generation_rate": 7.23171
+    },
+    "23214": {
+      "general_households": 30410,
+      "elderly_single_households": 4067,
+      "elderly_single_rate": 13.37389,
+      "elderly_share_of_single": 43.98183,
+      "elderly_couple_households": 3902,
+      "elderly_couple_rate": 12.83131,
+      "three_generation_households": 1821,
+      "three_generation_rate": 5.98816
+    },
+    "23215": {
+      "general_households": 29952,
+      "elderly_single_households": 3495,
+      "elderly_single_rate": 11.66867,
+      "elderly_share_of_single": 35.2959,
+      "elderly_couple_households": 4337,
+      "elderly_couple_rate": 14.47983,
+      "three_generation_households": 1144,
+      "three_generation_rate": 3.81944
+    },
+    "23216": {
+      "general_households": 25704,
+      "elderly_single_households": 2787,
+      "elderly_single_rate": 10.84267,
+      "elderly_share_of_single": 27.62141,
+      "elderly_couple_households": 2786,
+      "elderly_couple_rate": 10.83878,
+      "three_generation_households": 833,
+      "three_generation_rate": 3.24074
+    },
+    "23217": {
+      "general_households": 39745,
+      "elderly_single_households": 4674,
+      "elderly_single_rate": 11.75997,
+      "elderly_share_of_single": 36.87283,
+      "elderly_couple_households": 5155,
+      "elderly_couple_rate": 12.97018,
+      "three_generation_households": 1582,
+      "three_generation_rate": 3.98037
+    },
+    "23219": {
+      "general_households": 64522,
+      "elderly_single_households": 6945,
+      "elderly_single_rate": 10.76377,
+      "elderly_share_of_single": 28.63327,
+      "elderly_couple_households": 7841,
+      "elderly_couple_rate": 12.15244,
+      "three_generation_households": 2051,
+      "three_generation_rate": 3.17876
+    },
+    "23220": {
+      "general_households": 53246,
+      "elderly_single_households": 6084,
+      "elderly_single_rate": 11.42621,
+      "elderly_share_of_single": 38.11552,
+      "elderly_couple_households": 7100,
+      "elderly_couple_rate": 13.33433,
+      "three_generation_households": 2712,
+      "three_generation_rate": 5.09334
+    },
+    "23221": {
+      "general_households": 16411,
+      "elderly_single_households": 2254,
+      "elderly_single_rate": 13.73469,
+      "elderly_share_of_single": 46.5895,
+      "elderly_couple_households": 2842,
+      "elderly_couple_rate": 17.31765,
+      "three_generation_households": 1264,
+      "three_generation_rate": 7.70215
+    },
+    "23222": {
+      "general_households": 49920,
+      "elderly_single_households": 5137,
+      "elderly_single_rate": 10.29046,
+      "elderly_share_of_single": 26.67186,
+      "elderly_couple_households": 4973,
+      "elderly_couple_rate": 9.96194,
+      "three_generation_households": 1217,
+      "three_generation_rate": 2.4379
+    },
+    "23223": {
+      "general_households": 39349,
+      "elderly_single_households": 3470,
+      "elderly_single_rate": 8.81852,
+      "elderly_share_of_single": 25.2897,
+      "elderly_couple_households": 4065,
+      "elderly_couple_rate": 10.33063,
+      "three_generation_households": 1071,
+      "three_generation_rate": 2.7218
+    },
+    "23224": {
+      "general_households": 35345,
+      "elderly_single_households": 4124,
+      "elderly_single_rate": 11.66785,
+      "elderly_share_of_single": 35.42347,
+      "elderly_couple_households": 5055,
+      "elderly_couple_rate": 14.30188,
+      "three_generation_households": 1084,
+      "three_generation_rate": 3.06691
+    },
+    "23225": {
+      "general_households": 33486,
+      "elderly_single_households": 2880,
+      "elderly_single_rate": 8.60061,
+      "elderly_share_of_single": 20.76424,
+      "elderly_couple_households": 2880,
+      "elderly_couple_rate": 8.60061,
+      "three_generation_households": 876,
+      "three_generation_rate": 2.61602
+    },
+    "23226": {
+      "general_households": 34706,
+      "elderly_single_households": 4143,
+      "elderly_single_rate": 11.93742,
+      "elderly_share_of_single": 40.01352,
+      "elderly_couple_households": 4831,
+      "elderly_couple_rate": 13.91978,
+      "three_generation_households": 818,
+      "three_generation_rate": 2.35694
+    },
+    "23227": {
+      "general_households": 20329,
+      "elderly_single_households": 1663,
+      "elderly_single_rate": 8.18043,
+      "elderly_share_of_single": 22.65359,
+      "elderly_couple_households": 1609,
+      "elderly_couple_rate": 7.9148,
+      "three_generation_households": 748,
+      "three_generation_rate": 3.67947
+    },
+    "23228": {
+      "general_households": 22439,
+      "elderly_single_households": 2724,
+      "elderly_single_rate": 12.13958,
+      "elderly_share_of_single": 29.66028,
+      "elderly_couple_households": 2314,
+      "elderly_couple_rate": 10.3124,
+      "three_generation_households": 484,
+      "three_generation_rate": 2.15696
+    },
+    "23229": {
+      "general_households": 30249,
+      "elderly_single_households": 3421,
+      "elderly_single_rate": 11.30946,
+      "elderly_share_of_single": 30.54737,
+      "elderly_couple_households": 3626,
+      "elderly_couple_rate": 11.98717,
+      "three_generation_households": 854,
+      "three_generation_rate": 2.82323
+    },
+    "23230": {
+      "general_households": 39660,
+      "elderly_single_households": 3468,
+      "elderly_single_rate": 8.74433,
+      "elderly_share_of_single": 27.37823,
+      "elderly_couple_households": 4400,
+      "elderly_couple_rate": 11.0943,
+      "three_generation_households": 763,
+      "three_generation_rate": 1.92385
+    },
+    "23231": {
+      "general_households": 22886,
+      "elderly_single_households": 2063,
+      "elderly_single_rate": 9.01424,
+      "elderly_share_of_single": 24.10328,
+      "elderly_couple_households": 2403,
+      "elderly_couple_rate": 10.49987,
+      "three_generation_households": 2367,
+      "three_generation_rate": 10.34257
+    },
+    "23232": {
+      "general_households": 22195,
+      "elderly_single_households": 2795,
+      "elderly_single_rate": 12.59293,
+      "elderly_share_of_single": 52.24299,
+      "elderly_couple_households": 3381,
+      "elderly_couple_rate": 15.23316,
+      "three_generation_households": 1669,
+      "three_generation_rate": 7.51971
+    },
+    "23233": {
+      "general_households": 29548,
+      "elderly_single_households": 2944,
+      "elderly_single_rate": 9.96345,
+      "elderly_share_of_single": 28.4637,
+      "elderly_couple_households": 3085,
+      "elderly_couple_rate": 10.44064,
+      "three_generation_households": 806,
+      "three_generation_rate": 2.72776
+    },
+    "23234": {
+      "general_households": 37404,
+      "elderly_single_households": 4117,
+      "elderly_single_rate": 11.00684,
+      "elderly_share_of_single": 31.03656,
+      "elderly_couple_households": 3937,
+      "elderly_couple_rate": 10.52561,
+      "three_generation_households": 1072,
+      "three_generation_rate": 2.866
+    },
+    "23235": {
+      "general_households": 17842,
+      "elderly_single_households": 1750,
+      "elderly_single_rate": 9.80832,
+      "elderly_share_of_single": 28.30799,
+      "elderly_couple_households": 2051,
+      "elderly_couple_rate": 11.49535,
+      "three_generation_households": 937,
+      "three_generation_rate": 5.25165
+    },
+    "23236": {
+      "general_households": 25385,
+      "elderly_single_households": 1703,
+      "elderly_single_rate": 6.70869,
+      "elderly_share_of_single": 20.81907,
+      "elderly_couple_households": 2546,
+      "elderly_couple_rate": 10.02955,
+      "three_generation_households": 775,
+      "three_generation_rate": 3.05298
+    },
+    "23237": {
+      "general_households": 36631,
+      "elderly_single_households": 4311,
+      "elderly_single_rate": 11.76872,
+      "elderly_share_of_single": 35.83541,
+      "elderly_couple_households": 4261,
+      "elderly_couple_rate": 11.63222,
+      "three_generation_households": 1370,
+      "three_generation_rate": 3.74
+    },
+    "23238": {
+      "general_households": 27955,
+      "elderly_single_households": 1844,
+      "elderly_single_rate": 6.59632,
+      "elderly_share_of_single": 17.3651,
+      "elderly_couple_households": 2496,
+      "elderly_couple_rate": 8.92864,
+      "three_generation_households": 431,
+      "three_generation_rate": 1.54176
+    },
+    "23302": {
+      "general_households": 17807,
+      "elderly_single_households": 1728,
+      "elderly_single_rate": 9.70405,
+      "elderly_share_of_single": 31.90547,
+      "elderly_couple_households": 2206,
+      "elderly_couple_rate": 12.38839,
+      "three_generation_households": 454,
+      "three_generation_rate": 2.54956
+    },
+    "23342": {
+      "general_households": 7029,
+      "elderly_single_households": 677,
+      "elderly_single_rate": 9.63153,
+      "elderly_share_of_single": 24.81672,
+      "elderly_couple_households": 664,
+      "elderly_couple_rate": 9.44658,
+      "three_generation_households": 199,
+      "three_generation_rate": 2.83113
+    },
+    "23361": {
+      "general_households": 9331,
+      "elderly_single_households": 856,
+      "elderly_single_rate": 9.17372,
+      "elderly_share_of_single": 30.67001,
+      "elderly_couple_households": 1043,
+      "elderly_couple_rate": 11.17779,
+      "three_generation_households": 426,
+      "three_generation_rate": 4.56543
+    },
+    "23362": {
+      "general_households": 14294,
+      "elderly_single_households": 1493,
+      "elderly_single_rate": 10.44494,
+      "elderly_share_of_single": 33.8472,
+      "elderly_couple_households": 1755,
+      "elderly_couple_rate": 12.27788,
+      "three_generation_households": 532,
+      "three_generation_rate": 3.72184
+    },
+    "23424": {
+      "general_households": 13519,
+      "elderly_single_households": 1369,
+      "elderly_single_rate": 10.12649,
+      "elderly_share_of_single": 31.07127,
+      "elderly_couple_households": 1268,
+      "elderly_couple_rate": 9.37939,
+      "three_generation_households": 475,
+      "three_generation_rate": 3.51357
+    },
+    "23425": {
+      "general_households": 16515,
+      "elderly_single_households": 1988,
+      "elderly_single_rate": 12.03754,
+      "elderly_share_of_single": 31.808,
+      "elderly_couple_households": 1798,
+      "elderly_couple_rate": 10.88707,
+      "three_generation_households": 472,
+      "three_generation_rate": 2.85801
+    },
+    "23427": {
+      "general_households": 1579,
+      "elderly_single_households": 134,
+      "elderly_single_rate": 8.48638,
+      "elderly_share_of_single": 26.90763,
+      "elderly_couple_households": 176,
+      "elderly_couple_rate": 11.1463,
+      "three_generation_households": 193,
+      "three_generation_rate": 12.22293
+    },
+    "23441": {
+      "general_households": 10332,
+      "elderly_single_households": 1064,
+      "elderly_single_rate": 10.2981,
+      "elderly_share_of_single": 42.27255,
+      "elderly_couple_households": 1455,
+      "elderly_couple_rate": 14.08246,
+      "three_generation_households": 547,
+      "three_generation_rate": 5.29423
+    },
+    "23442": {
+      "general_households": 20166,
+      "elderly_single_households": 2193,
+      "elderly_single_rate": 10.87474,
+      "elderly_share_of_single": 35.95082,
+      "elderly_couple_households": 2672,
+      "elderly_couple_rate": 13.25002,
+      "three_generation_households": 641,
+      "three_generation_rate": 3.17862
+    },
+    "23445": {
+      "general_households": 6109,
+      "elderly_single_households": 1155,
+      "elderly_single_rate": 18.90653,
+      "elderly_share_of_single": 55.82407,
+      "elderly_couple_households": 1072,
+      "elderly_couple_rate": 17.54788,
+      "three_generation_households": 448,
+      "three_generation_rate": 7.33344
+    },
+    "23446": {
+      "general_households": 9005,
+      "elderly_single_households": 1150,
+      "elderly_single_rate": 12.77068,
+      "elderly_share_of_single": 33.97341,
+      "elderly_couple_households": 1300,
+      "elderly_couple_rate": 14.43642,
+      "three_generation_households": 419,
+      "three_generation_rate": 4.65297
+    },
+    "23447": {
+      "general_households": 18442,
+      "elderly_single_households": 1996,
+      "elderly_single_rate": 10.82312,
+      "elderly_share_of_single": 31.68757,
+      "elderly_couple_households": 2241,
+      "elderly_couple_rate": 12.15161,
+      "three_generation_households": 552,
+      "three_generation_rate": 2.99317
+    },
+    "23501": {
+      "general_households": 16016,
+      "elderly_single_households": 1121,
+      "elderly_single_rate": 6.99925,
+      "elderly_share_of_single": 24.23784,
+      "elderly_couple_households": 1776,
+      "elderly_couple_rate": 11.08891,
+      "three_generation_households": 895,
+      "three_generation_rate": 5.58816
+    },
+    "23561": {
+      "general_households": 1657,
+      "elderly_single_households": 386,
+      "elderly_single_rate": 23.29511,
+      "elderly_share_of_single": 67.13043,
+      "elderly_couple_households": 379,
+      "elderly_couple_rate": 22.87266,
+      "three_generation_households": 98,
+      "three_generation_rate": 5.9143
+    },
+    "23562": {
+      "general_households": 1161,
+      "elderly_single_households": 295,
+      "elderly_single_rate": 25.40913,
+      "elderly_share_of_single": 65.55556,
+      "elderly_couple_households": 258,
+      "elderly_couple_rate": 22.22222,
+      "three_generation_households": 60,
+      "three_generation_rate": 5.16796
+    },
+    "23563": {
+      "general_households": 390,
+      "elderly_single_households": 82,
+      "elderly_single_rate": 21.02564,
+      "elderly_share_of_single": 53.24675,
+      "elderly_couple_households": 95,
+      "elderly_couple_rate": 24.35897,
+      "three_generation_households": 12,
+      "three_generation_rate": 3.07692
+    }
+  }
+}
