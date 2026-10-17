@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "categories": [
+    {"id":"demography","label":"人口・年齢"},
+    {"id":"households","label":"世帯・暮らし"},
+    {"id":"senior","label":"高齢者の暮らし"},
+    {"id":"family","label":"子育て・家族"}
+  ],
+  "metrics": [
+    {"id":"population","label":"総人口","category":"demography","years":[2015,2020,2025],"unit":"人","source":"国勢調査","description":"各年10月1日の総人口。"},
+    {"id":"share","label":"県内人口割合","category":"demography","years":[2015,2020,2025],"unit":"%","source":"国勢調査","description":"選択年の県人口に占める割合。"},
+    {"id":"change","label":"直前5年間の人口増減率","category":"demography","years":[2020,2025],"unit":"%","source":"国勢調査","description":"選択した年と5年前の人口の差を5年前の人口で除した値。"},
+    {"id":"elderly","label":"高齢化率","category":"demography","years":[2020,2025],"unit":"%","source":"国勢調査","description":"2020年は年齢不詳補完値、2025年は年齢不詳を除く人口を分母とします。"},
+    {"id":"single_rate","label":"単身世帯率","category":"households","years":[2025],"unit":"%","source":"2025年国勢調査 第8-1表","description":"一般世帯のうち、1人世帯の割合。"},
+    {"id":"two_person_rate","label":"2人世帯率","category":"households","years":[2025],"unit":"%","source":"2025年国勢調査 第8-1表","description":"一般世帯のうち、2人世帯の割合。"},
+    {"id":"avg_household_size","label":"1世帯当たり人数","category":"households","years":[2025],"unit":"人","source":"2025年国勢調査 第8-1表","description":"一般世帯の世帯員数を一般世帯数で割った値。"},
+    {"id":"under_18_rate","label":"18歳未満の世帯員がいる世帯率","category":"households","years":[2025],"unit":"%","source":"2025年国勢調査 第6-2表","description":"一般世帯のうち18歳未満の世帯員がいる世帯の割合。"},
+    {"id":"elderly_single_rate","label":"高齢単身世帯率","category":"senior","years":[2025],"unit":"%","source":"2025年国勢調査 第9-1表","description":"一般世帯のうち65歳以上の単独世帯の割合。"},
+    {"id":"elderly_couple_rate","label":"高齢夫婦世帯率","category":"senior","years":[2025],"unit":"%","source":"2025年国勢調査 第9-1表","description":"夫65歳以上・妻60歳以上の夫婦のみの世帯の割合。"},
+    {"id":"three_generation_rate","label":"3世代世帯率","category":"senior","years":[2025],"unit":"%","source":"2025年国勢調査 第9-1表","description":"一般世帯のうち3世代世帯の割合。"},
+    {"id":"under18_households_rate","label":"18歳未満がいる世帯率","category":"family","years":[2025],"unit":"%","source":"2025年国勢調査 第9-1表","description":"18歳未満の世帯員がいる一般世帯の割合。"},
+    {"id":"couple_children_rate","label":"夫婦と子どもの世帯率","category":"family","years":[2025],"unit":"%","source":"2025年国勢調査 第9-1表","description":"成人した子どもを含みます。"},
+    {"id":"single_mother_children_rate","label":"母と子どもの世帯率","category":"family","years":[2025],"unit":"%","source":"2025年国勢調査 第9-1表","description":"成人した子どもを含みます。"},
+    {"id":"single_father_children_rate","label":"父と子どもの世帯率","category":"family","years":[2025],"unit":"%","source":"2025年国勢調査 第9-1表","description":"成人した子どもを含みます。"}
+  ],
+  "extensions": []
+}
