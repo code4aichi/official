@@ -241,3 +241,16 @@ html{scroll-padding-top:88px}body{overflow-x:hidden}
 
 /* v1.3 高齢者の暮らし */
 .senior-panel{display:grid;gap:13px;min-width:0}.senior-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.senior-stat{display:grid;gap:5px;padding:12px;border:1px solid #d9e8ee;background:#f4fafc;border-radius:13px;min-width:0}.senior-stat span{font-size:12px;color:#526476}.senior-stat strong{font-size:clamp(16px,1.7vw,21px);color:#12375f;overflow-wrap:anywhere}.senior-stat small{color:#397886;font-size:12px}.senior-pref{background:#e9f8f6;border-left:3px solid #20a8a4;border-radius:8px;padding:12px;font-size:13px;line-height:1.7}.city-detail-tabs{display:flex;flex-wrap:wrap;gap:5px}.city-detail-tab{white-space:nowrap}@media(max-width:600px){.senior-stats{grid-template-columns:1fr 1fr}.senior-stat{padding:9px}.senior-stat strong{font-size:16px}}
+
+/* v1.5: extensible indicator controls without an ever-growing row of chips */
+.metric-picker{display:grid;grid-template-columns:minmax(145px,.8fr) minmax(180px,1.3fr);gap:10px;margin:12px 0 6px}
+.metric-picker label,.detail-section-control label{display:flex;flex-direction:column;gap:5px;font-weight:800;font-size:11px;color:var(--navy);min-width:0}
+.metric-picker select,.detail-section-control select{width:100%;min-width:0;background:#f8fbff;border:1px solid #cfdfec;border-radius:10px;padding:10px 32px 10px 11px;color:var(--navy);font-weight:700;font-size:13px}
+.metric-picker select:focus-visible,.detail-section-control select:focus-visible{outline:3px solid #79c8f6;outline-offset:2px}
+.metric-meta{font-size:11px;line-height:1.55;color:#49677e;min-height:23px;margin:2px 0 8px;overflow-wrap:anywhere}
+.detail-section-control{margin:12px 0}.detail-section-control select{font-size:13px}
+.city-detail-content{min-height:155px}
+@media(max-width:650px){.metric-picker{grid-template-columns:1fr}.metric-picker select{padding:10px}.detail-section-control select{padding:10px}}
+.city-detail-tabs[hidden]{display:none!important}
+
+.active-metric-card{background:#edf9fa;border:1px solid #c5e9e8;border-radius:12px;padding:12px 14px;margin-top:12px;min-width:0}.active-metric-card>div{display:flex;align-items:center;gap:8px;justify-content:space-between;flex-wrap:wrap}.active-metric-card strong{font-size:clamp(17px,2vw,24px);color:var(--navy);overflow-wrap:anywhere}.active-metric-card p{margin:5px 0 0}.metric-meta{border-left:3px solid var(--teal);padding-left:9px}
