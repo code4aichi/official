@@ -214,3 +214,15 @@ html{scroll-padding-top:88px}body{overflow-x:hidden}
 @media(max-width:1050px){.workspace{grid-template-columns:minmax(0,1.35fr) minmax(320px,1fr)}.map-column,.detail{min-height:530px}.map-stage,.map-view{min-height:385px}.metric-grid{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr)}}
 @media(max-width:800px){.workspace{grid-template-columns:1fr;align-items:start}.map-column,.detail{height:auto;min-height:0}.map-stage{min-height:0;display:block}.map-view{height:clamp(340px,62vw,540px);min-height:0}.detail{padding:17px}.city-detail-content{min-height:120px}.info-column{display:block}.city-picker-control{flex:1 1 240px}.city-picker-intro{flex:1 1 180px}}
 @media(max-width:480px){.city-picker{padding:12px;gap:8px}.city-picker-intro{flex:1 1 100%}.city-picker-hint{font-size:10px}.city-picker-control{flex:1 1 auto}.city-picker-count{font-size:10px}.map-view{height:clamp(265px,75vw,365px)}.metric-grid{grid-template-columns:minmax(0,1fr) minmax(0,.78fr)}.metric-card{padding:10px 8px;min-height:84px}.number{font-size:clamp(20px,6vw,27px)}.city-detail-tab{font-size:11px;padding:9px 4px}}
+/* v1.1: compact year selector and responsive annual-statistics interface */
+.city-picker{flex-wrap:wrap;gap:10px 14px}
+.year-picker-label{display:flex;align-items:center;gap:8px;font-weight:750;font-size:12px;color:#123f61;white-space:nowrap}
+.year-picker-label select{min-width:154px;max-width:190px;border:1px solid #c9dfea;border-radius:10px;background:#fff;padding:9px 11px;color:#11334e;font:inherit}
+.metric-context{font-size:12px;color:#486778;margin:6px 0 9px}
+.metric-tab[disabled]{opacity:.42;cursor:not-allowed}
+.extra-stat#household-summary{display:flex;justify-content:space-between;gap:6px}
+.v08-age-legend{flex-wrap:wrap}
+.trend-graph{max-width:580px}
+@media (max-width:780px){.city-picker{align-items:stretch}.city-picker-control{flex:1 1 170px}.year-picker-label{justify-content:space-between;flex:1 1 180px}.year-picker-label select{width:100%;min-width:120px}.city-picker-count{display:none}}
+.year-picker-label select{width:160px;max-width:100%;height:43px}
+@media(max-width:780px){.year-picker-label select{width:100%}}

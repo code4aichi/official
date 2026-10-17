@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "source": "愛知県 国勢調査 市町村別主要指標：2015年総人口（418108.xls）、2020年総人口・年齢別人口（402792.xls）",
-  "notes": "2020年の年齢別人口は公式資料記載の「不詳補完値」。3区分が総人口と一致するため、CSVのage_unknown_2020は0（補完後の残差）として収録。これは原調査で年齢不詳が存在しなかった意味ではない。高齢化率＝65歳以上人口／総人口×100。",
+  "source": "愛知県 国勢調査 市町村別主要指標：2015年総人口（418108.xls）、2020年総人口・年齢別人口（402792.xls） ／ 2025年人口・世帯数（631847.xls、b01_01.xlsx）、2025年年齢別人口（b02_07.xlsx）",
+  "notes": "2020年の年齢別人口は公式資料記載の「不詳補完値」。3区分が総人口と一致するため、CSVのage_unknown_2020は0（補完後の残差）として収録。これは原調査で年齢不詳が存在しなかった意味ではない。高齢化率＝65歳以上人口／総人口×100。 ／ 2025年の年齢別人口は原数値で年齢不詳が含まれる。2025年高齢化率は年齢不詳を除いた人口を分母とする。2020年の年齢不詳補完値との比較には定義差に注意。",
   "cities": {
     "23100": {
       "population_2015": 2295638,
@@ -9,7 +9,18 @@
       "age_0_14_2020": 277393,
       "age_15_64_2020": 1464735,
       "age_65_plus_2020": 590048,
-      "age_unknown_2020": 0
+      "age_unknown_2020": 0,
+      "population_2025": 2345186,
+      "male_2025": 1152077,
+      "female_2025": 1193109,
+      "households_2025": 1187231,
+      "households_2020_rebased": 1122103,
+      "age_0_14_2025": 246592,
+      "age_15_64_2025": 1382289,
+      "age_65_plus_2025": 563975,
+      "age_unknown_2025": 152330,
+      "elderly_rate_2025": 25.7187,
+      "population_change_rate_2020_2025": 0.5578
     },
     "23201": {
       "population_2015": 374765,
@@ -17,7 +28,18 @@
       "age_0_14_2020": 48757,
       "age_15_64_2020": 226380,
       "age_65_plus_2020": 96783,
-      "age_unknown_2020": 0
+      "age_unknown_2020": 0,
+      "population_2025": 359759,
+      "male_2025": 179987,
+      "female_2025": 179772,
+      "households_2025": 154786,
+      "households_2020_rebased": 151377,
+      "age_0_14_2025": 42452,
+      "age_15_64_2025": 215209,
+      "age_65_plus_2025": 97627,
+      "age_unknown_2025": 4471,
+      "elderly_rate_2025": 27.4783,
+      "population_change_rate_2020_2025": -3.2698
     },
     "23202": {
       "population_2015": 381051,
@@ -25,7 +47,18 @@
       "age_0_14_2020": 54267,
       "age_15_64_2020": 239595,
       "age_65_plus_2020": 90792,
-      "age_unknown_2020": 0
+      "age_unknown_2020": 0,
+      "population_2025": 377631,
+      "male_2025": 189993,
+      "female_2025": 187638,
+      "households_2025": 161746,
+      "households_2020_rebased": 156619,
+      "age_0_14_2025": 47749,
+      "age_15_64_2025": 230340,
+      "age_65_plus_2025": 93475,
+      "age_unknown_2025": 6067,
+      "elderly_rate_2025": 25.1572,
+      "population_change_rate_2020_2025": -1.8258
     },
     "23203": {
       "population_2015": 380868,
@@ -33,7 +66,18 @@
       "age_0_14_2020": 48825,
       "age_15_64_2020": 226443,
       "age_65_plus_2020": 104805,
-      "age_unknown_2020": 0
+      "age_unknown_2020": 0,
+      "population_2025": 368788,
+      "male_2025": 178765,
+      "female_2025": 190023,
+      "households_2025": 153532,
+      "households_2020_rebased": 152075,
+      "age_0_14_2025": 43027,
+      "age_15_64_2025": 217430,
+      "age_65_plus_2025": 102290,
+      "age_unknown_2025": 6041,
+      "elderly_rate_2025": 28.1987,
+      "population_change_rate_2020_2025": -2.9692
     },
     "23204": {
       "population_2015": 129046,
@@ -41,7 +85,18 @@
       "age_0_14_2020": 15821,
       "age_15_64_2020": 73451,
       "age_65_plus_2020": 38520,
-      "age_unknown_2020": 0
+      "age_unknown_2020": 0,
+      "population_2025": 123379,
+      "male_2025": 60517,
+      "female_2025": 62862,
+      "households_2025": 52868,
+      "households_2020_rebased": 52273,
+      "age_0_14_2025": 14100,
+      "age_15_64_2025": 70522,
+      "age_65_plus_2025": 37597,
+      "age_unknown_2025": 1160,
+      "elderly_rate_2025": 30.762,
+      "population_change_rate_2020_2025": -3.4533
     },
     "23205": {
       "population_2015": 116908,
@@ -49,7 +104,18 @@
       "age_0_14_2020": 15269,
       "age_15_64_2020": 73741,
       "age_65_plus_2020": 28874,
-      "age_unknown_2020": 0
+      "age_unknown_2020": 0,
+      "population_2025": 113466,
+      "male_2025": 57296,
+      "female_2025": 56170,
+      "households_2025": 49726,
+      "households_2020_rebased": 49006,
+      "age_0_14_2025": 13358,
+      "age_15_64_2025": 69644,
+      "age_65_plus_2025": 29308,
+      "age_unknown_2025": 1156,
+      "elderly_rate_2025": 26.0956,
+      "population_change_rate_2020_2025": -3.7478
     },
     "23206": {
       "population_2015": 306508,
@@ -57,7 +123,18 @@
       "age_0_14_2020": 41047,
       "age_15_64_2020": 186729,
       "age_65_plus_2020": 80905,
-      "age_unknown_2020": 0
+      "age_unknown_2020": 0,
+      "population_2025": 302914,
+      "male_2025": 149081,
+      "female_2025": 153833,
+      "households_2025": 134167,
+      "households_2020_rebased": 131000,
+      "age_0_14_2025": 36437,
+      "age_15_64_2025": 182502,
+      "age_65_plus_2025": 79085,
+      "age_unknown_2025": 4890,
+      "elderly_rate_2025": 26.5365,
+      "population_change_rate_2020_2025": -1.8683
     },
     "23207": {
       "population_2015": 182436,
@@ -65,7 +142,18 @@
       "age_0_14_2020": 25382,
       "age_15_64_2020": 110846,
       "age_65_plus_2020": 48433,
-      "age_unknown_2020": 0
+      "age_unknown_2020": 0,
+      "population_2025": 182448,
+      "male_2025": 90630,
+      "female_2025": 91818,
+      "households_2025": 75694,
+      "households_2020_rebased": 72220,
+      "age_0_14_2025": 22761,
+      "age_15_64_2025": 108707,
+      "age_65_plus_2025": 48777,
+      "age_unknown_2025": 2203,
+      "elderly_rate_2025": 27.0615,
+      "population_change_rate_2020_2025": -1.1984
     },
     "23208": {
       "population_2015": 63431,
@@ -73,7 +161,18 @@
       "age_0_14_2020": 6608,
       "age_15_64_2020": 35916,
       "age_65_plus_2020": 18418,
-      "age_unknown_2020": 0
+      "age_unknown_2020": 0,
+      "population_2025": 57768,
+      "male_2025": 28040,
+      "female_2025": 29728,
+      "households_2025": 25099,
+      "households_2020_rebased": 24258,
+      "age_0_14_2025": 5377,
+      "age_15_64_2025": 33772,
+      "age_65_plus_2025": 17658,
+      "age_unknown_2025": 961,
+      "elderly_rate_2025": 31.0842,
+      "population_change_rate_2020_2025": -5.2082
     },
     "23209": {
       "population_2015": 71346,
@@ -81,7 +180,18 @@
       "age_0_14_2020": 9894,
       "age_15_64_2020": 45210,
       "age_65_plus_2020": 17354,
-      "age_unknown_2020": 0
+      "age_unknown_2020": 0,
+      "population_2025": 71215,
+      "male_2025": 36702,
+      "female_2025": 34513,
+      "households_2025": 29377,
+      "households_2020_rebased": 28277,
+      "age_0_14_2025": 9123,
+      "age_15_64_2025": 44252,
+      "age_65_plus_2025": 17293,
+      "age_unknown_2025": 547,
+      "elderly_rate_2025": 24.4708,
+      "population_change_rate_2020_2025": -1.7155
     },
     "23210": {
       "population_2015": 149765,
@@ -89,7 +199,18 @@
       "age_0_14_2020": 21307,
       "age_15_64_2020": 100779,
       "age_65_plus_2020": 31748,
-      "age_unknown_2020": 0
+      "age_unknown_2020": 0,
+      "population_2025": 152650,
+      "male_2025": 79264,
+      "female_2025": 73386,
+      "households_2025": 69271,
+      "households_2020_rebased": 67708,
+      "age_0_14_2025": 20208,
+      "age_15_64_2025": 99063,
+      "age_65_plus_2025": 32272,
+      "age_unknown_2025": 1107,
+      "elderly_rate_2025": 21.2956,
+      "population_change_rate_2020_2025": -0.7697
     },
     "23211": {
       "population_2015": 422542,
@@ -97,7 +218,18 @@
       "age_0_14_2020": 56456,
       "age_15_64_2020": 267567,
       "age_65_plus_2020": 98307,
-      "age_unknown_2020": 0
+      "age_unknown_2020": 0,
+      "population_2025": 412507,
+      "male_2025": 216346,
+      "female_2025": 196161,
+      "households_2025": 181432,
+      "households_2020_rebased": 176840,
+      "age_0_14_2025": 48395,
+      "age_15_64_2025": 256079,
+      "age_65_plus_2025": 101404,
+      "age_unknown_2025": 6629,
+      "elderly_rate_2025": 24.9839,
+      "population_change_rate_2020_2025": -2.3259
     },
     "23212": {
       "population_2015": 184140,
@@ -105,7 +237,18 @@
       "age_0_14_2020": 27677,
       "age_15_64_2020": 120493,
       "age_65_plus_2020": 39820,
-      "age_unknown_2020": 0
+      "age_unknown_2020": 0,
+      "population_2025": 186251,
+      "male_2025": 94792,
+      "female_2025": 91459,
+      "households_2025": 79026,
+      "households_2020_rebased": 75310,
+      "age_0_14_2025": 24154,
+      "age_15_64_2025": 118002,
+      "age_65_plus_2025": 41384,
+      "age_unknown_2025": 2711,
+      "elderly_rate_2025": 22.5477,
+      "population_change_rate_2020_2025": -0.925
     },
     "23213": {
       "population_2015": 167990,
@@ -113,7 +256,18 @@
       "age_0_14_2020": 23652,
       "age_15_64_2020": 101835,
       "age_65_plus_2020": 43559,
-      "age_unknown_2020": 0
+      "age_unknown_2020": 0,
+      "population_2025": 166055,
+      "male_2025": 83889,
+      "female_2025": 82166,
+      "households_2025": 65238,
+      "households_2020_rebased": 62024,
+      "age_0_14_2025": 21382,
+      "age_15_64_2025": 99498,
+      "age_65_plus_2025": 43974,
+      "age_unknown_2025": 1201,
+      "elderly_rate_2025": 26.6745,
+      "population_change_rate_2020_2025": -1.7693
     },
     "23214": {
       "population_2015": 81100,
@@ -121,7 +275,18 @@
       "age_0_14_2020": 9594,
       "age_15_64_2020": 46345,
       "age_65_plus_2020": 23599,
-      "age_unknown_2020": 0
+      "age_unknown_2020": 0,
+      "population_2025": 74921,
+      "male_2025": 36976,
+      "female_2025": 37945,
+      "households_2025": 30487,
+      "households_2020_rebased": 30970,
+      "age_0_14_2025": 8591,
+      "age_15_64_2025": 43332,
+      "age_65_plus_2025": 22836,
+      "age_unknown_2025": 162,
+      "elderly_rate_2025": 30.5462,
+      "population_change_rate_2020_2025": -5.8048
     },
     "23215": {
       "population_2015": 74308,
@@ -129,7 +294,18 @@
       "age_0_14_2020": 8840,
       "age_15_64_2020": 42744,
       "age_65_plus_2020": 21506,
-      "age_unknown_2020": 0
+      "age_unknown_2020": 0,
+      "population_2025": 69953,
+      "male_2025": 34702,
+      "female_2025": 35251,
+      "households_2025": 30021,
+      "households_2020_rebased": 29453,
+      "age_0_14_2025": 7388,
+      "age_15_64_2025": 41033,
+      "age_65_plus_2025": 20726,
+      "age_unknown_2025": 806,
+      "elderly_rate_2025": 29.9738,
+      "population_change_rate_2020_2025": -4.292
     },
     "23216": {
       "population_2015": 56547,
@@ -137,7 +313,18 @@
       "age_0_14_2020": 8501,
       "age_15_64_2020": 35289,
       "age_65_plus_2020": 14920,
-      "age_unknown_2020": 0
+      "age_unknown_2020": 0,
+      "population_2025": 57815,
+      "male_2025": 28425,
+      "female_2025": 29390,
+      "households_2025": 25745,
+      "households_2020_rebased": 24566,
+      "age_0_14_2025": 7346,
+      "age_15_64_2025": 34915,
+      "age_65_plus_2025": 14579,
+      "age_unknown_2025": 975,
+      "elderly_rate_2025": 25.6492,
+      "population_change_rate_2020_2025": -1.5244
     },
     "23217": {
       "population_2015": 98359,
@@ -145,7 +332,18 @@
       "age_0_14_2020": 12277,
       "age_15_64_2020": 58067,
       "age_65_plus_2020": 27911,
-      "age_unknown_2020": 0
+      "age_unknown_2020": 0,
+      "population_2025": 94138,
+      "male_2025": 45947,
+      "female_2025": 48191,
+      "households_2025": 39810,
+      "households_2020_rebased": 38697,
+      "age_0_14_2025": 10033,
+      "age_15_64_2025": 52538,
+      "age_65_plus_2025": 26358,
+      "age_unknown_2025": 5209,
+      "elderly_rate_2025": 29.6394,
+      "population_change_rate_2020_2025": -4.1901
     },
     "23219": {
       "population_2015": 149462,
@@ -153,7 +351,18 @@
       "age_0_14_2020": 19324,
       "age_15_64_2020": 92228,
       "age_65_plus_2020": 37279,
-      "age_unknown_2020": 0
+      "age_unknown_2020": 0,
+      "population_2025": 144828,
+      "male_2025": 73143,
+      "female_2025": 71685,
+      "households_2025": 64653,
+      "households_2020_rebased": 62633,
+      "age_0_14_2025": 16503,
+      "age_15_64_2025": 89633,
+      "age_65_plus_2025": 37692,
+      "age_unknown_2025": 1000,
+      "elderly_rate_2025": 26.2063,
+      "population_change_rate_2020_2025": -2.6896
     },
     "23220": {
       "population_2015": 136867,
@@ -161,7 +370,18 @@
       "age_0_14_2020": 17254,
       "age_15_64_2020": 80014,
       "age_65_plus_2020": 37483,
-      "age_unknown_2020": 0
+      "age_unknown_2020": 0,
+      "population_2025": 129992,
+      "male_2025": 63833,
+      "female_2025": 66159,
+      "households_2025": 53403,
+      "households_2020_rebased": 52005,
+      "age_0_14_2025": 15156,
+      "age_15_64_2025": 75981,
+      "age_65_plus_2025": 37276,
+      "age_unknown_2025": 1579,
+      "elderly_rate_2025": 29.0282,
+      "population_change_rate_2020_2025": -3.5317
     },
     "23221": {
       "population_2015": 47133,
@@ -169,7 +389,18 @@
       "age_0_14_2020": 4741,
       "age_15_64_2020": 23549,
       "age_65_plus_2020": 16065,
-      "age_unknown_2020": 0
+      "age_unknown_2020": 0,
+      "population_2025": 40662,
+      "male_2025": 20246,
+      "female_2025": 20416,
+      "households_2025": 16461,
+      "households_2020_rebased": 16633,
+      "age_0_14_2025": 3773,
+      "age_15_64_2025": 20767,
+      "age_65_plus_2025": 15850,
+      "age_unknown_2025": 272,
+      "elderly_rate_2025": 39.2424,
+      "population_change_rate_2020_2025": -8.326
     },
     "23222": {
       "population_2015": 111944,
@@ -177,7 +408,18 @@
       "age_0_14_2020": 16558,
       "age_15_64_2020": 71536,
       "age_65_plus_2020": 25693,
-      "age_unknown_2020": 0
+      "age_unknown_2020": 0,
+      "population_2025": 112433,
+      "male_2025": 58051,
+      "female_2025": 54382,
+      "households_2025": 49975,
+      "households_2020_rebased": 49077,
+      "age_0_14_2025": 15005,
+      "age_15_64_2025": 70305,
+      "age_65_plus_2025": 25279,
+      "age_unknown_2025": 1844,
+      "elderly_rate_2025": 22.8585,
+      "population_change_rate_2020_2025": -1.1899
     },
     "23223": {
       "population_2015": 89157,
@@ -185,7 +427,18 @@
       "age_0_14_2020": 14243,
       "age_15_64_2020": 58635,
       "age_65_plus_2020": 20245,
-      "age_unknown_2020": 0
+      "age_unknown_2020": 0,
+      "population_2025": 92418,
+      "male_2025": 46690,
+      "female_2025": 45728,
+      "households_2025": 39407,
+      "households_2020_rebased": 38310,
+      "age_0_14_2025": 13284,
+      "age_15_64_2025": 57762,
+      "age_65_plus_2025": 20091,
+      "age_unknown_2025": 1281,
+      "elderly_rate_2025": 22.0448,
+      "population_change_rate_2020_2025": -0.7571
     },
     "23224": {
       "population_2015": 84617,
@@ -193,7 +446,18 @@
       "age_0_14_2020": 10981,
       "age_15_64_2020": 49758,
       "age_65_plus_2020": 23625,
-      "age_unknown_2020": 0
+      "age_unknown_2020": 0,
+      "population_2025": 82051,
+      "male_2025": 40855,
+      "female_2025": 41196,
+      "households_2025": 35380,
+      "households_2020_rebased": 34025,
+      "age_0_14_2025": 9356,
+      "age_15_64_2025": 47824,
+      "age_65_plus_2025": 23489,
+      "age_unknown_2025": 1382,
+      "elderly_rate_2025": 29.1178,
+      "population_change_rate_2020_2025": -2.7417
     },
     "23225": {
       "population_2015": 70501,
@@ -201,7 +465,18 @@
       "age_0_14_2020": 9773,
       "age_15_64_2020": 47846,
       "age_65_plus_2020": 14574,
-      "age_unknown_2020": 0
+      "age_unknown_2020": 0,
+      "population_2025": 72548,
+      "male_2025": 38216,
+      "female_2025": 34332,
+      "households_2025": 33510,
+      "households_2020_rebased": 31694,
+      "age_0_14_2025": 9082,
+      "age_15_64_2025": 46880,
+      "age_65_plus_2025": 14683,
+      "age_unknown_2025": 1903,
+      "elderly_rate_2025": 20.7842,
+      "population_change_rate_2020_2025": 0.4917
     },
     "23226": {
       "population_2015": 80787,
@@ -209,7 +484,18 @@
       "age_0_14_2020": 11420,
       "age_15_64_2020": 50024,
       "age_65_plus_2020": 21700,
-      "age_unknown_2020": 0
+      "age_unknown_2020": 0,
+      "population_2025": 82440,
+      "male_2025": 40095,
+      "female_2025": 42345,
+      "households_2025": 34773,
+      "households_2020_rebased": 33977,
+      "age_0_14_2025": 10604,
+      "age_15_64_2025": 49447,
+      "age_65_plus_2025": 21872,
+      "age_unknown_2025": 517,
+      "elderly_rate_2025": 26.6982,
+      "population_change_rate_2020_2025": -0.8467
     },
     "23227": {
       "population_2015": 46236,
@@ -217,7 +503,18 @@
       "age_0_14_2020": 7040,
       "age_15_64_2020": 30019,
       "age_65_plus_2020": 9047,
-      "age_unknown_2020": 0
+      "age_unknown_2020": 0,
+      "population_2025": 48079,
+      "male_2025": 25077,
+      "female_2025": 23002,
+      "households_2025": 20353,
+      "households_2020_rebased": 18239,
+      "age_0_14_2025": 6582,
+      "age_15_64_2025": 31853,
+      "age_65_plus_2025": 9493,
+      "age_unknown_2025": 151,
+      "elderly_rate_2025": 19.8068,
+      "population_change_rate_2020_2025": 4.2793
     },
     "23228": {
       "population_2015": 47562,
@@ -225,7 +522,18 @@
       "age_0_14_2020": 5908,
       "age_15_64_2020": 29750,
       "age_65_plus_2020": 12325,
-      "age_unknown_2020": 0
+      "age_unknown_2020": 0,
+      "population_2025": 47393,
+      "male_2025": 23488,
+      "female_2025": 23905,
+      "households_2025": 22473,
+      "households_2020_rebased": 21498,
+      "age_0_14_2025": 5294,
+      "age_15_64_2025": 28965,
+      "age_65_plus_2025": 11766,
+      "age_unknown_2025": 1368,
+      "elderly_rate_2025": 25.5644,
+      "population_change_rate_2020_2025": -1.2296
     },
     "23229": {
       "population_2015": 69127,
@@ -233,7 +541,18 @@
       "age_0_14_2020": 8596,
       "age_15_64_2020": 42428,
       "age_65_plus_2020": 18271,
-      "age_unknown_2020": 0
+      "age_unknown_2020": 0,
+      "population_2025": 68344,
+      "male_2025": 34481,
+      "female_2025": 33863,
+      "households_2025": 30282,
+      "households_2020_rebased": 29101,
+      "age_0_14_2025": 7991,
+      "age_15_64_2025": 41234,
+      "age_65_plus_2025": 17934,
+      "age_unknown_2025": 1185,
+      "elderly_rate_2025": 26.7038,
+      "population_change_rate_2020_2025": -1.3724
     },
     "23230": {
       "population_2015": 87977,
@@ -241,7 +560,18 @@
       "age_0_14_2020": 14783,
       "age_15_64_2020": 57613,
       "age_65_plus_2020": 19124,
-      "age_unknown_2020": 0
+      "age_unknown_2020": 0,
+      "population_2025": 94724,
+      "male_2025": 46726,
+      "female_2025": 47998,
+      "households_2025": 39742,
+      "households_2020_rebased": 36460,
+      "age_0_14_2025": 14356,
+      "age_15_64_2025": 59100,
+      "age_65_plus_2025": 19271,
+      "age_unknown_2025": 1997,
+      "elderly_rate_2025": 20.7825,
+      "population_change_rate_2020_2025": 3.5009
     },
     "23231": {
       "population_2015": 62364,
@@ -249,7 +579,18 @@
       "age_0_14_2020": 7578,
       "age_15_64_2020": 34717,
       "age_65_plus_2020": 17065,
-      "age_unknown_2020": 0
+      "age_unknown_2020": 0,
+      "population_2025": 56473,
+      "male_2025": 29397,
+      "female_2025": 27076,
+      "households_2025": 22930,
+      "households_2020_rebased": 21300,
+      "age_0_14_2025": 6115,
+      "age_15_64_2025": 32431,
+      "age_65_plus_2025": 17260,
+      "age_unknown_2025": 667,
+      "elderly_rate_2025": 30.9286,
+      "population_change_rate_2020_2025": -4.8635
     },
     "23232": {
       "population_2015": 63088,
@@ -257,7 +598,18 @@
       "age_0_14_2020": 6871,
       "age_15_64_2020": 34703,
       "age_65_plus_2020": 19255,
-      "age_unknown_2020": 0
+      "age_unknown_2020": 0,
+      "population_2025": 57755,
+      "male_2025": 28040,
+      "female_2025": 29715,
+      "households_2025": 22233,
+      "households_2020_rebased": 21718,
+      "age_0_14_2025": 6103,
+      "age_15_64_2025": 32881,
+      "age_65_plus_2025": 18582,
+      "age_unknown_2025": 189,
+      "elderly_rate_2025": 32.2795,
+      "population_change_rate_2020_2025": -5.0535
     },
     "23233": {
       "population_2015": 67327,
@@ -265,7 +617,18 @@
       "age_0_14_2020": 9344,
       "age_15_64_2020": 41166,
       "age_65_plus_2020": 16842,
-      "age_unknown_2020": 0
+      "age_unknown_2020": 0,
+      "population_2025": 68165,
+      "male_2025": 34374,
+      "female_2025": 33791,
+      "households_2025": 29631,
+      "households_2020_rebased": 28929,
+      "age_0_14_2025": 9129,
+      "age_15_64_2025": 40402,
+      "age_65_plus_2025": 15835,
+      "age_unknown_2025": 2799,
+      "elderly_rate_2025": 24.2251,
+      "population_change_rate_2020_2025": 1.2071
     },
     "23234": {
       "population_2015": 84133,
@@ -273,7 +636,18 @@
       "age_0_14_2020": 12193,
       "age_15_64_2020": 53130,
       "age_65_plus_2020": 21062,
-      "age_unknown_2020": 0
+      "age_unknown_2020": 0,
+      "population_2025": 85678,
+      "male_2025": 42310,
+      "female_2025": 43368,
+      "households_2025": 37456,
+      "households_2020_rebased": 36117,
+      "age_0_14_2025": 11071,
+      "age_15_64_2025": 53522,
+      "age_65_plus_2025": 20283,
+      "age_unknown_2025": 802,
+      "elderly_rate_2025": 23.8972,
+      "population_change_rate_2020_2025": -0.8184
     },
     "23235": {
       "population_2015": 43269,
@@ -281,7 +655,18 @@
       "age_0_14_2020": 5298,
       "age_15_64_2020": 26347,
       "age_65_plus_2020": 11380,
-      "age_unknown_2020": 0
+      "age_unknown_2020": 0,
+      "population_2025": 42206,
+      "male_2025": 21095,
+      "female_2025": 21111,
+      "households_2025": 17873,
+      "households_2020_rebased": 17066,
+      "age_0_14_2025": 4676,
+      "age_15_64_2025": 25321,
+      "age_65_plus_2025": 11372,
+      "age_unknown_2025": 837,
+      "elderly_rate_2025": 27.4892,
+      "population_change_rate_2020_2025": -1.9035
     },
     "23236": {
       "population_2015": 61810,
@@ -289,7 +674,18 @@
       "age_0_14_2020": 9006,
       "age_15_64_2020": 41430,
       "age_65_plus_2020": 11516,
-      "age_unknown_2020": 0
+      "age_unknown_2020": 0,
+      "population_2025": 61458,
+      "male_2025": 31536,
+      "female_2025": 29922,
+      "households_2025": 25425,
+      "households_2020_rebased": 24129,
+      "age_0_14_2025": 7738,
+      "age_15_64_2025": 37548,
+      "age_65_plus_2025": 11947,
+      "age_unknown_2025": 4225,
+      "elderly_rate_2025": 20.8743,
+      "population_change_rate_2020_2025": -0.7974
     },
     "23237": {
       "population_2015": 86898,
@@ -297,7 +693,18 @@
       "age_0_14_2020": 11511,
       "age_15_64_2020": 51579,
       "age_65_plus_2020": 23036,
-      "age_unknown_2020": 0
+      "age_unknown_2020": 0,
+      "population_2025": 86502,
+      "male_2025": 42843,
+      "female_2025": 43659,
+      "households_2025": 36693,
+      "households_2020_rebased": 34041,
+      "age_0_14_2025": 10653,
+      "age_15_64_2025": 52235,
+      "age_65_plus_2025": 22533,
+      "age_unknown_2025": 1081,
+      "elderly_rate_2025": 26.3788,
+      "population_change_rate_2020_2025": 0.4366
     },
     "23238": {
       "population_2015": 57598,
@@ -305,7 +712,18 @@
       "age_0_14_2020": 10140,
       "age_15_64_2020": 39700,
       "age_65_plus_2020": 10322,
-      "age_unknown_2020": 0
+      "age_unknown_2020": 0,
+      "population_2025": 63461,
+      "male_2025": 30935,
+      "female_2025": 32526,
+      "households_2025": 28001,
+      "households_2020_rebased": 26304,
+      "age_0_14_2025": 9880,
+      "age_15_64_2025": 40770,
+      "age_65_plus_2025": 10682,
+      "age_unknown_2025": 2129,
+      "elderly_rate_2025": 17.4167,
+      "population_change_rate_2020_2025": 5.4835
     },
     "23302": {
       "population_2015": 42858,
@@ -313,7 +731,18 @@
       "age_0_14_2020": 6661,
       "age_15_64_2020": 26891,
       "age_65_plus_2020": 10351,
-      "age_unknown_2020": 0
+      "age_unknown_2020": 0,
+      "population_2025": 43879,
+      "male_2025": 21854,
+      "female_2025": 22025,
+      "households_2025": 17840,
+      "households_2020_rebased": 16823,
+      "age_0_14_2025": 5904,
+      "age_15_64_2025": 27033,
+      "age_65_plus_2025": 10442,
+      "age_unknown_2025": 500,
+      "elderly_rate_2025": 24.0716,
+      "population_change_rate_2020_2025": -0.0547
     },
     "23342": {
       "population_2015": 15177,
@@ -321,7 +750,18 @@
       "age_0_14_2020": 2437,
       "age_15_64_2020": 9588,
       "age_65_plus_2020": 3588,
-      "age_unknown_2020": 0
+      "age_unknown_2020": 0,
+      "population_2025": 15784,
+      "male_2025": 8051,
+      "female_2025": 7733,
+      "households_2025": 7048,
+      "households_2020_rebased": 6598,
+      "age_0_14_2025": 2125,
+      "age_15_64_2025": 10126,
+      "age_65_plus_2025": 3435,
+      "age_unknown_2025": 98,
+      "elderly_rate_2025": 21.8985,
+      "population_change_rate_2020_2025": 1.0952
     },
     "23361": {
       "population_2015": 23274,
@@ -329,7 +769,18 @@
       "age_0_14_2020": 3643,
       "age_15_64_2020": 14694,
       "age_65_plus_2020": 5968,
-      "age_unknown_2020": 0
+      "age_unknown_2020": 0,
+      "population_2025": 23524,
+      "male_2025": 11777,
+      "female_2025": 11747,
+      "households_2025": 9344,
+      "households_2020_rebased": 9150,
+      "age_0_14_2025": 3270,
+      "age_15_64_2025": 14423,
+      "age_65_plus_2025": 5811,
+      "age_unknown_2025": 20,
+      "elderly_rate_2025": 24.7235,
+      "population_change_rate_2020_2025": -3.2133
     },
     "23362": {
       "population_2015": 33806,
@@ -337,7 +788,18 @@
       "age_0_14_2020": 4622,
       "age_15_64_2020": 20453,
       "age_65_plus_2020": 9058,
-      "age_unknown_2020": 0
+      "age_unknown_2020": 0,
+      "population_2025": 34132,
+      "male_2025": 16857,
+      "female_2025": 17275,
+      "households_2025": 14322,
+      "households_2020_rebased": 13509,
+      "age_0_14_2025": 4323,
+      "age_15_64_2025": 20706,
+      "age_65_plus_2025": 8781,
+      "age_unknown_2025": 322,
+      "elderly_rate_2025": 25.9716,
+      "population_change_rate_2020_2025": -0.0029
     },
     "23424": {
       "population_2015": 30990,
@@ -345,7 +807,18 @@
       "age_0_14_2020": 4918,
       "age_15_64_2020": 20584,
       "age_65_plus_2020": 6897,
-      "age_unknown_2020": 0
+      "age_unknown_2020": 0,
+      "population_2025": 32408,
+      "male_2025": 16252,
+      "female_2025": 16156,
+      "households_2025": 13541,
+      "households_2020_rebased": 13468,
+      "age_0_14_2025": 4539,
+      "age_15_64_2025": 20824,
+      "age_65_plus_2025": 6861,
+      "age_unknown_2025": 184,
+      "elderly_rate_2025": 21.2916,
+      "population_change_rate_2020_2025": 0.0278
     },
     "23425": {
       "population_2015": 37085,
@@ -353,7 +826,18 @@
       "age_0_14_2020": 4564,
       "age_15_64_2020": 23145,
       "age_65_plus_2020": 9629,
-      "age_unknown_2020": 0
+      "age_unknown_2020": 0,
+      "population_2025": 36439,
+      "male_2025": 18049,
+      "female_2025": 18390,
+      "households_2025": 16542,
+      "households_2020_rebased": 16104,
+      "age_0_14_2025": 4035,
+      "age_15_64_2025": 22133,
+      "age_65_plus_2025": 9448,
+      "age_unknown_2025": 823,
+      "elderly_rate_2025": 26.5274,
+      "population_change_rate_2020_2025": -2.4077
     },
     "23427": {
       "population_2015": 4397,
@@ -361,7 +845,18 @@
       "age_0_14_2020": 647,
       "age_15_64_2020": 2509,
       "age_65_plus_2020": 1419,
-      "age_unknown_2020": 0
+      "age_unknown_2020": 0,
+      "population_2025": 4386,
+      "male_2025": 2176,
+      "female_2025": 2210,
+      "households_2025": 1584,
+      "households_2020_rebased": 1506,
+      "age_0_14_2025": 535,
+      "age_15_64_2025": 2425,
+      "age_65_plus_2025": 1426,
+      "age_unknown_2025": 0,
+      "elderly_rate_2025": 32.5125,
+      "population_change_rate_2020_2025": -4.1311
     },
     "23441": {
       "population_2015": 27747,
@@ -369,7 +864,18 @@
       "age_0_14_2020": 4834,
       "age_15_64_2020": 16001,
       "age_65_plus_2020": 7548,
-      "age_unknown_2020": 0
+      "age_unknown_2020": 0,
+      "population_2025": 27473,
+      "male_2025": 13516,
+      "female_2025": 13957,
+      "households_2025": 10350,
+      "households_2020_rebased": 10134,
+      "age_0_14_2025": 4179,
+      "age_15_64_2025": 15321,
+      "age_65_plus_2025": 7533,
+      "age_unknown_2025": 440,
+      "elderly_rate_2025": 27.8659,
+      "population_change_rate_2020_2025": -3.2061
     },
     "23442": {
       "population_2015": 49230,
@@ -377,7 +883,18 @@
       "age_0_14_2020": 6719,
       "age_15_64_2020": 29953,
       "age_65_plus_2020": 12924,
-      "age_unknown_2020": 0
+      "age_unknown_2020": 0,
+      "population_2025": 48924,
+      "male_2025": 24268,
+      "female_2025": 24656,
+      "households_2025": 20204,
+      "households_2020_rebased": 19406,
+      "age_0_14_2025": 6334,
+      "age_15_64_2025": 29206,
+      "age_65_plus_2025": 12934,
+      "age_unknown_2025": 450,
+      "elderly_rate_2025": 26.6823,
+      "population_change_rate_2020_2025": -1.3549
     },
     "23445": {
       "population_2015": 18707,
@@ -385,7 +902,18 @@
       "age_0_14_2020": 1471,
       "age_15_64_2020": 8676,
       "age_65_plus_2020": 6470,
-      "age_unknown_2020": 0
+      "age_unknown_2020": 0,
+      "population_2025": 14434,
+      "male_2025": 6992,
+      "female_2025": 7442,
+      "households_2025": 6125,
+      "households_2020_rebased": 6533,
+      "age_0_14_2025": 1053,
+      "age_15_64_2025": 7129,
+      "age_65_plus_2025": 6219,
+      "age_unknown_2025": 33,
+      "elderly_rate_2025": 43.1845,
+      "population_change_rate_2020_2025": -13.1371
     },
     "23446": {
       "population_2015": 23575,
@@ -393,7 +921,18 @@
       "age_0_14_2020": 2222,
       "age_15_64_2020": 13427,
       "age_65_plus_2020": 6847,
-      "age_unknown_2020": 0
+      "age_unknown_2020": 0,
+      "population_2025": 20497,
+      "male_2025": 10183,
+      "female_2025": 10314,
+      "households_2025": 9020,
+      "households_2020_rebased": 9530,
+      "age_0_14_2025": 1755,
+      "age_15_64_2025": 11511,
+      "age_65_plus_2025": 6941,
+      "age_unknown_2025": 290,
+      "elderly_rate_2025": 34.3495,
+      "population_change_rate_2020_2025": -8.886
     },
     "23447": {
       "population_2015": 42473,
@@ -401,7 +940,18 @@
       "age_0_14_2020": 5875,
       "age_15_64_2020": 26689,
       "age_65_plus_2020": 10971,
-      "age_unknown_2020": 0
+      "age_unknown_2020": 0,
+      "population_2025": 42924,
+      "male_2025": 21658,
+      "female_2025": 21266,
+      "households_2025": 18463,
+      "households_2020_rebased": 18122,
+      "age_0_14_2025": 5466,
+      "age_15_64_2025": 26207,
+      "age_65_plus_2025": 10701,
+      "age_unknown_2025": 550,
+      "elderly_rate_2025": 25.2537,
+      "population_change_rate_2020_2025": -1.4035
     },
     "23501": {
       "population_2015": 39549,
@@ -409,7 +959,18 @@
       "age_0_14_2020": 6982,
       "age_15_64_2020": 26254,
       "age_65_plus_2020": 9213,
-      "age_unknown_2020": 0
+      "age_unknown_2020": 0,
+      "population_2025": 41546,
+      "male_2025": 21040,
+      "female_2025": 20506,
+      "households_2025": 16045,
+      "households_2020_rebased": 15810,
+      "age_0_14_2025": 6192,
+      "age_15_64_2025": 25579,
+      "age_65_plus_2025": 9445,
+      "age_unknown_2025": 330,
+      "elderly_rate_2025": 22.9159,
+      "population_change_rate_2020_2025": -2.1273
     },
     "23561": {
       "population_2015": 5074,
@@ -417,7 +978,18 @@
       "age_0_14_2020": 328,
       "age_15_64_2020": 1839,
       "age_65_plus_2020": 2270,
-      "age_unknown_2020": 0
+      "age_unknown_2020": 0,
+      "population_2025": 3927,
+      "male_2025": 2016,
+      "female_2025": 1911,
+      "households_2025": 1847,
+      "households_2020_rebased": 1845,
+      "age_0_14_2025": 258,
+      "age_15_64_2025": 1673,
+      "age_65_plus_2025": 1990,
+      "age_unknown_2025": 6,
+      "elderly_rate_2025": 50.7524,
+      "population_change_rate_2020_2025": -11.4943
     },
     "23562": {
       "population_2015": 3446,
@@ -425,7 +997,18 @@
       "age_0_14_2020": 256,
       "age_15_64_2020": 1191,
       "age_65_plus_2020": 1495,
-      "age_unknown_2020": 0
+      "age_unknown_2020": 0,
+      "population_2025": 2477,
+      "male_2025": 1207,
+      "female_2025": 1270,
+      "households_2025": 1164,
+      "households_2020_rebased": 1294,
+      "age_0_14_2025": 195,
+      "age_15_64_2025": 963,
+      "age_65_plus_2025": 1306,
+      "age_unknown_2025": 13,
+      "elderly_rate_2025": 53.0032,
+      "population_change_rate_2020_2025": -15.8056
     },
     "23563": {
       "population_2015": 1135,
@@ -433,7 +1016,18 @@
       "age_0_14_2020": 80,
       "age_15_64_2020": 404,
       "age_65_plus_2020": 533,
-      "age_unknown_2020": 0
+      "age_unknown_2020": 0,
+      "population_2025": 835,
+      "male_2025": 408,
+      "female_2025": 427,
+      "households_2025": 392,
+      "households_2020_rebased": 437,
+      "age_0_14_2025": 58,
+      "age_15_64_2025": 302,
+      "age_65_plus_2025": 469,
+      "age_unknown_2025": 6,
+      "elderly_rate_2025": 56.5742,
+      "population_change_rate_2020_2025": -17.8958
     }
   }
 }
