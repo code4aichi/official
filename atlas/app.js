@@ -8,7 +8,7 @@ const make=(tag,cls,text)=>{const e=document.createElement(tag);if(cls)e.classNa
 const getCity=code=>municipalities.find(c=>c.code===code);
 const rank=code=>municipalities.slice().sort((a,b)=>b.population-a.population).findIndex(c=>c.code===code)+1;
 function renderList(){const q=els.search.value.trim().toLowerCase();const found=municipalities.filter(c=>c.name.toLowerCase().includes(q)||c.code.includes(q));els.list.replaceChildren();for(const c of found){const b=make('button','city-button'+(c.code===selected?' active':''));b.type='button';b.setAttribute('aria-selected',String(c.code===selected));b.append(make('span','',c.name),make('small','',fmt(c.population)));b.addEventListener('click',()=>choose(c.code));els.list.append(b)}els.count.textContent=`${found.length}件`;if(!found.length)els.list.append(make('p','muted tiny','該当する市町村がありません'))}
-function choose(code,updateUrl=true){const c=getCity(code);if(!c)return;selected=code;els.name.textContent=c.name;els.code.textContent=`自治体コード ${c.code} / 県内人口 ${rank(code)}位（54市町村）`;els.pop.textContent=fmt(c.population);els.note.textContent='2020年10月1日現在';els.coverage.textContent='人口 1指標';renderList();renderChart();renderInsight();renderTrend();renderExtraStats();renderAge();renderPrefComparison();highlightMap();if(updateUrl){const u=new URL(location.href);u.searchParams.set('city',code);history.replaceState(null,'',u)}}
+function choose(code,updateUrl=true){const c=getCity(code);if(!c)return;selected=code;els.name.textContent=c.name;els.code.textContent=`自治体コード ${c.code} / 県内人口 ${rank(code)}位（54市町村）`;els.pop.textContent=fmt(c.population);els.note.textContent='2020年10月1日現在';els.coverage.textContent='人口 1指標';renderList();renderChart();renderInsight();renderTrend();renderExtraStats();renderAge();renderPrefComparison();renderCityStory();highlightMap();if(updateUrl){const u=new URL(location.href);u.searchParams.set('city',code);history.replaceState(null,'',u)}}
 function metricValue(c,kind){const d=historical[c.code]||{};if(kind==='change')return Number.isInteger(d.population_2015)&&d.population_2015>0?(c.population-d.population_2015)/d.population_2015*100:null;if(kind==='elderly')return Number.isFinite(d.elderly_rate_2020)?d.elderly_rate_2020:null;return c.population}
 function metricText(value,kind){if(!Number.isFinite(value))return '未収録';if(kind==='population')return fmt(value);return (kind==='change'&&value>0?'+':'')+value.toFixed(2)+'%'}
 function renderChart(){const kind=$('#ranking-metric')?.value||'population',order=$('#ranking-order')?.value||'desc';const ranked=municipalities.map(c=>({city:c,value:metricValue(c,kind)})).filter(x=>Number.isFinite(x.value)).sort((a,b)=>order==='desc'?b.value-a.value:a.value-b.value);const featured=ranked.slice(0,12);const picked=ranked.find(x=>x.city.code===selected);if(picked&&!featured.includes(picked))featured.push(picked);const min=Math.min(0,...ranked.map(x=>x.value)),max=Math.max(0,...ranked.map(x=>x.value)),range=max-min||1;const cap={population:'総人口',change:'2015→2020年の人口増減率',elderly:'高齢化率'}[kind];$('#ranking-caption').textContent=`${cap}：${order==='desc'?'高い順':'低い順'} 上位12市町村＋選択中のまち`;els.chart.replaceChildren();for(const {city:c,value} of featured){const row=make('div','bar-row');row.append(make('span','',c.name));const track=make('div','bar-track v08-track');const fill=make('div','bar-fill'+(c.code===selected?' selected':''));const pct=(value-min)/range*100;fill.style.width=Math.max(1,Math.min(100,pct)).toFixed(2)+'%';track.append(fill);row.append(track,make('span','bar-value',metricText(value,kind)));row.title=`${c.name} ${cap} ${metricText(value,kind)}`;els.chart.append(row)}if(!featured.length)els.chart.append(make('p','muted','表示できる統計がありません。'))}
@@ -46,7 +46,7 @@ async function loadHistorical(){try{const res=await fetch('./data/historical.jso
   const completeChange=municipalities.every(c=>Number.isInteger(historical[c.code]?.population_2015)&&historical[c.code].population_2015>0);
   const completeElderly=municipalities.every(c=>Number.isFinite(historical[c.code]?.elderly_rate_2020));
   for(const [mode,enable,label] of [['change',completeChange,'人口増減率'],['elderly',completeElderly,'高齢化率']]){const b=document.querySelector(`[data-metric="${mode}"]`);if(!b)continue;b.disabled=!enable;if(enable){b.textContent=label;b.title='';}}
-  renderExtraStats();renderComparison();renderAge();renderPrefComparison();renderChart();
+  renderExtraStats();renderComparison();renderAge();renderPrefComparison();renderChart();renderCityStory();
 }catch(e){console.info('追加統計は未収録',e.message)}}
 function renderExtraStats(){const city=getCity(selected);if(!city)return;const h=historical[selected]||{};const prior=h.population_2015;
   const delta=Number.isInteger(prior)&&prior>0?(city.population-prior)/prior*100:null;
@@ -71,3 +71,53 @@ function renderPrefComparison(){const local=$('#local-elderly'),pref=$('#pref-el
 function updateMapLegend(){const legend=$('.map-legend');if(!legend)return;const captions={population:['人口 少','人口 多'],share:['人口割合 少','人口割合 多'],change:['人口減少','人口増加'],elderly:['高齢化率 低','高齢化率 高']};const labels=captions[metric]||captions.population;const labelsEl=legend.querySelectorAll('span');if(labelsEl.length>=2){labelsEl[0].textContent=labels[0];labelsEl[labelsEl.length-1].textContent=labels[1]}const palette={population:['#dceef8','#96dfe7','#3db8c3','#157eac','#0d2b57'],share:['#deeee9','#99d8c8','#3eaa9b','#087b77','#163c49'],change:['#dceef8','#96dfe7','#157eac','#0d2b57'],elderly:['#deeee9','#99d8c8','#3eaa9b','#087b77','#163c49']};Array.from(legend.querySelectorAll('i')).forEach((el,i)=>{el.style.background=palette[metric][Math.round(i*(palette[metric].length-1)/Math.max(1,legend.querySelectorAll('i').length-1))]});}
 $('#ranking-metric')?.addEventListener('change',renderChart);
 $('#ranking-order')?.addEventListener('change',renderChart);
+
+
+// v0.9: transparent, deterministic explanations based only on verified statistics.
+// No inference about causes, forecasts, or unrelated social indicators.
+let storyText='';
+function storyRank(kind,code){const values=municipalities.map(c=>({code:c.code,value:metricValue(c,kind)})).filter(x=>Number.isFinite(x.value));values.sort((a,b)=>b.value-a.value||a.code.localeCompare(b.code));return {position:values.findIndex(x=>x.code===code)+1,total:values.length};}
+function storyAgeRate(h,key,pop){return Number.isInteger(h[key]) && Number.isInteger(pop) && pop>0 ? h[key]/pop*100 : null}
+function storyData(code){const city=getCity(code);if(!city)return null;
+ const h=historical[code]||{},prior=h.population_2015;
+ const change=Number.isInteger(prior)&&prior>0?(city.population-prior)/prior*100:null;
+ const rate=Number.isFinite(h.elderly_rate_2020)?h.elderly_rate_2020:null;
+ const all=municipalities.map(c=>historical[c.code]);
+ const pref65=all.every(d=>Number.isInteger(d?.age_65_plus_2020))?all.reduce((sum,d)=>sum+d.age_65_plus_2020,0)/prefTotal()*100:null;
+ const child=storyAgeRate(h,'age_0_14_2020',city.population);
+ const working=storyAgeRate(h,'age_15_64_2020',city.population);
+ const fullAge=['age_0_14_2020','age_15_64_2020','age_65_plus_2020'].every(key=>Number.isInteger(h[key]))&&h.age_0_14_2020+h.age_15_64_2020+h.age_65_plus_2020===city.population;
+ return {city,h,prior,change,rate,pref65,child:fullAge?child:null,working:fullAge?working:null};
+}
+function buildStory(code){const d=storyData(code);if(!d)return null;const {city,prior,change,rate,pref65,child,working,h}=d;
+ const number=x=>x.toLocaleString('ja-JP');
+ const cards=[];
+ const populationRank=storyRank('population',code);
+ cards.push({title:'人口と県内順位',value:`${number(city.population)}人`,description:`2020年の総人口は県内54市町村中${populationRank.position}位です。県全体の${(city.population/prefTotal()*100).toFixed(2)}%を占めています。`,meta:'2020年 国勢調査'});
+ if(Number.isFinite(change)){
+   const delta=city.population-prior,sign=delta>0?'+':'',changeText=change>0?'増加':change<0?'減少':'変化なし';
+   const diffText=delta===0?'人口は同じでした。':`人口は${number(Math.abs(delta))}人${change>0?'増え':'減り'}ました。`;
+   cards.push({title:'5年間の人口の変化',value:`${sign}${change.toFixed(2)}%`,description:`2015年の${number(prior)}人から2020年の${number(city.population)}人へ${changeText}。${diffText}`,meta:'2015年・2020年 国勢調査を比較'});
+ }else cards.push({title:'5年間の人口の変化',value:'未収録',description:'2015年の総人口が揃うと人口増減率を計算できます。',meta:'データ不足'});
+ if(Number.isFinite(rate)&&Number.isFinite(pref65)){
+   const gap=rate-pref65;const status=Math.abs(gap)<.05?'ほぼ同じ':gap>0?'高い':'低い';const gapText=Math.abs(gap)<.05?'県全体とほぼ同じ割合です。':`県全体より${Math.abs(gap).toFixed(1)}ポイント${status}割合です。`;
+   const elderRank=storyRank('elderly',code);
+   cards.push({title:'65歳以上人口の割合',value:`${rate.toFixed(1)}%`,description:`愛知県全体は${pref65.toFixed(1)}%。${gapText}県内54市町村中、高い順で${elderRank.position}位です。`,meta:'2020年 国勢調査・年齢不詳補完値'});
+ }else cards.push({title:'65歳以上人口の割合',value:'未収録',description:'必要な公式年齢別人口が揃うと県全体と比較できます。',meta:'データ不足'});
+ if(Number.isFinite(child)&&Number.isFinite(working)){
+   const other=rate;cards.push({title:'まちの年齢構成',value:`0〜14歳 ${child.toFixed(1)}%`,description:`15〜64歳は${working.toFixed(1)}%、65歳以上は${other.toFixed(1)}%です。年齢区分別の人数の割合を示します。`,meta:'2020年 国勢調査・年齢不詳補完値'});
+ }else cards.push({title:'まちの年齢構成',value:'未収録',description:'公式の年齢別人口が揃うと表示できます。',meta:'データ不足'});
+ return {city,cards};
+}
+function renderCityStory(){const result=buildStory(selected);if(!result)return;
+ const {city,cards}=result;
+ const intro=cards[1].value==='未収録'?cards[0].description:`2015〜2020年の人口増減率は${cards[1].value}。`;
+ const note=cards[2].value==='未収録'?'高齢化率は未収録です。':`65歳以上人口の割合は${cards[2].value}。`;
+ const glance=$('#glance-summary');if(glance)glance.textContent=intro+note;
+ const title=$('#story-city');if(title)title.textContent=`${city.name}の特徴`;
+ const host=$('#story-cards');if(!host)return;
+ host.replaceChildren();for(const item of cards){const article=make('article','v09-story-card');article.append(make('h4','',item.title),make('div','v09-story-value',item.value),make('p','',item.description),make('div','v09-story-meta',item.meta));host.append(article)}
+ storyText=`${city.name}の特徴（2015年・2020年国勢調査）\n`+cards.map(c=>`${c.title}：${c.value}\n${c.description}`).join('\n\n')+'\n\n出典：愛知県国勢調査（2015年・2020年）。2020年の年齢別人口は年齢不詳補完値。数字の差は原因を示すものではありません。';
+}
+$('#open-story')?.addEventListener('click',()=>{const tab=$('#tab-story');if(!tab)return;activateTool(tab);document.getElementById('tools')?.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});tab.focus({preventScroll:true})});
+$('#copy-story')?.addEventListener('click',async()=>{if(!storyText)return;try{await navigator.clipboard.writeText(storyText);notify('まちの特徴をコピーしました')}catch(e){notify('コピーできませんでした')}});
