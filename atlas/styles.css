@@ -116,3 +116,26 @@ html{scroll-padding-top:88px}body{overflow-x:hidden}
  .bar-row{grid-template-columns:minmax(65px,85px) minmax(0,1fr) minmax(80px,95px);gap:5px;font-size:10px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+
+/* v0.6.2: panoramic artwork, no duplicated headline */
+.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+.intro.intro--poster{display:block;padding:16px 0 10px;max-width:none;background:linear-gradient(180deg,#e8f8ff 0%,#f5f9fc 88%)}
+.intro-art{max-width:1500px}
+.intro--poster .intro-image{width:100%;height:auto;max-height:none;aspect-ratio:2048/732;border-radius:16px;overflow:hidden;display:block;background:#b5e7ff;box-shadow:0 10px 28px rgba(18,87,145,.11)}
+.intro--poster .intro-image img{display:block;width:100%;height:100%;object-fit:contain;object-position:center;aspect-ratio:2048/732}
+.intro-bottom{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-top:12px;padding-bottom:5px}
+.intro-bottom p{margin:0;color:var(--navy);font-weight:800;font-size:clamp(12px,1.12vw,15px);min-width:0;line-height:1.55}
+.intro-bottom .intro-sub{color:var(--muted);font-weight:500;margin-left:10px}
+.intro-bottom .intro-action{margin:0;white-space:nowrap;flex-shrink:0;background:var(--navy);font-size:12px;padding:10px 17px}
+@media(max-width:700px){
+ .intro.intro--poster{padding-top:9px;padding-bottom:8px}
+ .intro--poster .intro-image{width:100%;aspect-ratio:2048/732;height:auto;max-height:none;min-height:0;border-radius:11px}
+ .intro-bottom{padding-top:10px;gap:9px;align-items:flex-start}
+ .intro-bottom p{font-size:12px}
+ .intro-bottom .intro-sub{display:block;margin-left:13px;font-size:11px}
+ .intro-bottom .intro-action{padding:9px 10px;font-size:10px}
+}
+@media(max-width:420px){
+ .intro-bottom{align-items:stretch;flex-direction:column;gap:8px}
+ .intro-bottom .intro-action{align-self:flex-start}
+}
