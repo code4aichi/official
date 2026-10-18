@@ -28,6 +28,10 @@
     {
       "id": "senior_housing",
       "label": "高齢者と住まい"
+    },
+    {
+      "id": "couple_lifestage",
+      "label": "夫婦・ライフステージ"
     }
   ],
   "metrics": [
@@ -355,6 +359,61 @@
       "unit": "世帯",
       "source": "2025年国勢調査 第34-5表",
       "description": "65歳以上の世帯員がいる持ち家の一般世帯数。"
+    },
+    {
+      "id": "couple_only",
+      "label": "夫婦のみの世帯数",
+      "category": "couple_lifestage",
+      "years": [
+        2025
+      ],
+      "unit": "世帯",
+      "source": "2025年国勢調査 第38-2表",
+      "description": "夫婦のみの一般世帯数。"
+    },
+    {
+      "id": "couple_both65_rate",
+      "label": "夫婦とも65歳以上の割合",
+      "category": "couple_lifestage",
+      "years": [
+        2025
+      ],
+      "unit": "%",
+      "source": "2025年国勢調査 第38-2表",
+      "description": "夫婦のみの世帯に占める夫・妻とも65歳以上の世帯の割合。"
+    },
+    {
+      "id": "couple_senior_rate",
+      "label": "夫65歳以上・妻60歳以上の割合",
+      "category": "couple_lifestage",
+      "years": [
+        2025
+      ],
+      "unit": "%",
+      "source": "2025年国勢調査 第38-2表",
+      "description": "夫婦のみの世帯に占める夫65歳以上・妻60歳以上の世帯の割合。"
+    },
+    {
+      "id": "couple_husband_under60_rate",
+      "label": "夫60歳未満の割合",
+      "category": "couple_lifestage",
+      "years": [
+        2025
+      ],
+      "unit": "%",
+      "source": "2025年国勢調査 第37表",
+      "description": "夫婦のみの世帯に占める夫60歳未満の世帯の割合。妻の年齢に制限はありません。"
+    },
+    {
+      "id": "couple_owner_rate",
+      "label": "夫婦のみ世帯の持ち家率",
+      "category": "couple_lifestage",
+      "years": [
+        2025
+      ],
+      "unit": "%",
+      "source": "2025年国勢調査 第38-2表",
+      "description": "住宅に住む夫婦のみの一般世帯のうち持ち家に住む世帯の割合。"
     }
   ],
   "extensions": []
