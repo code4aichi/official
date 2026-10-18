@@ -1,0 +1,339 @@
+{
+  "schema_version": 1,
+  "year": 2025,
+  "reference_date": "2025-05-01",
+  "status": "complete",
+  "source": "愛知県 令和7年度学校基本統計（学校基本調査） 第5-5表・第5-6表・第6-5表・第6-6表",
+  "prefecture": {
+    "primary_schools": 965,
+    "primary_students": 382083,
+    "junior_schools": 440,
+    "junior_students": 204811
+  },
+  "cities": {
+    "23100": {
+      "primary_schools": 265,
+      "primary_students": 109381,
+      "junior_schools": 129,
+      "junior_students": 58185
+    },
+    "23201": {
+      "primary_schools": 52,
+      "primary_students": 18595,
+      "junior_schools": 24,
+      "junior_students": 10351
+    },
+    "23202": {
+      "primary_schools": 48,
+      "primary_students": 20988,
+      "junior_schools": 22,
+      "junior_students": 11496
+    },
+    "23203": {
+      "primary_schools": 42,
+      "primary_students": 18916,
+      "junior_schools": 20,
+      "junior_students": 10260
+    },
+    "23204": {
+      "primary_schools": 17,
+      "primary_students": 6507,
+      "junior_schools": 9,
+      "junior_students": 3867
+    },
+    "23205": {
+      "primary_schools": 14,
+      "primary_students": 5736,
+      "junior_schools": 7,
+      "junior_students": 3241
+    },
+    "23206": {
+      "primary_schools": 38,
+      "primary_students": 15672,
+      "junior_schools": 17,
+      "junior_students": 8600
+    },
+    "23207": {
+      "primary_schools": 26,
+      "primary_students": 9792,
+      "junior_schools": 10,
+      "junior_students": 5162
+    },
+    "23208": {
+      "primary_schools": 8,
+      "primary_students": 2381,
+      "junior_schools": 5,
+      "junior_students": 1425
+    },
+    "23209": {
+      "primary_schools": 7,
+      "primary_students": 3872,
+      "junior_schools": 5,
+      "junior_students": 2004
+    },
+    "23210": {
+      "primary_schools": 15,
+      "primary_students": 8525,
+      "junior_schools": 7,
+      "junior_students": 4342
+    },
+    "23211": {
+      "primary_schools": 75,
+      "primary_students": 21232,
+      "junior_schools": 28,
+      "junior_students": 11525
+    },
+    "23212": {
+      "primary_schools": 21,
+      "primary_students": 10481,
+      "junior_schools": 8,
+      "junior_students": 5501
+    },
+    "23213": {
+      "primary_schools": 25,
+      "primary_students": 9300,
+      "junior_schools": 9,
+      "junior_students": 5115
+    },
+    "23214": {
+      "primary_schools": 13,
+      "primary_students": 3626,
+      "junior_schools": 7,
+      "junior_students": 1962
+    },
+    "23215": {
+      "primary_schools": 10,
+      "primary_students": 3219,
+      "junior_schools": 4,
+      "junior_students": 1790
+    },
+    "23216": {
+      "primary_schools": 9,
+      "primary_students": 3376,
+      "junior_schools": 4,
+      "junior_students": 1833
+    },
+    "23217": {
+      "primary_schools": 10,
+      "primary_students": 4808,
+      "junior_schools": 6,
+      "junior_students": 3297
+    },
+    "23219": {
+      "primary_schools": 16,
+      "primary_students": 7226,
+      "junior_schools": 9,
+      "junior_students": 3970
+    },
+    "23220": {
+      "primary_schools": 23,
+      "primary_students": 6668,
+      "junior_schools": 9,
+      "junior_students": 3468
+    },
+    "23221": {
+      "primary_schools": 13,
+      "primary_students": 1798,
+      "junior_schools": 6,
+      "junior_students": 1053
+    },
+    "23222": {
+      "primary_schools": 12,
+      "primary_students": 6435,
+      "junior_schools": 6,
+      "junior_students": 3426
+    },
+    "23223": {
+      "primary_schools": 9,
+      "primary_students": 5634,
+      "junior_schools": 4,
+      "junior_students": 2787
+    },
+    "23224": {
+      "primary_schools": 10,
+      "primary_students": 4070,
+      "junior_schools": 5,
+      "junior_students": 2323
+    },
+    "23225": {
+      "primary_schools": 7,
+      "primary_students": 3683,
+      "junior_schools": 3,
+      "junior_students": 1980
+    },
+    "23226": {
+      "primary_schools": 9,
+      "primary_students": 4540,
+      "junior_schools": 3,
+      "junior_students": 2244
+    },
+    "23227": {
+      "primary_schools": 5,
+      "primary_students": 2866,
+      "junior_schools": 2,
+      "junior_students": 1523
+    },
+    "23228": {
+      "primary_schools": 5,
+      "primary_students": 2258,
+      "junior_schools": 2,
+      "junior_students": 1109
+    },
+    "23229": {
+      "primary_schools": 8,
+      "primary_students": 3325,
+      "junior_schools": 4,
+      "junior_students": 1822
+    },
+    "23230": {
+      "primary_schools": 10,
+      "primary_students": 6196,
+      "junior_schools": 5,
+      "junior_students": 2936
+    },
+    "23231": {
+      "primary_schools": 18,
+      "primary_students": 2886,
+      "junior_schools": 4,
+      "junior_students": 1588
+    },
+    "23232": {
+      "primary_schools": 12,
+      "primary_students": 2690,
+      "junior_schools": 7,
+      "junior_students": 1487
+    },
+    "23233": {
+      "primary_schools": 8,
+      "primary_students": 3932,
+      "junior_schools": 4,
+      "junior_students": 1872
+    },
+    "23234": {
+      "primary_schools": 10,
+      "primary_students": 4769,
+      "junior_schools": 6,
+      "junior_students": 2357
+    },
+    "23235": {
+      "primary_schools": 8,
+      "primary_students": 2005,
+      "junior_schools": 2,
+      "junior_students": 1118
+    },
+    "23236": {
+      "primary_schools": 8,
+      "primary_students": 3639,
+      "junior_schools": 4,
+      "junior_students": 1759
+    },
+    "23237": {
+      "primary_schools": 12,
+      "primary_students": 4597,
+      "junior_schools": 5,
+      "junior_students": 2343
+    },
+    "23238": {
+      "primary_schools": 6,
+      "primary_students": 4385,
+      "junior_schools": 3,
+      "junior_students": 2098
+    },
+    "23302": {
+      "primary_schools": 6,
+      "primary_students": 2599,
+      "junior_schools": 3,
+      "junior_students": 1403
+    },
+    "23342": {
+      "primary_schools": 3,
+      "primary_students": 936,
+      "junior_schools": 1,
+      "junior_students": 496
+    },
+    "23361": {
+      "primary_schools": 3,
+      "primary_students": 1515,
+      "junior_schools": 1,
+      "junior_students": 705
+    },
+    "23362": {
+      "primary_schools": 4,
+      "primary_students": 1878,
+      "junior_schools": 2,
+      "junior_students": 963
+    },
+    "23424": {
+      "primary_schools": 3,
+      "primary_students": 2037,
+      "junior_schools": 1,
+      "junior_students": 982
+    },
+    "23425": {
+      "primary_schools": 5,
+      "primary_students": 1685,
+      "junior_schools": 2,
+      "junior_students": 896
+    },
+    "23427": {
+      "primary_schools": 0,
+      "primary_students": 0,
+      "junior_schools": 0,
+      "junior_students": 0
+    },
+    "23441": {
+      "primary_schools": 4,
+      "primary_students": 2055,
+      "junior_schools": 1,
+      "junior_students": 1087
+    },
+    "23442": {
+      "primary_schools": 7,
+      "primary_students": 2725,
+      "junior_schools": 3,
+      "junior_students": 1404
+    },
+    "23445": {
+      "primary_schools": 5,
+      "primary_students": 510,
+      "junior_schools": 2,
+      "junior_students": 321
+    },
+    "23446": {
+      "primary_schools": 5,
+      "primary_students": 844,
+      "junior_schools": 2,
+      "junior_students": 467
+    },
+    "23447": {
+      "primary_schools": 4,
+      "primary_students": 2273,
+      "junior_schools": 2,
+      "junior_students": 1206
+    },
+    "23501": {
+      "primary_schools": 6,
+      "primary_students": 2792,
+      "junior_schools": 3,
+      "junior_students": 1506
+    },
+    "23561": {
+      "primary_schools": 4,
+      "primary_students": 103,
+      "junior_schools": 1,
+      "junior_students": 82
+    },
+    "23562": {
+      "primary_schools": 1,
+      "primary_students": 89,
+      "junior_schools": 1,
+      "junior_students": 64
+    },
+    "23563": {
+      "primary_schools": 1,
+      "primary_students": 33,
+      "junior_schools": 1,
+      "junior_students": 10
+    }
+  }
+}
