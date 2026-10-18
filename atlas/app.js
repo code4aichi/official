@@ -67,7 +67,7 @@ function rank(c,k='population'){const group=municipalities.map(x=>({code:x.code,
 function formatValue(v,k){if(!Number.isFinite(v))return '未収録';if(k==='population')return fmt(v);if(k==='households')return `${num(v)}世帯`;if(k==='change')return pct(v);if(k==='avg_household_size')return v.toFixed(2)+'人';if(educationKinds.includes(k))return num(v)+(k.endsWith('schools')?'校':'人');if(educationDerivedKinds.includes(k))return v.toLocaleString('ja-JP',{minimumFractionDigits:1,maximumFractionDigits:1})+(k.endsWith('_per_school')?'人/校':'校/万人');if(k==='elderly_owner'||k==='couple_only')return num(v)+'世帯';const ext=metricDef(k);if(ext&&!['population','share','change','elderly','households',...hhKinds,...seniorKinds,...familyKinds].includes(k))return v.toLocaleString('ja-JP',{maximumFractionDigits:2})+(ext.unit||'');return v.toFixed(2)+'%'}
 function renderList(){const opts=document.createDocumentFragment();for(const c of municipalities){const o=make('option','',c.name);o.value=c.code;opts.append(o)}els.picker.replaceChildren(opts);els.picker.value=selected;$('#city-count').textContent=municipalities.length+'市町村'}
 function selectOptions(){for(const [el,def] of [[els.a,'23100'],[els.b,'23211']]){el.replaceChildren();for(const c of municipalities){const o=make('option','',c.name);o.value=c.code;el.append(o)}el.value=def}}
-function choose(code,updateUrl=true){const c=getCity(code);if(!c)return;selected=code;els.picker.value=code;els.name.textContent=c.name;const r=rank(c);els.code.textContent=`自治体コード ${c.code} / ${year}年 県内人口 ${r??'—'}位（54市町村）`;els.pop.textContent=fmt(population(c));$('#primary-metric-label').textContent=`総人口（${metricDef(metric)?.years.length===1?metricDef(metric).years[0]:year}年）`;els.note.textContent=`${year}年10月1日 国勢調査`;els.coverage.textContent=year===2025?'人口・世帯・年齢':'人口・年齢等';renderInsight();renderExtraStats();renderPrefComparison();renderCityStory();renderHouseholds();renderSenior();renderFamily();renderEducation();renderHousing();renderSeniorHousing();renderCoupleLife();renderAge();renderTrend();renderComparison();renderChart();highlightMap();renderSelectedMetric();renderDiscovery();if(updateUrl){const url=new URL(location.href);url.searchParams.set('city',code);url.searchParams.set('year',year);history.replaceState(null,'',url)}}
+function choose(code,updateUrl=true){const c=getCity(code);if(!c)return;selected=code;els.picker.value=code;els.name.textContent=c.name;const r=rank(c);els.code.textContent=`自治体コード ${c.code} / ${year}年 県内人口 ${r??'—'}位（54市町村）`;els.pop.textContent=fmt(population(c));$('#primary-metric-label').textContent=`総人口（${metricDef(metric)?.years.length===1?metricDef(metric).years[0]:year}年）`;els.note.textContent=`${year}年10月1日 国勢調査`;els.coverage.textContent=year===2025?'人口・世帯・年齢':'人口・年齢等';renderInsight();renderExtraStats();renderPrefComparison();renderCityStory();renderHouseholds();renderSenior();renderFamily();renderEducation();renderHousing();renderSeniorHousing();renderCoupleLife();renderAge();renderTrend();renderComparison();renderChart();highlightMap();renderSelectedMetric();renderDiscovery();renderReport();if(updateUrl){const url=new URL(location.href);url.searchParams.set('city',code);url.searchParams.set('year',year);history.replaceState(null,'',url)}}
 function setYear(next){
  year=Number(next);els.year.value=String(year);
  $('#pref-compare-year').textContent=year+'年';
@@ -244,10 +244,59 @@ async function boot(){try{await loadCatalog();const [popRes,histRes,hhRes,senior
  renderList();selectOptions();const ranking=$('#ranking-metric');ranking.replaceChildren(...catalog.metrics.filter(m=>m.id!=='share').map(m=>new Option(m.label,m.id)));els.year.addEventListener('change',()=>setYear(els.year.value));els.picker.addEventListener('change',()=>choose(els.picker.value));els.a.addEventListener('change',renderComparison);els.b.addEventListener('change',renderComparison);els.mapRetry.addEventListener('click',loadMap);
  $('#category-select').addEventListener('change',e=>setCategory(e.target.value));$('#indicator-select').addEventListener('change',e=>setMetric(e.target.value));$('#detail-section-select').addEventListener('change',e=>showDetailPane(e.target.value));
  $('#ranking-metric').addEventListener('change',renderChart);$('#ranking-order').addEventListener('change',renderChart);
- initTabs('.tool-tab','panel','panel-');setupDiscovery();initTabs('.city-detail-tab','cityPane','city-pane-');
+ initTabs('.tool-tab','panel','panel-');setupDiscovery();setupReport();initTabs('.city-detail-tab','cityPane','city-pane-');
  $('#open-story').addEventListener('click',()=>{activateTabs('.tool-tab','panel','panel-','story');$('#tools').scrollIntoView({behavior:'smooth'});$('#tab-story').focus()});
  $('#share').addEventListener('click',async()=>{const url=new URL(location.href);url.searchParams.set('city',selected);url.searchParams.set('year',year);try{await navigator.clipboard.writeText(url.href);toast('このまちのURLをコピーしました')}catch{toast('コピーできませんでした')}});
  $('#copy-story').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(storyText);toast('解説をコピーしました')}catch{toast('コピーできませんでした')}});
  setYear(year);await loadMap();
  }catch(e){console.error(e);$('#data-error').hidden=false;$('#data-error').textContent='統計の読み込みに失敗しました。再読み込みしても改善しない場合は運営にご連絡ください。';els.name.textContent='読み込み失敗';els.mapStatus.textContent='統計データを確認してください。'}}
 boot();
+
+
+// v2.2 自治体比較レポート: 既存統計を参照し、JSONを改変しない。
+const reportSections=[
+ {heading:'人口・年齢',metrics:[['population','総人口'],['change','2020〜2025年人口増減率'],['elderly','高齢化率']]},
+ {heading:'世帯・子育て',metrics:[['households','一般世帯を含む世帯数'],['single_rate','単身世帯率'],['under18_households_rate','18歳未満がいる世帯率']]},
+ {heading:'住宅・高齢者',metrics:[['owner_rate','持ち家率'],['apartment_rate','共同住宅率'],['elderly_single_rate','高齢単身世帯率'],['elderly_owner_rate','高齢者世帯の持ち家率']]},
+ {heading:'教育・学校',metrics:[['primary_schools','小学校数'],['primary_students','小学校児童数'],['junior_schools','中学校数'],['junior_students','中学校生徒数'],['primary_students_per_school','小学校1校当たり児童数'],['junior_students_per_school','中学校1校当たり生徒数']]}
+];
+function reportCities(){return ['report-a','report-b','report-c'].map(id=>document.getElementById(id)?.value).filter(Boolean).map(getCity).filter(Boolean)}
+function setupReport(){
+ const defaults=['23100','23211',''];
+ ['report-a','report-b','report-c'].forEach((id,i)=>{
+  const el=document.getElementById(id);el.replaceChildren();
+  if(i===2)el.add(new Option('選択しない',''));
+  for(const c of municipalities)el.add(new Option(c.name,c.code));
+  el.value=defaults[i];el.addEventListener('change',renderReport);
+ });
+ document.getElementById('report-print').addEventListener('click',()=>{if(!reportCitiesValid())return;window.print()});
+ document.getElementById('report-copy').addEventListener('click',async()=>{
+  if(!reportCitiesValid())return;
+  const cities=reportCities();let lines=[['分類','指標',...cities.map(c=>c.name)].join('\t')];
+  for(const section of reportSections){for(const [k,label] of section.metrics){lines.push([section.heading,label,...cities.map(c=>reportFormat(c,k))].join('\t'))}}
+  try{await navigator.clipboard.writeText(lines.join('\n'));toast('比較表をコピーしました')}catch{toast('コピーに失敗しました')}
+ });
+ renderReport();
+}
+function reportCitiesValid(){const cities=reportCities(),valid=cities.length>=2&&new Set(cities.map(c=>c.code)).size===cities.length;const status=document.getElementById('report-status');status.textContent=valid?'':'異なる自治体を2〜3件選択してください。';document.getElementById('report-print').disabled=!valid;document.getElementById('report-copy').disabled=!valid;return valid}
+function reportValue(c,k){
+ if(k==='population')return population(c,2025);
+ if(k==='change')return change(c,2025);
+ if(k==='elderly')return elderly(c,2025);
+ if(k==='households')return households(c,2025);
+ if(hhKinds.includes(k))return household(c)?.[k]??null;
+ if(seniorKinds.includes(k))return senior(c)?.[k]??null;
+ if(familyKinds.includes(k))return family(c)?.[k]??null;
+ if(housingKinds.includes(k))return housingData[c.code]?.[k]??null;
+ if(seniorHousingKinds.includes(k))return seniorHousingData[c.code]?.[k]??null;
+ if(educationKinds.includes(k))return educationData[c.code]?.[k]??null;
+ if(k==='primary_students_per_school'||k==='junior_students_per_school'){
+  const d=educationData[c.code];if(!d)return null;const primary=k==='primary_students_per_school';const count=d[primary?'primary_schools':'junior_schools'];return count>0?d[primary?'primary_students':'junior_students']/count:null;
+ }
+ return null;
+}
+function reportFormat(c,k){const v=reportValue(c,k);if(!Number.isFinite(v))return '未収録';if(k==='population')return num(v)+'人';if(k==='households')return num(v)+'世帯';if(educationKinds.includes(k))return num(v)+(k.endsWith('schools')?'校':'人');if(k.endsWith('_per_school'))return v.toFixed(1)+'人/校';if(k==='change')return (v>0?'+':'')+v.toFixed(2)+'%';return v.toFixed(1)+'%'}
+function renderReport(){if(!document.getElementById('report-table'))return;const host=document.getElementById('report-table');if(!reportCitiesValid()){host.replaceChildren();return}const cities=reportCities();const subtitle=document.getElementById('report-subtitle');subtitle.textContent=cities.map(c=>c.name).join(' ／ ');document.getElementById('report-date').textContent=new Date().toLocaleDateString('ja-JP');
+ const table=document.createElement('table');table.className='report-data';const thead=document.createElement('thead'),head=document.createElement('tr');for(const s of ['指標',...cities.map(c=>c.name)]){const th=document.createElement('th');th.textContent=s;head.append(th)}thead.append(head);table.append(thead);const tbody=document.createElement('tbody');
+ for(const section of reportSections){const group=document.createElement('tr');group.className='report-group';const th=document.createElement('th');th.colSpan=cities.length+1;th.textContent=section.heading;group.append(th);tbody.append(group);for(const [k,label] of section.metrics){const tr=document.createElement('tr');const metricName=document.createElement('th');metricName.scope='row';metricName.textContent=label;tr.append(metricName);for(const city of cities){const cell=document.createElement('td');cell.textContent=reportFormat(city,k);tr.append(cell)}tbody.append(tr)}}table.append(tbody);host.replaceChildren(table)
+}
