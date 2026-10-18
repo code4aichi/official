@@ -414,6 +414,50 @@
       "unit": "%",
       "source": "2025年国勢調査 第38-2表",
       "description": "住宅に住む夫婦のみの一般世帯のうち持ち家に住む世帯の割合。"
+    },
+    {
+      "id": "primary_students_per_school",
+      "label": "小学校1校当たり児童数",
+      "category": "education",
+      "years": [
+        2025
+      ],
+      "unit": "人/校",
+      "source": "愛知県 令和7年度学校基本調査・2025年国勢調査",
+      "description": "小学校児童数 ÷ 小学校数。学校所在地ベースの学校基本調査（2025年5月1日）。学校が0校の自治体は未収録表示。"
+    },
+    {
+      "id": "junior_students_per_school",
+      "label": "中学校1校当たり生徒数",
+      "category": "education",
+      "years": [
+        2025
+      ],
+      "unit": "人/校",
+      "source": "愛知県 令和7年度学校基本調査・2025年国勢調査",
+      "description": "中学校生徒数 ÷ 中学校数。学校所在地ベースの学校基本調査（2025年5月1日）。学校が0校の自治体は未収録表示。"
+    },
+    {
+      "id": "primary_schools_per_10000",
+      "label": "人口1万人当たり小学校数",
+      "category": "education",
+      "years": [
+        2025
+      ],
+      "unit": "校/万人",
+      "source": "愛知県 令和7年度学校基本調査・2025年国勢調査",
+      "description": "小学校数（2025年5月1日）÷ 2025年国勢調査人口（10月1日）×1万人。基準日が異なる参考指標。"
+    },
+    {
+      "id": "junior_schools_per_10000",
+      "label": "人口1万人当たり中学校数",
+      "category": "education",
+      "years": [
+        2025
+      ],
+      "unit": "校/万人",
+      "source": "愛知県 令和7年度学校基本調査・2025年国勢調査",
+      "description": "中学校数（2025年5月1日）÷ 2025年国勢調査人口（10月1日）×1万人。基準日が異なる参考指標。"
     }
   ],
   "extensions": []
