@@ -24,6 +24,10 @@
     {
       "id": "housing",
       "label": "住まい・住宅"
+    },
+    {
+      "id": "senior_housing",
+      "label": "高齢者と住まい"
     }
   ],
   "metrics": [
@@ -285,6 +289,72 @@
       "unit": "%",
       "source": "2025年国勢調査 第24-4表",
       "description": "共同住宅に住む一般世帯数を住宅に住む一般世帯数で除した割合。"
+    },
+    {
+      "id": "elderly_households_rate",
+      "label": "65歳以上の人がいる世帯率",
+      "category": "senior_housing",
+      "years": [
+        2025
+      ],
+      "unit": "%",
+      "source": "2025年国勢調査 第34-5表",
+      "description": "一般世帯総数に占める、65歳以上の世帯員がいる世帯の割合。"
+    },
+    {
+      "id": "elderly_owner_rate",
+      "label": "高齢者世帯の持ち家率",
+      "category": "senior_housing",
+      "years": [
+        2025
+      ],
+      "unit": "%",
+      "source": "2025年国勢調査 第34-5表",
+      "description": "65歳以上の世帯員がいる「住宅に住む一般世帯」に占める持ち家の割合。"
+    },
+    {
+      "id": "elderly_rental_rate",
+      "label": "高齢者世帯の借家率",
+      "category": "senior_housing",
+      "years": [
+        2025
+      ],
+      "unit": "%",
+      "source": "2025年国勢調査 第34-5表",
+      "description": "65歳以上の世帯員がいる「住宅に住む一般世帯」に占める借家（公営・UR等・民営・給与住宅）の割合。間借りを除く。"
+    },
+    {
+      "id": "over75_households_rate",
+      "label": "75歳以上の人がいる世帯率",
+      "category": "senior_housing",
+      "years": [
+        2025
+      ],
+      "unit": "%",
+      "source": "2025年国勢調査 第32-4表",
+      "description": "一般世帯総数に占める75歳以上の世帯員がいる世帯の割合。"
+    },
+    {
+      "id": "over85_households_rate",
+      "label": "85歳以上の人がいる世帯率",
+      "category": "senior_housing",
+      "years": [
+        2025
+      ],
+      "unit": "%",
+      "source": "2025年国勢調査 第32-4表",
+      "description": "一般世帯総数に占める85歳以上の世帯員がいる世帯の割合。"
+    },
+    {
+      "id": "elderly_owner",
+      "label": "高齢者のいる持ち家世帯数",
+      "category": "senior_housing",
+      "years": [
+        2025
+      ],
+      "unit": "世帯",
+      "source": "2025年国勢調査 第34-5表",
+      "description": "65歳以上の世帯員がいる持ち家の一般世帯数。"
     }
   ],
   "extensions": []
