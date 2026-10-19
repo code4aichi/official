@@ -1,0 +1,15 @@
+/* v2.8 stage 2, self-contained right-panel layout */
+.industry-sector{box-sizing:border-box;min-width:0;max-width:100%;padding:16px 12px;margin:18px 0 0;border:1px solid #d6e4ed;border-radius:12px;background:#fff;color:#17344e;display:grid;gap:12px}
+.industry-sector *{box-sizing:border-box;min-width:0}
+.industry-sector h4{margin:0;font-size:1rem;line-height:1.5}
+.industry-sector-note{margin:0;color:#596d7b;font-size:.79rem;line-height:1.6}
+.industry-sector-controls{display:grid;grid-template-columns:minmax(0,1fr);gap:10px}
+.industry-sector-controls label{display:grid;gap:5px;font-size:.8rem;font-weight:700}
+.industry-sector-select{display:block;width:100%;max-width:100%;padding:9px;border:1px solid #c9d8e6;border-radius:8px;background:#fff;color:#17344e;font:inherit}
+.industry-sector-bars{display:grid;gap:10px}
+.industry-sector-line{display:grid;gap:5px}
+.industry-sector-linehead{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:4px;font-size:.76rem}
+.industry-sector-linehead strong{font-variant-numeric:tabular-nums}
+.industry-sector-track{height:8px;background:#e6eff4;border-radius:10px;overflow:hidden}
+.industry-sector-fill{height:100%;border-radius:10px;background:#287bad}
+.industry-sector-source{font-size:.8rem;color:#096d9d}
