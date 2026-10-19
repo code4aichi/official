@@ -4,17 +4,29 @@ on:
   workflow_dispatch:
     inputs:
       theme:
-        description: 'Find candidate e-Stat tables; nothing is published'
+        description: 'Employment, migration or both (not published)'
         type: choice
         options:
-          - all
-          - employment
           - migration
-        default: all
+          - employment
+          - all
+        default: migration
+      start_year:
+        description: 'Minimum survey year (not publication year)'
+        type: number
+        default: 2020
       limit:
-        description: 'Maximum catalog entries per keyword (1-100)'
+        description: 'Results per keyword/page (1-100)'
         type: number
         default: 50
+      max_pages:
+        description: 'Maximum pages per keyword (1-5)'
+        type: number
+        default: 2
+      inspect_metadata:
+        description: 'Inspect municipality codes in first N candidate tables (0-15)'
+        type: number
+        default: 5
 
 permissions:
   contents: read
@@ -22,7 +34,7 @@ permissions:
 jobs:
   research:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 35
     env:
       E_STAT_APP_ID: ${{ secrets.E_STAT_APP_ID }}
     steps:
@@ -32,11 +44,18 @@ jobs:
           python-version: '3.12'
       - name: Check API app ID exists
         run: test -n "$E_STAT_APP_ID" || (echo 'Missing E_STAT_APP_ID secret' && exit 1)
-      - name: Discover non-census data tables
+      - name: Research recent statistics and municipality metadata
         env:
           THEME: ${{ inputs.theme }}
+          START_YEAR: ${{ inputs.start_year }}
           LIMIT: ${{ inputs.limit }}
-        run: python tools/external_domain_discovery.py --theme "$THEME" --limit "$LIMIT"
+          MAX_PAGES: ${{ inputs.max_pages }}
+          INSPECT_METADATA: ${{ inputs.inspect_metadata }}
+        run: |
+          python tools/external_domain_discovery.py \
+            --theme "$THEME" --start-year "$START_YEAR" \
+            --limit "$LIMIT" --max-pages "$MAX_PAGES" \
+            --inspect-metadata "$INSPECT_METADATA"
       - name: Upload review candidates (never published)
         if: always()
         uses: actions/upload-artifact@v4
