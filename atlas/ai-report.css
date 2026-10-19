@@ -1,0 +1,14 @@
+/* v2.5 AI report: scoped, avoids resizing workspace/map or legacy report */
+.ai-report-tool{margin:14px 0;padding:14px;background:#f4f9fc;border:1px solid #cfe1eb;border-radius:12px;min-width:0}
+.ai-report-tool h4{margin:0 0 7px;font-size:1rem;color:#153f61}
+.ai-report-tool p{margin:6px 0 10px;line-height:1.6}
+.ai-report-tool button{max-width:100%;white-space:normal}
+.ai-report-status{margin:10px 0 0;font-size:.82rem;color:#42647c;overflow-wrap:anywhere}
+.ai-report-status[data-kind="error"]{color:#a12e37}
+.ai-report-status[data-kind="success"]{color:#16694b}
+.ai-report-output{margin:12px 0 18px;border-left:4px solid #3291bb;padding:10px 14px;background:#f5fafc;border-radius:0 10px 10px 0;white-space:normal;overflow-wrap:anywhere}
+.ai-report-output:empty{display:none}
+.ai-report-output h4{margin:0 0 8px}
+.ai-report-answer{white-space:pre-wrap;line-height:1.85;margin:0 0 8px}
+.ai-report-notice{font-size:.78rem;color:#476177}
+@media print{.ai-report-tool{display:none!important}.ai-report-output{break-inside:avoid;print-color-adjust:exact;-webkit-print-color-adjust:exact}}
