@@ -1,0 +1,4023 @@
+{
+  "schema_version": 1,
+  "status": "approved",
+  "statsDataId": "0004006322",
+  "year": 2021,
+  "geography": "aichi_54_municipalities",
+  "sourceUrl": "https://www.e-stat.go.jp/dbview?sid=0004006322",
+  "definition": "令和3年経済センサス‐活動調査（確報） 事業所に関する集計・産業横断的集計 表2-1。民営事業所、経営組織「総数（cat02=0）」、産業大分類（農林漁業AB＋C〜Rの17区分）。表中の「-」は値なしとしてnullに保持し、0と解釈しない。名古屋市は市計のみで区の重複なし。表0004005640の総数とは対象範囲が異なるため混合しない。",
+  "sectors": [
+    {
+      "code": "AB",
+      "name": "農林漁業"
+    },
+    {
+      "code": "C",
+      "name": "鉱業，採石業，砂利採取業"
+    },
+    {
+      "code": "D",
+      "name": "建設業"
+    },
+    {
+      "code": "E",
+      "name": "製造業"
+    },
+    {
+      "code": "F",
+      "name": "電気・ガス・熱供給・水道業"
+    },
+    {
+      "code": "G",
+      "name": "情報通信業"
+    },
+    {
+      "code": "H",
+      "name": "運輸業，郵便業"
+    },
+    {
+      "code": "I",
+      "name": "卸売業，小売業"
+    },
+    {
+      "code": "J",
+      "name": "金融業，保険業"
+    },
+    {
+      "code": "K",
+      "name": "不動産業，物品賃貸業"
+    },
+    {
+      "code": "L",
+      "name": "学術研究，専門・技術サービス業"
+    },
+    {
+      "code": "M",
+      "name": "宿泊業，飲食サービス業"
+    },
+    {
+      "code": "N",
+      "name": "生活関連サービス業，娯楽業"
+    },
+    {
+      "code": "O",
+      "name": "教育，学習支援業"
+    },
+    {
+      "code": "P",
+      "name": "医療，福祉"
+    },
+    {
+      "code": "Q",
+      "name": "複合サービス事業"
+    },
+    {
+      "code": "R",
+      "name": "サービス業（他に分類されないもの）"
+    }
+  ],
+  "cities": {
+    "23100": {
+      "name": "名古屋市",
+      "values": {
+        "AB": {
+          "establishments": 60,
+          "employees": 506
+        },
+        "C": {
+          "establishments": 3,
+          "employees": 3
+        },
+        "D": {
+          "establishments": 8237,
+          "employees": 89371
+        },
+        "E": {
+          "establishments": 8758,
+          "employees": 126026
+        },
+        "F": {
+          "establishments": 124,
+          "employees": 8649
+        },
+        "G": {
+          "establishments": 2580,
+          "employees": 73998
+        },
+        "H": {
+          "establishments": 2161,
+          "employees": 66216
+        },
+        "I": {
+          "establishments": 27642,
+          "employees": 319171
+        },
+        "J": {
+          "establishments": 2213,
+          "employees": 43015
+        },
+        "K": {
+          "establishments": 8987,
+          "employees": 47500
+        },
+        "L": {
+          "establishments": 7585,
+          "employees": 66269
+        },
+        "M": {
+          "establishments": 12691,
+          "employees": 111581
+        },
+        "N": {
+          "establishments": 8228,
+          "employees": 52353
+        },
+        "O": {
+          "establishments": 3840,
+          "employees": 55422
+        },
+        "P": {
+          "establishments": 9182,
+          "employees": 153604
+        },
+        "Q": {
+          "establishments": 361,
+          "employees": 6261
+        },
+        "R": {
+          "establishments": 7288,
+          "employees": 166151
+        }
+      }
+    },
+    "23201": {
+      "name": "豊橋市",
+      "values": {
+        "AB": {
+          "establishments": 114,
+          "employees": 1210
+        },
+        "C": {
+          "establishments": 5,
+          "employees": 47
+        },
+        "D": {
+          "establishments": 1323,
+          "employees": 9805
+        },
+        "E": {
+          "establishments": 1415,
+          "employees": 37166
+        },
+        "F": {
+          "establishments": 26,
+          "employees": 1683
+        },
+        "G": {
+          "establishments": 108,
+          "employees": 1231
+        },
+        "H": {
+          "establishments": 344,
+          "employees": 7956
+        },
+        "I": {
+          "establishments": 3383,
+          "employees": 32560
+        },
+        "J": {
+          "establishments": 278,
+          "employees": 3781
+        },
+        "K": {
+          "establishments": 794,
+          "employees": 2983
+        },
+        "L": {
+          "establishments": 652,
+          "employees": 3827
+        },
+        "M": {
+          "establishments": 1536,
+          "employees": 12376
+        },
+        "N": {
+          "establishments": 1237,
+          "employees": 6297
+        },
+        "O": {
+          "establishments": 500,
+          "employees": 5104
+        },
+        "P": {
+          "establishments": 989,
+          "employees": 18111
+        },
+        "Q": {
+          "establishments": 67,
+          "employees": 1044
+        },
+        "R": {
+          "establishments": 948,
+          "employees": 12724
+        }
+      }
+    },
+    "23202": {
+      "name": "岡崎市",
+      "values": {
+        "AB": {
+          "establishments": 47,
+          "employees": 657
+        },
+        "C": {
+          "establishments": 3,
+          "employees": 14
+        },
+        "D": {
+          "establishments": 1245,
+          "employees": 9298
+        },
+        "E": {
+          "establishments": 1363,
+          "employees": 44125
+        },
+        "F": {
+          "establishments": 16,
+          "employees": 859
+        },
+        "G": {
+          "establishments": 101,
+          "employees": 1014
+        },
+        "H": {
+          "establishments": 187,
+          "employees": 7574
+        },
+        "I": {
+          "establishments": 3119,
+          "employees": 29219
+        },
+        "J": {
+          "establishments": 264,
+          "employees": 4188
+        },
+        "K": {
+          "establishments": 778,
+          "employees": 3469
+        },
+        "L": {
+          "establishments": 634,
+          "employees": 9625
+        },
+        "M": {
+          "establishments": 1347,
+          "employees": 12721
+        },
+        "N": {
+          "establishments": 1070,
+          "employees": 5840
+        },
+        "O": {
+          "establishments": 457,
+          "employees": 3772
+        },
+        "P": {
+          "establishments": 944,
+          "employees": 16468
+        },
+        "Q": {
+          "establishments": 65,
+          "employees": 596
+        },
+        "R": {
+          "establishments": 882,
+          "employees": 11581
+        }
+      }
+    },
+    "23203": {
+      "name": "一宮市",
+      "values": {
+        "AB": {
+          "establishments": 20,
+          "employees": 220
+        },
+        "C": {
+          "establishments": 1,
+          "employees": 1
+        },
+        "D": {
+          "establishments": 1521,
+          "employees": 8429
+        },
+        "E": {
+          "establishments": 2055,
+          "employees": 26651
+        },
+        "F": {
+          "establishments": 25,
+          "employees": 265
+        },
+        "G": {
+          "establishments": 96,
+          "employees": 602
+        },
+        "H": {
+          "establishments": 359,
+          "employees": 10644
+        },
+        "I": {
+          "establishments": 3103,
+          "employees": 26490
+        },
+        "J": {
+          "establishments": 213,
+          "employees": 2549
+        },
+        "K": {
+          "establishments": 996,
+          "employees": 4194
+        },
+        "L": {
+          "establishments": 617,
+          "employees": 2485
+        },
+        "M": {
+          "establishments": 1463,
+          "employees": 10383
+        },
+        "N": {
+          "establishments": 1173,
+          "employees": 4922
+        },
+        "O": {
+          "establishments": 604,
+          "employees": 3072
+        },
+        "P": {
+          "establishments": 1448,
+          "employees": 21623
+        },
+        "Q": {
+          "establishments": 62,
+          "employees": 727
+        },
+        "R": {
+          "establishments": 958,
+          "employees": 9864
+        }
+      }
+    },
+    "23204": {
+      "name": "瀬戸市",
+      "values": {
+        "AB": {
+          "establishments": 11,
+          "employees": 89
+        },
+        "C": {
+          "establishments": 19,
+          "employees": 142
+        },
+        "D": {
+          "establishments": 388,
+          "employees": 2126
+        },
+        "E": {
+          "establishments": 887,
+          "employees": 14747
+        },
+        "F": {
+          "establishments": 6,
+          "employees": 38
+        },
+        "G": {
+          "establishments": 24,
+          "employees": 114
+        },
+        "H": {
+          "establishments": 95,
+          "employees": 2080
+        },
+        "I": {
+          "establishments": 988,
+          "employees": 8369
+        },
+        "J": {
+          "establishments": 52,
+          "employees": 896
+        },
+        "K": {
+          "establishments": 199,
+          "employees": 534
+        },
+        "L": {
+          "establishments": 148,
+          "employees": 646
+        },
+        "M": {
+          "establishments": 376,
+          "employees": 2878
+        },
+        "N": {
+          "establishments": 293,
+          "employees": 1745
+        },
+        "O": {
+          "establishments": 127,
+          "employees": 1051
+        },
+        "P": {
+          "establishments": 352,
+          "employees": 6123
+        },
+        "Q": {
+          "establishments": 22,
+          "employees": 377
+        },
+        "R": {
+          "establishments": 241,
+          "employees": 2719
+        }
+      }
+    },
+    "23205": {
+      "name": "半田市",
+      "values": {
+        "AB": {
+          "establishments": 20,
+          "employees": 243
+        },
+        "C": {
+          "establishments": null,
+          "employees": null
+        },
+        "D": {
+          "establishments": 415,
+          "employees": 2950
+        },
+        "E": {
+          "establishments": 445,
+          "employees": 18892
+        },
+        "F": {
+          "establishments": 12,
+          "employees": 292
+        },
+        "G": {
+          "establishments": 22,
+          "employees": 169
+        },
+        "H": {
+          "establishments": 117,
+          "employees": 2515
+        },
+        "I": {
+          "establishments": 1039,
+          "employees": 9347
+        },
+        "J": {
+          "establishments": 90,
+          "employees": 1142
+        },
+        "K": {
+          "establishments": 256,
+          "employees": 1045
+        },
+        "L": {
+          "establishments": 208,
+          "employees": 1513
+        },
+        "M": {
+          "establishments": 584,
+          "employees": 4416
+        },
+        "N": {
+          "establishments": 384,
+          "employees": 1801
+        },
+        "O": {
+          "establishments": 181,
+          "employees": 1002
+        },
+        "P": {
+          "establishments": 404,
+          "employees": 6670
+        },
+        "Q": {
+          "establishments": 20,
+          "employees": 483
+        },
+        "R": {
+          "establishments": 266,
+          "employees": 3026
+        }
+      }
+    },
+    "23206": {
+      "name": "春日井市",
+      "values": {
+        "AB": {
+          "establishments": 8,
+          "employees": 84
+        },
+        "C": {
+          "establishments": null,
+          "employees": null
+        },
+        "D": {
+          "establishments": 1050,
+          "employees": 7073
+        },
+        "E": {
+          "establishments": 1162,
+          "employees": 25932
+        },
+        "F": {
+          "establishments": 11,
+          "employees": 185
+        },
+        "G": {
+          "establishments": 65,
+          "employees": 446
+        },
+        "H": {
+          "establishments": 232,
+          "employees": 6553
+        },
+        "I": {
+          "establishments": 2062,
+          "employees": 21556
+        },
+        "J": {
+          "establishments": 146,
+          "employees": 1568
+        },
+        "K": {
+          "establishments": 489,
+          "employees": 1945
+        },
+        "L": {
+          "establishments": 421,
+          "employees": 2720
+        },
+        "M": {
+          "establishments": 994,
+          "employees": 8842
+        },
+        "N": {
+          "establishments": 800,
+          "employees": 4153
+        },
+        "O": {
+          "establishments": 410,
+          "employees": 3494
+        },
+        "P": {
+          "establishments": 888,
+          "employees": 14386
+        },
+        "Q": {
+          "establishments": 41,
+          "employees": 777
+        },
+        "R": {
+          "establishments": 515,
+          "employees": 7587
+        }
+      }
+    },
+    "23207": {
+      "name": "豊川市",
+      "values": {
+        "AB": {
+          "establishments": 56,
+          "employees": 633
+        },
+        "C": {
+          "establishments": null,
+          "employees": null
+        },
+        "D": {
+          "establishments": 639,
+          "employees": 3793
+        },
+        "E": {
+          "establishments": 876,
+          "employees": 27261
+        },
+        "F": {
+          "establishments": 7,
+          "employees": 99
+        },
+        "G": {
+          "establishments": 32,
+          "employees": 135
+        },
+        "H": {
+          "establishments": 160,
+          "employees": 3381
+        },
+        "I": {
+          "establishments": 1516,
+          "employees": 13351
+        },
+        "J": {
+          "establishments": 96,
+          "employees": 1057
+        },
+        "K": {
+          "establishments": 248,
+          "employees": 1063
+        },
+        "L": {
+          "establishments": 223,
+          "employees": 1791
+        },
+        "M": {
+          "establishments": 612,
+          "employees": 5274
+        },
+        "N": {
+          "establishments": 610,
+          "employees": 2941
+        },
+        "O": {
+          "establishments": 236,
+          "employees": 1216
+        },
+        "P": {
+          "establishments": 530,
+          "employees": 9366
+        },
+        "Q": {
+          "establishments": 37,
+          "employees": 670
+        },
+        "R": {
+          "establishments": 416,
+          "employees": 4560
+        }
+      }
+    },
+    "23208": {
+      "name": "津島市",
+      "values": {
+        "AB": {
+          "establishments": 10,
+          "employees": 96
+        },
+        "C": {
+          "establishments": 1,
+          "employees": 5
+        },
+        "D": {
+          "establishments": 245,
+          "employees": 1900
+        },
+        "E": {
+          "establishments": 301,
+          "employees": 4920
+        },
+        "F": {
+          "establishments": 3,
+          "employees": 76
+        },
+        "G": {
+          "establishments": 13,
+          "employees": 145
+        },
+        "H": {
+          "establishments": 46,
+          "employees": 1132
+        },
+        "I": {
+          "establishments": 657,
+          "employees": 6262
+        },
+        "J": {
+          "establishments": 34,
+          "employees": 396
+        },
+        "K": {
+          "establishments": 148,
+          "employees": 451
+        },
+        "L": {
+          "establishments": 79,
+          "employees": 381
+        },
+        "M": {
+          "establishments": 253,
+          "employees": 2489
+        },
+        "N": {
+          "establishments": 201,
+          "employees": 948
+        },
+        "O": {
+          "establishments": 126,
+          "employees": 1924
+        },
+        "P": {
+          "establishments": 227,
+          "employees": 3701
+        },
+        "Q": {
+          "establishments": 12,
+          "employees": 435
+        },
+        "R": {
+          "establishments": 194,
+          "employees": 1656
+        }
+      }
+    },
+    "23209": {
+      "name": "碧南市",
+      "values": {
+        "AB": {
+          "establishments": 11,
+          "employees": 141
+        },
+        "C": {
+          "establishments": 1,
+          "employees": 3
+        },
+        "D": {
+          "establishments": 298,
+          "employees": 1785
+        },
+        "E": {
+          "establishments": 561,
+          "employees": 16331
+        },
+        "F": {
+          "establishments": 9,
+          "employees": 274
+        },
+        "G": {
+          "establishments": 11,
+          "employees": 32
+        },
+        "H": {
+          "establishments": 78,
+          "employees": 1595
+        },
+        "I": {
+          "establishments": 643,
+          "employees": 4671
+        },
+        "J": {
+          "establishments": 39,
+          "employees": 428
+        },
+        "K": {
+          "establishments": 139,
+          "employees": 352
+        },
+        "L": {
+          "establishments": 98,
+          "employees": 672
+        },
+        "M": {
+          "establishments": 221,
+          "employees": 1778
+        },
+        "N": {
+          "establishments": 201,
+          "employees": 670
+        },
+        "O": {
+          "establishments": 91,
+          "employees": 461
+        },
+        "P": {
+          "establishments": 219,
+          "employees": 2937
+        },
+        "Q": {
+          "establishments": 15,
+          "employees": 236
+        },
+        "R": {
+          "establishments": 160,
+          "employees": 2219
+        }
+      }
+    },
+    "23210": {
+      "name": "刈谷市",
+      "values": {
+        "AB": {
+          "establishments": 9,
+          "employees": 111
+        },
+        "C": {
+          "establishments": null,
+          "employees": null
+        },
+        "D": {
+          "establishments": 377,
+          "employees": 3550
+        },
+        "E": {
+          "establishments": 588,
+          "employees": 46541
+        },
+        "F": {
+          "establishments": 8,
+          "employees": 405
+        },
+        "G": {
+          "establishments": 56,
+          "employees": 3047
+        },
+        "H": {
+          "establishments": 89,
+          "employees": 3075
+        },
+        "I": {
+          "establishments": 1119,
+          "employees": 19590
+        },
+        "J": {
+          "establishments": 88,
+          "employees": 1528
+        },
+        "K": {
+          "establishments": 336,
+          "employees": 1570
+        },
+        "L": {
+          "establishments": 220,
+          "employees": 5057
+        },
+        "M": {
+          "establishments": 676,
+          "employees": 6648
+        },
+        "N": {
+          "establishments": 395,
+          "employees": 1971
+        },
+        "O": {
+          "establishments": 178,
+          "employees": 2040
+        },
+        "P": {
+          "establishments": 384,
+          "employees": 7731
+        },
+        "Q": {
+          "establishments": 18,
+          "employees": 169
+        },
+        "R": {
+          "establishments": 360,
+          "employees": 11874
+        }
+      }
+    },
+    "23211": {
+      "name": "豊田市",
+      "values": {
+        "AB": {
+          "establishments": 71,
+          "employees": 943
+        },
+        "C": {
+          "establishments": 11,
+          "employees": 130
+        },
+        "D": {
+          "establishments": 1229,
+          "employees": 10006
+        },
+        "E": {
+          "establishments": 1345,
+          "employees": 113221
+        },
+        "F": {
+          "establishments": 20,
+          "employees": 503
+        },
+        "G": {
+          "establishments": 103,
+          "employees": 2303
+        },
+        "H": {
+          "establishments": 323,
+          "employees": 12234
+        },
+        "I": {
+          "establishments": 2622,
+          "employees": 28940
+        },
+        "J": {
+          "establishments": 165,
+          "employees": 2402
+        },
+        "K": {
+          "establishments": 764,
+          "employees": 3337
+        },
+        "L": {
+          "establishments": 473,
+          "employees": 5849
+        },
+        "M": {
+          "establishments": 1522,
+          "employees": 13539
+        },
+        "N": {
+          "establishments": 1115,
+          "employees": 6612
+        },
+        "O": {
+          "establishments": 464,
+          "employees": 5933
+        },
+        "P": {
+          "establishments": 870,
+          "employees": 18282
+        },
+        "Q": {
+          "establishments": 84,
+          "employees": 1313
+        },
+        "R": {
+          "establishments": 903,
+          "employees": 16775
+        }
+      }
+    },
+    "23212": {
+      "name": "安城市",
+      "values": {
+        "AB": {
+          "establishments": 21,
+          "employees": 165
+        },
+        "C": {
+          "establishments": 7,
+          "employees": 49
+        },
+        "D": {
+          "establishments": 482,
+          "employees": 3248
+        },
+        "E": {
+          "establishments": 802,
+          "employees": 49679
+        },
+        "F": {
+          "establishments": 9,
+          "employees": 81
+        },
+        "G": {
+          "establishments": 29,
+          "employees": 348
+        },
+        "H": {
+          "establishments": 164,
+          "employees": 5581
+        },
+        "I": {
+          "establishments": 1413,
+          "employees": 13799
+        },
+        "J": {
+          "establishments": 79,
+          "employees": 1408
+        },
+        "K": {
+          "establishments": 499,
+          "employees": 1631
+        },
+        "L": {
+          "establishments": 235,
+          "employees": 3312
+        },
+        "M": {
+          "establishments": 685,
+          "employees": 6436
+        },
+        "N": {
+          "establishments": 509,
+          "employees": 2638
+        },
+        "O": {
+          "establishments": 263,
+          "employees": 1577
+        },
+        "P": {
+          "establishments": 472,
+          "employees": 8884
+        },
+        "Q": {
+          "establishments": 29,
+          "employees": 493
+        },
+        "R": {
+          "establishments": 362,
+          "employees": 6404
+        }
+      }
+    },
+    "23213": {
+      "name": "西尾市",
+      "values": {
+        "AB": {
+          "establishments": 68,
+          "employees": 565
+        },
+        "C": {
+          "establishments": 3,
+          "employees": 19
+        },
+        "D": {
+          "establishments": 744,
+          "employees": 4306
+        },
+        "E": {
+          "establishments": 1033,
+          "employees": 40760
+        },
+        "F": {
+          "establishments": 14,
+          "employees": 221
+        },
+        "G": {
+          "establishments": 14,
+          "employees": 45
+        },
+        "H": {
+          "establishments": 105,
+          "employees": 2292
+        },
+        "I": {
+          "establishments": 1564,
+          "employees": 12384
+        },
+        "J": {
+          "establishments": 87,
+          "employees": 1238
+        },
+        "K": {
+          "establishments": 242,
+          "employees": 1054
+        },
+        "L": {
+          "establishments": 231,
+          "employees": 1156
+        },
+        "M": {
+          "establishments": 565,
+          "employees": 4851
+        },
+        "N": {
+          "establishments": 518,
+          "employees": 2168
+        },
+        "O": {
+          "establishments": 197,
+          "employees": 981
+        },
+        "P": {
+          "establishments": 418,
+          "employees": 6385
+        },
+        "Q": {
+          "establishments": 33,
+          "employees": 475
+        },
+        "R": {
+          "establishments": 429,
+          "employees": 3815
+        }
+      }
+    },
+    "23214": {
+      "name": "蒲郡市",
+      "values": {
+        "AB": {
+          "establishments": 12,
+          "employees": 136
+        },
+        "C": {
+          "establishments": 1,
+          "employees": 1
+        },
+        "D": {
+          "establishments": 279,
+          "employees": 1655
+        },
+        "E": {
+          "establishments": 607,
+          "employees": 10038
+        },
+        "F": {
+          "establishments": 2,
+          "employees": 3
+        },
+        "G": {
+          "establishments": 21,
+          "employees": 128
+        },
+        "H": {
+          "establishments": 41,
+          "employees": 922
+        },
+        "I": {
+          "establishments": 809,
+          "employees": 6022
+        },
+        "J": {
+          "establishments": 48,
+          "employees": 670
+        },
+        "K": {
+          "establishments": 188,
+          "employees": 505
+        },
+        "L": {
+          "establishments": 109,
+          "employees": 562
+        },
+        "M": {
+          "establishments": 366,
+          "employees": 3426
+        },
+        "N": {
+          "establishments": 253,
+          "employees": 1553
+        },
+        "O": {
+          "establishments": 83,
+          "employees": 702
+        },
+        "P": {
+          "establishments": 206,
+          "employees": 2924
+        },
+        "Q": {
+          "establishments": 21,
+          "employees": 816
+        },
+        "R": {
+          "establishments": 178,
+          "employees": 1577
+        }
+      }
+    },
+    "23215": {
+      "name": "犬山市",
+      "values": {
+        "AB": {
+          "establishments": 7,
+          "employees": 93
+        },
+        "C": {
+          "establishments": null,
+          "employees": null
+        },
+        "D": {
+          "establishments": 214,
+          "employees": 1168
+        },
+        "E": {
+          "establishments": 341,
+          "employees": 11578
+        },
+        "F": {
+          "establishments": 3,
+          "employees": 39
+        },
+        "G": {
+          "establishments": 18,
+          "employees": 203
+        },
+        "H": {
+          "establishments": 77,
+          "employees": 2361
+        },
+        "I": {
+          "establishments": 485,
+          "employees": 4033
+        },
+        "J": {
+          "establishments": 37,
+          "employees": 383
+        },
+        "K": {
+          "establishments": 101,
+          "employees": 378
+        },
+        "L": {
+          "establishments": 107,
+          "employees": 684
+        },
+        "M": {
+          "establishments": 296,
+          "employees": 2090
+        },
+        "N": {
+          "establishments": 191,
+          "employees": 1349
+        },
+        "O": {
+          "establishments": 95,
+          "employees": 717
+        },
+        "P": {
+          "establishments": 175,
+          "employees": 3638
+        },
+        "Q": {
+          "establishments": 12,
+          "employees": 226
+        },
+        "R": {
+          "establishments": 133,
+          "employees": 1843
+        }
+      }
+    },
+    "23216": {
+      "name": "常滑市",
+      "values": {
+        "AB": {
+          "establishments": 18,
+          "employees": 209
+        },
+        "C": {
+          "establishments": null,
+          "employees": null
+        },
+        "D": {
+          "establishments": 201,
+          "employees": 984
+        },
+        "E": {
+          "establishments": 314,
+          "employees": 6698
+        },
+        "F": {
+          "establishments": 6,
+          "employees": 64
+        },
+        "G": {
+          "establishments": 20,
+          "employees": 105
+        },
+        "H": {
+          "establishments": 130,
+          "employees": 4557
+        },
+        "I": {
+          "establishments": 591,
+          "employees": 5171
+        },
+        "J": {
+          "establishments": 37,
+          "employees": 296
+        },
+        "K": {
+          "establishments": 103,
+          "employees": 416
+        },
+        "L": {
+          "establishments": 82,
+          "employees": 356
+        },
+        "M": {
+          "establishments": 278,
+          "employees": 2709
+        },
+        "N": {
+          "establishments": 191,
+          "employees": 939
+        },
+        "O": {
+          "establishments": 84,
+          "employees": 349
+        },
+        "P": {
+          "establishments": 166,
+          "employees": 2163
+        },
+        "Q": {
+          "establishments": 22,
+          "employees": 620
+        },
+        "R": {
+          "establishments": 113,
+          "employees": 2670
+        }
+      }
+    },
+    "23217": {
+      "name": "江南市",
+      "values": {
+        "AB": {
+          "establishments": 7,
+          "employees": 95
+        },
+        "C": {
+          "establishments": null,
+          "employees": null
+        },
+        "D": {
+          "establishments": 284,
+          "employees": 1440
+        },
+        "E": {
+          "establishments": 371,
+          "employees": 5218
+        },
+        "F": {
+          "establishments": 5,
+          "employees": 16
+        },
+        "G": {
+          "establishments": 16,
+          "employees": 229
+        },
+        "H": {
+          "establishments": 48,
+          "employees": 1247
+        },
+        "I": {
+          "establishments": 651,
+          "employees": 6096
+        },
+        "J": {
+          "establishments": 40,
+          "employees": 446
+        },
+        "K": {
+          "establishments": 124,
+          "employees": 354
+        },
+        "L": {
+          "establishments": 112,
+          "employees": 367
+        },
+        "M": {
+          "establishments": 347,
+          "employees": 2461
+        },
+        "N": {
+          "establishments": 280,
+          "employees": 1156
+        },
+        "O": {
+          "establishments": 150,
+          "employees": 1044
+        },
+        "P": {
+          "establishments": 282,
+          "employees": 5463
+        },
+        "Q": {
+          "establishments": 15,
+          "employees": 668
+        },
+        "R": {
+          "establishments": 182,
+          "employees": 1698
+        }
+      }
+    },
+    "23219": {
+      "name": "小牧市",
+      "values": {
+        "AB": {
+          "establishments": 12,
+          "employees": 98
+        },
+        "C": {
+          "establishments": null,
+          "employees": null
+        },
+        "D": {
+          "establishments": 475,
+          "employees": 3511
+        },
+        "E": {
+          "establishments": 1038,
+          "employees": 35875
+        },
+        "F": {
+          "establishments": 10,
+          "employees": 243
+        },
+        "G": {
+          "establishments": 39,
+          "employees": 342
+        },
+        "H": {
+          "establishments": 496,
+          "employees": 13671
+        },
+        "I": {
+          "establishments": 1365,
+          "employees": 15057
+        },
+        "J": {
+          "establishments": 61,
+          "employees": 754
+        },
+        "K": {
+          "establishments": 394,
+          "employees": 1921
+        },
+        "L": {
+          "establishments": 209,
+          "employees": 1903
+        },
+        "M": {
+          "establishments": 487,
+          "employees": 4743
+        },
+        "N": {
+          "establishments": 349,
+          "employees": 4261
+        },
+        "O": {
+          "establishments": 175,
+          "employees": 1481
+        },
+        "P": {
+          "establishments": 376,
+          "employees": 6363
+        },
+        "Q": {
+          "establishments": 27,
+          "employees": 300
+        },
+        "R": {
+          "establishments": 469,
+          "employees": 12022
+        }
+      }
+    },
+    "23220": {
+      "name": "稲沢市",
+      "values": {
+        "AB": {
+          "establishments": 61,
+          "employees": 432
+        },
+        "C": {
+          "establishments": null,
+          "employees": null
+        },
+        "D": {
+          "establishments": 364,
+          "employees": 2560
+        },
+        "E": {
+          "establishments": 567,
+          "employees": 18917
+        },
+        "F": {
+          "establishments": 14,
+          "employees": 63
+        },
+        "G": {
+          "establishments": 26,
+          "employees": 270
+        },
+        "H": {
+          "establishments": 132,
+          "employees": 5214
+        },
+        "I": {
+          "establishments": 919,
+          "employees": 11341
+        },
+        "J": {
+          "establishments": 40,
+          "employees": 706
+        },
+        "K": {
+          "establishments": 224,
+          "employees": 768
+        },
+        "L": {
+          "establishments": 141,
+          "employees": 2689
+        },
+        "M": {
+          "establishments": 477,
+          "employees": 4267
+        },
+        "N": {
+          "establishments": 313,
+          "employees": 1547
+        },
+        "O": {
+          "establishments": 134,
+          "employees": 1078
+        },
+        "P": {
+          "establishments": 400,
+          "employees": 6236
+        },
+        "Q": {
+          "establishments": 31,
+          "employees": 417
+        },
+        "R": {
+          "establishments": 306,
+          "employees": 4382
+        }
+      }
+    },
+    "23221": {
+      "name": "新城市",
+      "values": {
+        "AB": {
+          "establishments": 37,
+          "employees": 271
+        },
+        "C": {
+          "establishments": 4,
+          "employees": 19
+        },
+        "D": {
+          "establishments": 247,
+          "employees": 1256
+        },
+        "E": {
+          "establishments": 245,
+          "employees": 7671
+        },
+        "F": {
+          "establishments": 4,
+          "employees": 53
+        },
+        "G": {
+          "establishments": 5,
+          "employees": 15
+        },
+        "H": {
+          "establishments": 38,
+          "employees": 482
+        },
+        "I": {
+          "establishments": 419,
+          "employees": 2724
+        },
+        "J": {
+          "establishments": 17,
+          "employees": 179
+        },
+        "K": {
+          "establishments": 43,
+          "employees": 110
+        },
+        "L": {
+          "establishments": 66,
+          "employees": 250
+        },
+        "M": {
+          "establishments": 182,
+          "employees": 1102
+        },
+        "N": {
+          "establishments": 191,
+          "employees": 869
+        },
+        "O": {
+          "establishments": 51,
+          "employees": 209
+        },
+        "P": {
+          "establishments": 163,
+          "employees": 2083
+        },
+        "Q": {
+          "establishments": 18,
+          "employees": 210
+        },
+        "R": {
+          "establishments": 146,
+          "employees": 822
+        }
+      }
+    },
+    "23222": {
+      "name": "東海市",
+      "values": {
+        "AB": {
+          "establishments": 14,
+          "employees": 81
+        },
+        "C": {
+          "establishments": null,
+          "employees": null
+        },
+        "D": {
+          "establishments": 440,
+          "employees": 4556
+        },
+        "E": {
+          "establishments": 386,
+          "employees": 19677
+        },
+        "F": {
+          "establishments": 6,
+          "employees": 180
+        },
+        "G": {
+          "establishments": 21,
+          "employees": 522
+        },
+        "H": {
+          "establishments": 189,
+          "employees": 5832
+        },
+        "I": {
+          "establishments": 781,
+          "employees": 8071
+        },
+        "J": {
+          "establishments": 54,
+          "employees": 764
+        },
+        "K": {
+          "establishments": 233,
+          "employees": 944
+        },
+        "L": {
+          "establishments": 103,
+          "employees": 2224
+        },
+        "M": {
+          "establishments": 490,
+          "employees": 4516
+        },
+        "N": {
+          "establishments": 318,
+          "employees": 1407
+        },
+        "O": {
+          "establishments": 122,
+          "employees": 976
+        },
+        "P": {
+          "establishments": 283,
+          "employees": 3870
+        },
+        "Q": {
+          "establishments": 19,
+          "employees": 367
+        },
+        "R": {
+          "establishments": 243,
+          "employees": 4217
+        }
+      }
+    },
+    "23223": {
+      "name": "大府市",
+      "values": {
+        "AB": {
+          "establishments": 9,
+          "employees": 94
+        },
+        "C": {
+          "establishments": null,
+          "employees": null
+        },
+        "D": {
+          "establishments": 323,
+          "employees": 2218
+        },
+        "E": {
+          "establishments": 506,
+          "employees": 20882
+        },
+        "F": {
+          "establishments": 2,
+          "employees": 6
+        },
+        "G": {
+          "establishments": 17,
+          "employees": 164
+        },
+        "H": {
+          "establishments": 83,
+          "employees": 2518
+        },
+        "I": {
+          "establishments": 591,
+          "employees": 6671
+        },
+        "J": {
+          "establishments": 36,
+          "employees": 354
+        },
+        "K": {
+          "establishments": 221,
+          "employees": 598
+        },
+        "L": {
+          "establishments": 111,
+          "employees": 629
+        },
+        "M": {
+          "establishments": 314,
+          "employees": 2872
+        },
+        "N": {
+          "establishments": 246,
+          "employees": 1395
+        },
+        "O": {
+          "establishments": 140,
+          "employees": 1244
+        },
+        "P": {
+          "establishments": 273,
+          "employees": 5443
+        },
+        "Q": {
+          "establishments": 13,
+          "employees": 255
+        },
+        "R": {
+          "establishments": 179,
+          "employees": 2092
+        }
+      }
+    },
+    "23224": {
+      "name": "知多市",
+      "values": {
+        "AB": {
+          "establishments": 6,
+          "employees": 47
+        },
+        "C": {
+          "establishments": null,
+          "employees": null
+        },
+        "D": {
+          "establishments": 280,
+          "employees": 1820
+        },
+        "E": {
+          "establishments": 146,
+          "employees": 4450
+        },
+        "F": {
+          "establishments": 9,
+          "employees": 353
+        },
+        "G": {
+          "establishments": 11,
+          "employees": 57
+        },
+        "H": {
+          "establishments": 54,
+          "employees": 1011
+        },
+        "I": {
+          "establishments": 376,
+          "employees": 3094
+        },
+        "J": {
+          "establishments": 19,
+          "employees": 193
+        },
+        "K": {
+          "establishments": 139,
+          "employees": 437
+        },
+        "L": {
+          "establishments": 86,
+          "employees": 597
+        },
+        "M": {
+          "establishments": 241,
+          "employees": 1795
+        },
+        "N": {
+          "establishments": 189,
+          "employees": 786
+        },
+        "O": {
+          "establishments": 88,
+          "employees": 449
+        },
+        "P": {
+          "establishments": 212,
+          "employees": 2773
+        },
+        "Q": {
+          "establishments": 18,
+          "employees": 260
+        },
+        "R": {
+          "establishments": 149,
+          "employees": 1233
+        }
+      }
+    },
+    "23225": {
+      "name": "知立市",
+      "values": {
+        "AB": {
+          "establishments": 4,
+          "employees": 29
+        },
+        "C": {
+          "establishments": null,
+          "employees": null
+        },
+        "D": {
+          "establishments": 133,
+          "employees": 1057
+        },
+        "E": {
+          "establishments": 193,
+          "employees": 5132
+        },
+        "F": {
+          "establishments": 2,
+          "employees": 5
+        },
+        "G": {
+          "establishments": 15,
+          "employees": 83
+        },
+        "H": {
+          "establishments": 36,
+          "employees": 1036
+        },
+        "I": {
+          "establishments": 477,
+          "employees": 5487
+        },
+        "J": {
+          "establishments": 30,
+          "employees": 355
+        },
+        "K": {
+          "establishments": 113,
+          "employees": 398
+        },
+        "L": {
+          "establishments": 76,
+          "employees": 871
+        },
+        "M": {
+          "establishments": 189,
+          "employees": 2196
+        },
+        "N": {
+          "establishments": 158,
+          "employees": 905
+        },
+        "O": {
+          "establishments": 68,
+          "employees": 630
+        },
+        "P": {
+          "establishments": 143,
+          "employees": 2363
+        },
+        "Q": {
+          "establishments": 7,
+          "employees": 173
+        },
+        "R": {
+          "establishments": 131,
+          "employees": 3440
+        }
+      }
+    },
+    "23226": {
+      "name": "尾張旭市",
+      "values": {
+        "AB": {
+          "establishments": 2,
+          "employees": 15
+        },
+        "C": {
+          "establishments": null,
+          "employees": null
+        },
+        "D": {
+          "establishments": 283,
+          "employees": 1546
+        },
+        "E": {
+          "establishments": 183,
+          "employees": 4839
+        },
+        "F": {
+          "establishments": 7,
+          "employees": 247
+        },
+        "G": {
+          "establishments": 14,
+          "employees": 117
+        },
+        "H": {
+          "establishments": 47,
+          "employees": 576
+        },
+        "I": {
+          "establishments": 506,
+          "employees": 4803
+        },
+        "J": {
+          "establishments": 40,
+          "employees": 310
+        },
+        "K": {
+          "establishments": 184,
+          "employees": 513
+        },
+        "L": {
+          "establishments": 113,
+          "employees": 433
+        },
+        "M": {
+          "establishments": 246,
+          "employees": 2743
+        },
+        "N": {
+          "establishments": 204,
+          "employees": 1131
+        },
+        "O": {
+          "establishments": 113,
+          "employees": 636
+        },
+        "P": {
+          "establishments": 292,
+          "employees": 3948
+        },
+        "Q": {
+          "establishments": 9,
+          "employees": 205
+        },
+        "R": {
+          "establishments": 119,
+          "employees": 850
+        }
+      }
+    },
+    "23227": {
+      "name": "高浜市",
+      "values": {
+        "AB": {
+          "establishments": 5,
+          "employees": 33
+        },
+        "C": {
+          "establishments": 1,
+          "employees": 3
+        },
+        "D": {
+          "establishments": 126,
+          "employees": 714
+        },
+        "E": {
+          "establishments": 284,
+          "employees": 12042
+        },
+        "F": {
+          "establishments": null,
+          "employees": null
+        },
+        "G": {
+          "establishments": 3,
+          "employees": 11
+        },
+        "H": {
+          "establishments": 36,
+          "employees": 742
+        },
+        "I": {
+          "establishments": 320,
+          "employees": 2486
+        },
+        "J": {
+          "establishments": 21,
+          "employees": 195
+        },
+        "K": {
+          "establishments": 84,
+          "employees": 296
+        },
+        "L": {
+          "establishments": 45,
+          "employees": 179
+        },
+        "M": {
+          "establishments": 117,
+          "employees": 1258
+        },
+        "N": {
+          "establishments": 127,
+          "employees": 449
+        },
+        "O": {
+          "establishments": 63,
+          "employees": 313
+        },
+        "P": {
+          "establishments": 116,
+          "employees": 1596
+        },
+        "Q": {
+          "establishments": 6,
+          "employees": 63
+        },
+        "R": {
+          "establishments": 70,
+          "employees": 914
+        }
+      }
+    },
+    "23228": {
+      "name": "岩倉市",
+      "values": {
+        "AB": {
+          "establishments": 2,
+          "employees": 16
+        },
+        "C": {
+          "establishments": null,
+          "employees": null
+        },
+        "D": {
+          "establishments": 103,
+          "employees": 619
+        },
+        "E": {
+          "establishments": 136,
+          "employees": 2747
+        },
+        "F": {
+          "establishments": 7,
+          "employees": 117
+        },
+        "G": {
+          "establishments": 9,
+          "employees": 33
+        },
+        "H": {
+          "establishments": 38,
+          "employees": 1050
+        },
+        "I": {
+          "establishments": 294,
+          "employees": 2515
+        },
+        "J": {
+          "establishments": 20,
+          "employees": 240
+        },
+        "K": {
+          "establishments": 158,
+          "employees": 363
+        },
+        "L": {
+          "establishments": 47,
+          "employees": 670
+        },
+        "M": {
+          "establishments": 169,
+          "employees": 1231
+        },
+        "N": {
+          "establishments": 108,
+          "employees": 304
+        },
+        "O": {
+          "establishments": 78,
+          "employees": 363
+        },
+        "P": {
+          "establishments": 126,
+          "employees": 1772
+        },
+        "Q": {
+          "establishments": 5,
+          "employees": 147
+        },
+        "R": {
+          "establishments": 101,
+          "employees": 1400
+        }
+      }
+    },
+    "23229": {
+      "name": "豊明市",
+      "values": {
+        "AB": {
+          "establishments": 5,
+          "employees": 41
+        },
+        "C": {
+          "establishments": null,
+          "employees": null
+        },
+        "D": {
+          "establishments": 232,
+          "employees": 1312
+        },
+        "E": {
+          "establishments": 294,
+          "employees": 6261
+        },
+        "F": {
+          "establishments": 5,
+          "employees": 15
+        },
+        "G": {
+          "establishments": 7,
+          "employees": 70
+        },
+        "H": {
+          "establishments": 45,
+          "employees": 1105
+        },
+        "I": {
+          "establishments": 414,
+          "employees": 3858
+        },
+        "J": {
+          "establishments": 25,
+          "employees": 262
+        },
+        "K": {
+          "establishments": 165,
+          "employees": 456
+        },
+        "L": {
+          "establishments": 91,
+          "employees": 865
+        },
+        "M": {
+          "establishments": 174,
+          "employees": 1660
+        },
+        "N": {
+          "establishments": 146,
+          "employees": 708
+        },
+        "O": {
+          "establishments": 95,
+          "employees": 2574
+        },
+        "P": {
+          "establishments": 195,
+          "employees": 6244
+        },
+        "Q": {
+          "establishments": 11,
+          "employees": 207
+        },
+        "R": {
+          "establishments": 121,
+          "employees": 1785
+        }
+      }
+    },
+    "23230": {
+      "name": "日進市",
+      "values": {
+        "AB": {
+          "establishments": 8,
+          "employees": 112
+        },
+        "C": {
+          "establishments": null,
+          "employees": null
+        },
+        "D": {
+          "establishments": 249,
+          "employees": 1922
+        },
+        "E": {
+          "establishments": 190,
+          "employees": 4160
+        },
+        "F": {
+          "establishments": 6,
+          "employees": 116
+        },
+        "G": {
+          "establishments": 22,
+          "employees": 368
+        },
+        "H": {
+          "establishments": 35,
+          "employees": 1183
+        },
+        "I": {
+          "establishments": 584,
+          "employees": 6482
+        },
+        "J": {
+          "establishments": 26,
+          "employees": 251
+        },
+        "K": {
+          "establishments": 196,
+          "employees": 674
+        },
+        "L": {
+          "establishments": 101,
+          "employees": 833
+        },
+        "M": {
+          "establishments": 245,
+          "employees": 2890
+        },
+        "N": {
+          "establishments": 204,
+          "employees": 1071
+        },
+        "O": {
+          "establishments": 143,
+          "employees": 3139
+        },
+        "P": {
+          "establishments": 281,
+          "employees": 4444
+        },
+        "Q": {
+          "establishments": 14,
+          "employees": 759
+        },
+        "R": {
+          "establishments": 149,
+          "employees": 1177
+        }
+      }
+    },
+    "23231": {
+      "name": "田原市",
+      "values": {
+        "AB": {
+          "establishments": 121,
+          "employees": 1144
+        },
+        "C": {
+          "establishments": 1,
+          "employees": 1
+        },
+        "D": {
+          "establishments": 229,
+          "employees": 1443
+        },
+        "E": {
+          "establishments": 127,
+          "employees": 13078
+        },
+        "F": {
+          "establishments": 5,
+          "employees": 62
+        },
+        "G": {
+          "establishments": 2,
+          "employees": 5
+        },
+        "H": {
+          "establishments": 64,
+          "employees": 1833
+        },
+        "I": {
+          "establishments": 619,
+          "employees": 4233
+        },
+        "J": {
+          "establishments": 25,
+          "employees": 326
+        },
+        "K": {
+          "establishments": 47,
+          "employees": 170
+        },
+        "L": {
+          "establishments": 55,
+          "employees": 300
+        },
+        "M": {
+          "establishments": 276,
+          "employees": 1740
+        },
+        "N": {
+          "establishments": 175,
+          "employees": 636
+        },
+        "O": {
+          "establishments": 53,
+          "employees": 277
+        },
+        "P": {
+          "establishments": 128,
+          "employees": 2507
+        },
+        "Q": {
+          "establishments": 22,
+          "employees": 420
+        },
+        "R": {
+          "establishments": 204,
+          "employees": 1482
+        }
+      }
+    },
+    "23232": {
+      "name": "愛西市",
+      "values": {
+        "AB": {
+          "establishments": 20,
+          "employees": 197
+        },
+        "C": {
+          "establishments": 2,
+          "employees": 5
+        },
+        "D": {
+          "establishments": 235,
+          "employees": 1373
+        },
+        "E": {
+          "establishments": 338,
+          "employees": 4809
+        },
+        "F": {
+          "establishments": 7,
+          "employees": 20
+        },
+        "G": {
+          "establishments": 7,
+          "employees": 58
+        },
+        "H": {
+          "establishments": 56,
+          "employees": 1414
+        },
+        "I": {
+          "establishments": 378,
+          "employees": 3274
+        },
+        "J": {
+          "establishments": 11,
+          "employees": 67
+        },
+        "K": {
+          "establishments": 79,
+          "employees": 179
+        },
+        "L": {
+          "establishments": 46,
+          "employees": 165
+        },
+        "M": {
+          "establishments": 165,
+          "employees": 1097
+        },
+        "N": {
+          "establishments": 126,
+          "employees": 457
+        },
+        "O": {
+          "establishments": 64,
+          "employees": 545
+        },
+        "P": {
+          "establishments": 174,
+          "employees": 2435
+        },
+        "Q": {
+          "establishments": 15,
+          "employees": 120
+        },
+        "R": {
+          "establishments": 193,
+          "employees": 1012
+        }
+      }
+    },
+    "23233": {
+      "name": "清須市",
+      "values": {
+        "AB": {
+          "establishments": 1,
+          "employees": 5
+        },
+        "C": {
+          "establishments": null,
+          "employees": null
+        },
+        "D": {
+          "establishments": 261,
+          "employees": 1704
+        },
+        "E": {
+          "establishments": 409,
+          "employees": 8912
+        },
+        "F": {
+          "establishments": null,
+          "employees": null
+        },
+        "G": {
+          "establishments": 11,
+          "employees": 89
+        },
+        "H": {
+          "establishments": 92,
+          "employees": 2233
+        },
+        "I": {
+          "establishments": 600,
+          "employees": 6581
+        },
+        "J": {
+          "establishments": 20,
+          "employees": 214
+        },
+        "K": {
+          "establishments": 138,
+          "employees": 333
+        },
+        "L": {
+          "establishments": 88,
+          "employees": 859
+        },
+        "M": {
+          "establishments": 188,
+          "employees": 1434
+        },
+        "N": {
+          "establishments": 155,
+          "employees": 570
+        },
+        "O": {
+          "establishments": 61,
+          "employees": 475
+        },
+        "P": {
+          "establishments": 159,
+          "employees": 2385
+        },
+        "Q": {
+          "establishments": 13,
+          "employees": 88
+        },
+        "R": {
+          "establishments": 190,
+          "employees": 2073
+        }
+      }
+    },
+    "23234": {
+      "name": "北名古屋市",
+      "values": {
+        "AB": {
+          "establishments": 3,
+          "employees": 23
+        },
+        "C": {
+          "establishments": null,
+          "employees": null
+        },
+        "D": {
+          "establishments": 348,
+          "employees": 2320
+        },
+        "E": {
+          "establishments": 444,
+          "employees": 7639
+        },
+        "F": {
+          "establishments": 1,
+          "employees": 1
+        },
+        "G": {
+          "establishments": 17,
+          "employees": 277
+        },
+        "H": {
+          "establishments": 123,
+          "employees": 2631
+        },
+        "I": {
+          "establishments": 613,
+          "employees": 5748
+        },
+        "J": {
+          "establishments": 29,
+          "employees": 518
+        },
+        "K": {
+          "establishments": 186,
+          "employees": 595
+        },
+        "L": {
+          "establishments": 85,
+          "employees": 573
+        },
+        "M": {
+          "establishments": 242,
+          "employees": 1864
+        },
+        "N": {
+          "establishments": 191,
+          "employees": 1062
+        },
+        "O": {
+          "establishments": 103,
+          "employees": 1128
+        },
+        "P": {
+          "establishments": 212,
+          "employees": 3331
+        },
+        "Q": {
+          "establishments": 13,
+          "employees": 330
+        },
+        "R": {
+          "establishments": 203,
+          "employees": 3477
+        }
+      }
+    },
+    "23235": {
+      "name": "弥富市",
+      "values": {
+        "AB": {
+          "establishments": 20,
+          "employees": 158
+        },
+        "C": {
+          "establishments": null,
+          "employees": null
+        },
+        "D": {
+          "establishments": 152,
+          "employees": 783
+        },
+        "E": {
+          "establishments": 281,
+          "employees": 5487
+        },
+        "F": {
+          "establishments": 2,
+          "employees": 25
+        },
+        "G": {
+          "establishments": 7,
+          "employees": 35
+        },
+        "H": {
+          "establishments": 178,
+          "employees": 3666
+        },
+        "I": {
+          "establishments": 362,
+          "employees": 4117
+        },
+        "J": {
+          "establishments": 13,
+          "employees": 90
+        },
+        "K": {
+          "establishments": 96,
+          "employees": 313
+        },
+        "L": {
+          "establishments": 39,
+          "employees": 170
+        },
+        "M": {
+          "establishments": 150,
+          "employees": 1248
+        },
+        "N": {
+          "establishments": 153,
+          "employees": 557
+        },
+        "O": {
+          "establishments": 56,
+          "employees": 366
+        },
+        "P": {
+          "establishments": 111,
+          "employees": 3196
+        },
+        "Q": {
+          "establishments": 9,
+          "employees": 171
+        },
+        "R": {
+          "establishments": 108,
+          "employees": 1352
+        }
+      }
+    },
+    "23236": {
+      "name": "みよし市",
+      "values": {
+        "AB": {
+          "establishments": 9,
+          "employees": 76
+        },
+        "C": {
+          "establishments": null,
+          "employees": null
+        },
+        "D": {
+          "establishments": 160,
+          "employees": 857
+        },
+        "E": {
+          "establishments": 284,
+          "employees": 15523
+        },
+        "F": {
+          "establishments": null,
+          "employees": null
+        },
+        "G": {
+          "establishments": 3,
+          "employees": 12
+        },
+        "H": {
+          "establishments": 64,
+          "employees": 2427
+        },
+        "I": {
+          "establishments": 354,
+          "employees": 4984
+        },
+        "J": {
+          "establishments": 17,
+          "employees": 295
+        },
+        "K": {
+          "establishments": 146,
+          "employees": 421
+        },
+        "L": {
+          "establishments": 47,
+          "employees": 1410
+        },
+        "M": {
+          "establishments": 174,
+          "employees": 1837
+        },
+        "N": {
+          "establishments": 124,
+          "employees": 809
+        },
+        "O": {
+          "establishments": 67,
+          "employees": 729
+        },
+        "P": {
+          "establishments": 137,
+          "employees": 1799
+        },
+        "Q": {
+          "establishments": 8,
+          "employees": 151
+        },
+        "R": {
+          "establishments": 115,
+          "employees": 1488
+        }
+      }
+    },
+    "23237": {
+      "name": "あま市",
+      "values": {
+        "AB": {
+          "establishments": 7,
+          "employees": 44
+        },
+        "C": {
+          "establishments": null,
+          "employees": null
+        },
+        "D": {
+          "establishments": 339,
+          "employees": 2555
+        },
+        "E": {
+          "establishments": 473,
+          "employees": 7581
+        },
+        "F": {
+          "establishments": 2,
+          "employees": 20
+        },
+        "G": {
+          "establishments": 13,
+          "employees": 42
+        },
+        "H": {
+          "establishments": 50,
+          "employees": 1420
+        },
+        "I": {
+          "establishments": 512,
+          "employees": 4109
+        },
+        "J": {
+          "establishments": 18,
+          "employees": 179
+        },
+        "K": {
+          "establishments": 148,
+          "employees": 438
+        },
+        "L": {
+          "establishments": 72,
+          "employees": 1101
+        },
+        "M": {
+          "establishments": 175,
+          "employees": 1396
+        },
+        "N": {
+          "establishments": 168,
+          "employees": 548
+        },
+        "O": {
+          "establishments": 73,
+          "employees": 616
+        },
+        "P": {
+          "establishments": 190,
+          "employees": 2639
+        },
+        "Q": {
+          "establishments": 12,
+          "employees": 213
+        },
+        "R": {
+          "establishments": 162,
+          "employees": 1460
+        }
+      }
+    },
+    "23238": {
+      "name": "長久手市",
+      "values": {
+        "AB": {
+          "establishments": 7,
+          "employees": 63
+        },
+        "C": {
+          "establishments": 2,
+          "employees": 8
+        },
+        "D": {
+          "establishments": 174,
+          "employees": 1162
+        },
+        "E": {
+          "establishments": 62,
+          "employees": 1008
+        },
+        "F": {
+          "establishments": 1,
+          "employees": 12
+        },
+        "G": {
+          "establishments": 13,
+          "employees": 85
+        },
+        "H": {
+          "establishments": 23,
+          "employees": 1329
+        },
+        "I": {
+          "establishments": 543,
+          "employees": 7240
+        },
+        "J": {
+          "establishments": 24,
+          "employees": 186
+        },
+        "K": {
+          "establishments": 148,
+          "employees": 483
+        },
+        "L": {
+          "establishments": 89,
+          "employees": 1617
+        },
+        "M": {
+          "establishments": 178,
+          "employees": 2513
+        },
+        "N": {
+          "establishments": 142,
+          "employees": 856
+        },
+        "O": {
+          "establishments": 118,
+          "employees": 3620
+        },
+        "P": {
+          "establishments": 163,
+          "employees": 4623
+        },
+        "Q": {
+          "establishments": 9,
+          "employees": 216
+        },
+        "R": {
+          "establishments": 97,
+          "employees": 1163
+        }
+      }
+    },
+    "23302": {
+      "name": "東郷町",
+      "values": {
+        "AB": {
+          "establishments": 6,
+          "employees": 67
+        },
+        "C": {
+          "establishments": null,
+          "employees": null
+        },
+        "D": {
+          "establishments": 148,
+          "employees": 868
+        },
+        "E": {
+          "establishments": 194,
+          "employees": 4655
+        },
+        "F": {
+          "establishments": 1,
+          "employees": 1
+        },
+        "G": {
+          "establishments": 9,
+          "employees": 25
+        },
+        "H": {
+          "establishments": 14,
+          "employees": 312
+        },
+        "I": {
+          "establishments": 330,
+          "employees": 2961
+        },
+        "J": {
+          "establishments": 11,
+          "employees": 97
+        },
+        "K": {
+          "establishments": 43,
+          "employees": 145
+        },
+        "L": {
+          "establishments": 43,
+          "employees": 146
+        },
+        "M": {
+          "establishments": 117,
+          "employees": 1038
+        },
+        "N": {
+          "establishments": 95,
+          "employees": 705
+        },
+        "O": {
+          "establishments": 56,
+          "employees": 200
+        },
+        "P": {
+          "establishments": 112,
+          "employees": 1879
+        },
+        "Q": {
+          "establishments": 5,
+          "employees": 46
+        },
+        "R": {
+          "establishments": 96,
+          "employees": 1263
+        }
+      }
+    },
+    "23342": {
+      "name": "豊山町",
+      "values": {
+        "AB": {
+          "establishments": 1,
+          "employees": 34
+        },
+        "C": {
+          "establishments": null,
+          "employees": null
+        },
+        "D": {
+          "establishments": 57,
+          "employees": 425
+        },
+        "E": {
+          "establishments": 88,
+          "employees": 4402
+        },
+        "F": {
+          "establishments": 1,
+          "employees": 1
+        },
+        "G": {
+          "establishments": 5,
+          "employees": 276
+        },
+        "H": {
+          "establishments": 31,
+          "employees": 1696
+        },
+        "I": {
+          "establishments": 300,
+          "employees": 3935
+        },
+        "J": {
+          "establishments": 11,
+          "employees": 88
+        },
+        "K": {
+          "establishments": 58,
+          "employees": 223
+        },
+        "L": {
+          "establishments": 29,
+          "employees": 415
+        },
+        "M": {
+          "establishments": 90,
+          "employees": 946
+        },
+        "N": {
+          "establishments": 40,
+          "employees": 261
+        },
+        "O": {
+          "establishments": 13,
+          "employees": 60
+        },
+        "P": {
+          "establishments": 29,
+          "employees": 228
+        },
+        "Q": {
+          "establishments": 4,
+          "employees": 29
+        },
+        "R": {
+          "establishments": 56,
+          "employees": 865
+        }
+      }
+    },
+    "23361": {
+      "name": "大口町",
+      "values": {
+        "AB": {
+          "establishments": 8,
+          "employees": 78
+        },
+        "C": {
+          "establishments": null,
+          "employees": null
+        },
+        "D": {
+          "establishments": 78,
+          "employees": 453
+        },
+        "E": {
+          "establishments": 179,
+          "employees": 15264
+        },
+        "F": {
+          "establishments": 1,
+          "employees": 1
+        },
+        "G": {
+          "establishments": 1,
+          "employees": 1
+        },
+        "H": {
+          "establishments": 72,
+          "employees": 2075
+        },
+        "I": {
+          "establishments": 177,
+          "employees": 2280
+        },
+        "J": {
+          "establishments": 7,
+          "employees": 35
+        },
+        "K": {
+          "establishments": 21,
+          "employees": 89
+        },
+        "L": {
+          "establishments": 18,
+          "employees": 846
+        },
+        "M": {
+          "establishments": 73,
+          "employees": 731
+        },
+        "N": {
+          "establishments": 53,
+          "employees": 339
+        },
+        "O": {
+          "establishments": 28,
+          "employees": 228
+        },
+        "P": {
+          "establishments": 70,
+          "employees": 1626
+        },
+        "Q": {
+          "establishments": 3,
+          "employees": 41
+        },
+        "R": {
+          "establishments": 64,
+          "employees": 1648
+        }
+      }
+    },
+    "23362": {
+      "name": "扶桑町",
+      "values": {
+        "AB": {
+          "establishments": 3,
+          "employees": 48
+        },
+        "C": {
+          "establishments": 1,
+          "employees": 2
+        },
+        "D": {
+          "establishments": 60,
+          "employees": 398
+        },
+        "E": {
+          "establishments": 129,
+          "employees": 1931
+        },
+        "F": {
+          "establishments": 1,
+          "employees": 1
+        },
+        "G": {
+          "establishments": 2,
+          "employees": 5
+        },
+        "H": {
+          "establishments": 21,
+          "employees": 407
+        },
+        "I": {
+          "establishments": 235,
+          "employees": 2359
+        },
+        "J": {
+          "establishments": 10,
+          "employees": 86
+        },
+        "K": {
+          "establishments": 61,
+          "employees": 204
+        },
+        "L": {
+          "establishments": 39,
+          "employees": 161
+        },
+        "M": {
+          "establishments": 129,
+          "employees": 1399
+        },
+        "N": {
+          "establishments": 105,
+          "employees": 339
+        },
+        "O": {
+          "establishments": 46,
+          "employees": 260
+        },
+        "P": {
+          "establishments": 88,
+          "employees": 973
+        },
+        "Q": {
+          "establishments": 5,
+          "employees": 158
+        },
+        "R": {
+          "establishments": 45,
+          "employees": 388
+        }
+      }
+    },
+    "23424": {
+      "name": "大治町",
+      "values": {
+        "AB": {
+          "establishments": null,
+          "employees": null
+        },
+        "C": {
+          "establishments": null,
+          "employees": null
+        },
+        "D": {
+          "establishments": 142,
+          "employees": 953
+        },
+        "E": {
+          "establishments": 122,
+          "employees": 2260
+        },
+        "F": {
+          "establishments": 1,
+          "employees": 2
+        },
+        "G": {
+          "establishments": 3,
+          "employees": 43
+        },
+        "H": {
+          "establishments": 10,
+          "employees": 273
+        },
+        "I": {
+          "establishments": 176,
+          "employees": 2143
+        },
+        "J": {
+          "establishments": 12,
+          "employees": 154
+        },
+        "K": {
+          "establishments": 110,
+          "employees": 264
+        },
+        "L": {
+          "establishments": 20,
+          "employees": 56
+        },
+        "M": {
+          "establishments": 80,
+          "employees": 618
+        },
+        "N": {
+          "establishments": 53,
+          "employees": 143
+        },
+        "O": {
+          "establishments": 33,
+          "employees": 279
+        },
+        "P": {
+          "establishments": 51,
+          "employees": 930
+        },
+        "Q": {
+          "establishments": 3,
+          "employees": 32
+        },
+        "R": {
+          "establishments": 58,
+          "employees": 257
+        }
+      }
+    },
+    "23425": {
+      "name": "蟹江町",
+      "values": {
+        "AB": {
+          "establishments": 3,
+          "employees": 15
+        },
+        "C": {
+          "establishments": null,
+          "employees": null
+        },
+        "D": {
+          "establishments": 141,
+          "employees": 1087
+        },
+        "E": {
+          "establishments": 147,
+          "employees": 2827
+        },
+        "F": {
+          "establishments": 1,
+          "employees": 4
+        },
+        "G": {
+          "establishments": 9,
+          "employees": 12
+        },
+        "H": {
+          "establishments": 42,
+          "employees": 1102
+        },
+        "I": {
+          "establishments": 315,
+          "employees": 2581
+        },
+        "J": {
+          "establishments": 17,
+          "employees": 267
+        },
+        "K": {
+          "establishments": 87,
+          "employees": 344
+        },
+        "L": {
+          "establishments": 52,
+          "employees": 264
+        },
+        "M": {
+          "establishments": 191,
+          "employees": 1515
+        },
+        "N": {
+          "establishments": 124,
+          "employees": 539
+        },
+        "O": {
+          "establishments": 53,
+          "employees": 274
+        },
+        "P": {
+          "establishments": 100,
+          "employees": 1419
+        },
+        "Q": {
+          "establishments": 5,
+          "employees": 143
+        },
+        "R": {
+          "establishments": 74,
+          "employees": 919
+        }
+      }
+    },
+    "23427": {
+      "name": "飛島村",
+      "values": {
+        "AB": {
+          "establishments": 3,
+          "employees": 65
+        },
+        "C": {
+          "establishments": null,
+          "employees": null
+        },
+        "D": {
+          "establishments": 35,
+          "employees": 294
+        },
+        "E": {
+          "establishments": 153,
+          "employees": 3584
+        },
+        "F": {
+          "establishments": 2,
+          "employees": 68
+        },
+        "G": {
+          "establishments": null,
+          "employees": null
+        },
+        "H": {
+          "establishments": 207,
+          "employees": 3879
+        },
+        "I": {
+          "establishments": 128,
+          "employees": 1299
+        },
+        "J": {
+          "establishments": null,
+          "employees": null
+        },
+        "K": {
+          "establishments": 25,
+          "employees": 129
+        },
+        "L": {
+          "establishments": 3,
+          "employees": 5
+        },
+        "M": {
+          "establishments": 26,
+          "employees": 143
+        },
+        "N": {
+          "establishments": 7,
+          "employees": 25
+        },
+        "O": {
+          "establishments": 6,
+          "employees": 25
+        },
+        "P": {
+          "establishments": 12,
+          "employees": 269
+        },
+        "Q": {
+          "establishments": 2,
+          "employees": 17
+        },
+        "R": {
+          "establishments": 92,
+          "employees": 1569
+        }
+      }
+    },
+    "23441": {
+      "name": "阿久比町",
+      "values": {
+        "AB": {
+          "establishments": 6,
+          "employees": 106
+        },
+        "C": {
+          "establishments": null,
+          "employees": null
+        },
+        "D": {
+          "establishments": 106,
+          "employees": 800
+        },
+        "E": {
+          "establishments": 50,
+          "employees": 3184
+        },
+        "F": {
+          "establishments": 4,
+          "employees": 9
+        },
+        "G": {
+          "establishments": 5,
+          "employees": 8
+        },
+        "H": {
+          "establishments": 12,
+          "employees": 218
+        },
+        "I": {
+          "establishments": 217,
+          "employees": 2006
+        },
+        "J": {
+          "establishments": 9,
+          "employees": 60
+        },
+        "K": {
+          "establishments": 25,
+          "employees": 54
+        },
+        "L": {
+          "establishments": 30,
+          "employees": 113
+        },
+        "M": {
+          "establishments": 85,
+          "employees": 768
+        },
+        "N": {
+          "establishments": 72,
+          "employees": 294
+        },
+        "O": {
+          "establishments": 27,
+          "employees": 145
+        },
+        "P": {
+          "establishments": 88,
+          "employees": 1426
+        },
+        "Q": {
+          "establishments": 6,
+          "employees": 53
+        },
+        "R": {
+          "establishments": 56,
+          "employees": 244
+        }
+      }
+    },
+    "23442": {
+      "name": "東浦町",
+      "values": {
+        "AB": {
+          "establishments": 6,
+          "employees": 47
+        },
+        "C": {
+          "establishments": null,
+          "employees": null
+        },
+        "D": {
+          "establishments": 127,
+          "employees": 686
+        },
+        "E": {
+          "establishments": 192,
+          "employees": 6190
+        },
+        "F": {
+          "establishments": 1,
+          "employees": 4
+        },
+        "G": {
+          "establishments": 8,
+          "employees": 43
+        },
+        "H": {
+          "establishments": 29,
+          "employees": 584
+        },
+        "I": {
+          "establishments": 320,
+          "employees": 3706
+        },
+        "J": {
+          "establishments": 17,
+          "employees": 116
+        },
+        "K": {
+          "establishments": 86,
+          "employees": 223
+        },
+        "L": {
+          "establishments": 46,
+          "employees": 347
+        },
+        "M": {
+          "establishments": 124,
+          "employees": 1158
+        },
+        "N": {
+          "establishments": 97,
+          "employees": 539
+        },
+        "O": {
+          "establishments": 39,
+          "employees": 177
+        },
+        "P": {
+          "establishments": 132,
+          "employees": 2211
+        },
+        "Q": {
+          "establishments": 9,
+          "employees": 78
+        },
+        "R": {
+          "establishments": 78,
+          "employees": 665
+        }
+      }
+    },
+    "23445": {
+      "name": "南知多町",
+      "values": {
+        "AB": {
+          "establishments": 15,
+          "employees": 174
+        },
+        "C": {
+          "establishments": 1,
+          "employees": 2
+        },
+        "D": {
+          "establishments": 72,
+          "employees": 309
+        },
+        "E": {
+          "establishments": 134,
+          "employees": 1477
+        },
+        "F": {
+          "establishments": 1,
+          "employees": 1
+        },
+        "G": {
+          "establishments": 2,
+          "employees": 3
+        },
+        "H": {
+          "establishments": 31,
+          "employees": 234
+        },
+        "I": {
+          "establishments": 261,
+          "employees": 1282
+        },
+        "J": {
+          "establishments": 14,
+          "employees": 55
+        },
+        "K": {
+          "establishments": 20,
+          "employees": 47
+        },
+        "L": {
+          "establishments": 17,
+          "employees": 51
+        },
+        "M": {
+          "establishments": 228,
+          "employees": 1659
+        },
+        "N": {
+          "establishments": 72,
+          "employees": 172
+        },
+        "O": {
+          "establishments": 12,
+          "employees": 30
+        },
+        "P": {
+          "establishments": 44,
+          "employees": 877
+        },
+        "Q": {
+          "establishments": 13,
+          "employees": 103
+        },
+        "R": {
+          "establishments": 92,
+          "employees": 376
+        }
+      }
+    },
+    "23446": {
+      "name": "美浜町",
+      "values": {
+        "AB": {
+          "establishments": 8,
+          "employees": 66
+        },
+        "C": {
+          "establishments": null,
+          "employees": null
+        },
+        "D": {
+          "establishments": 96,
+          "employees": 331
+        },
+        "E": {
+          "establishments": 69,
+          "employees": 1308
+        },
+        "F": {
+          "establishments": 2,
+          "employees": 3
+        },
+        "G": {
+          "establishments": 3,
+          "employees": 3
+        },
+        "H": {
+          "establishments": 22,
+          "employees": 280
+        },
+        "I": {
+          "establishments": 162,
+          "employees": 1470
+        },
+        "J": {
+          "establishments": 9,
+          "employees": 84
+        },
+        "K": {
+          "establishments": 85,
+          "employees": 162
+        },
+        "L": {
+          "establishments": 30,
+          "employees": 80
+        },
+        "M": {
+          "establishments": 85,
+          "employees": 544
+        },
+        "N": {
+          "establishments": 56,
+          "employees": 404
+        },
+        "O": {
+          "establishments": 40,
+          "employees": 1402
+        },
+        "P": {
+          "establishments": 47,
+          "employees": 1448
+        },
+        "Q": {
+          "establishments": 10,
+          "employees": 74
+        },
+        "R": {
+          "establishments": 69,
+          "employees": 515
+        }
+      }
+    },
+    "23447": {
+      "name": "武豊町",
+      "values": {
+        "AB": {
+          "establishments": 4,
+          "employees": 104
+        },
+        "C": {
+          "establishments": null,
+          "employees": null
+        },
+        "D": {
+          "establishments": 133,
+          "employees": 741
+        },
+        "E": {
+          "establishments": 126,
+          "employees": 5720
+        },
+        "F": {
+          "establishments": 5,
+          "employees": 94
+        },
+        "G": {
+          "establishments": 2,
+          "employees": 2
+        },
+        "H": {
+          "establishments": 38,
+          "employees": 917
+        },
+        "I": {
+          "establishments": 217,
+          "employees": 1772
+        },
+        "J": {
+          "establishments": 12,
+          "employees": 96
+        },
+        "K": {
+          "establishments": 58,
+          "employees": 178
+        },
+        "L": {
+          "establishments": 35,
+          "employees": 148
+        },
+        "M": {
+          "establishments": 137,
+          "employees": 802
+        },
+        "N": {
+          "establishments": 110,
+          "employees": 528
+        },
+        "O": {
+          "establishments": 48,
+          "employees": 183
+        },
+        "P": {
+          "establishments": 89,
+          "employees": 1732
+        },
+        "Q": {
+          "establishments": 7,
+          "employees": 69
+        },
+        "R": {
+          "establishments": 84,
+          "employees": 500
+        }
+      }
+    },
+    "23501": {
+      "name": "幸田町",
+      "values": {
+        "AB": {
+          "establishments": 8,
+          "employees": 67
+        },
+        "C": {
+          "establishments": null,
+          "employees": null
+        },
+        "D": {
+          "establishments": 146,
+          "employees": 703
+        },
+        "E": {
+          "establishments": 161,
+          "employees": 11580
+        },
+        "F": {
+          "establishments": 4,
+          "employees": 20
+        },
+        "G": {
+          "establishments": 3,
+          "employees": 17
+        },
+        "H": {
+          "establishments": 22,
+          "employees": 445
+        },
+        "I": {
+          "establishments": 235,
+          "employees": 2469
+        },
+        "J": {
+          "establishments": 11,
+          "employees": 124
+        },
+        "K": {
+          "establishments": 45,
+          "employees": 114
+        },
+        "L": {
+          "establishments": 45,
+          "employees": 210
+        },
+        "M": {
+          "establishments": 106,
+          "employees": 890
+        },
+        "N": {
+          "establishments": 105,
+          "employees": 514
+        },
+        "O": {
+          "establishments": 47,
+          "employees": 303
+        },
+        "P": {
+          "establishments": 81,
+          "employees": 1485
+        },
+        "Q": {
+          "establishments": 11,
+          "employees": 82
+        },
+        "R": {
+          "establishments": 68,
+          "employees": 643
+        }
+      }
+    },
+    "23561": {
+      "name": "設楽町",
+      "values": {
+        "AB": {
+          "establishments": 17,
+          "employees": 161
+        },
+        "C": {
+          "establishments": 1,
+          "employees": 7
+        },
+        "D": {
+          "establishments": 42,
+          "employees": 259
+        },
+        "E": {
+          "establishments": 18,
+          "employees": 188
+        },
+        "F": {
+          "establishments": 1,
+          "employees": 4
+        },
+        "G": {
+          "establishments": 1,
+          "employees": 1
+        },
+        "H": {
+          "establishments": 8,
+          "employees": 73
+        },
+        "I": {
+          "establishments": 53,
+          "employees": 206
+        },
+        "J": {
+          "establishments": null,
+          "employees": null
+        },
+        "K": {
+          "establishments": 4,
+          "employees": 12
+        },
+        "L": {
+          "establishments": 6,
+          "employees": 15
+        },
+        "M": {
+          "establishments": 25,
+          "employees": 114
+        },
+        "N": {
+          "establishments": 22,
+          "employees": 69
+        },
+        "O": {
+          "establishments": 1,
+          "employees": 2
+        },
+        "P": {
+          "establishments": 19,
+          "employees": 276
+        },
+        "Q": {
+          "establishments": 5,
+          "employees": 21
+        },
+        "R": {
+          "establishments": 20,
+          "employees": 121
+        }
+      }
+    },
+    "23562": {
+      "name": "東栄町",
+      "values": {
+        "AB": {
+          "establishments": 8,
+          "employees": 86
+        },
+        "C": {
+          "establishments": null,
+          "employees": null
+        },
+        "D": {
+          "establishments": 33,
+          "employees": 148
+        },
+        "E": {
+          "establishments": 16,
+          "employees": 134
+        },
+        "F": {
+          "establishments": null,
+          "employees": null
+        },
+        "G": {
+          "establishments": null,
+          "employees": null
+        },
+        "H": {
+          "establishments": 2,
+          "employees": 14
+        },
+        "I": {
+          "establishments": 42,
+          "employees": 181
+        },
+        "J": {
+          "establishments": 1,
+          "employees": 8
+        },
+        "K": {
+          "establishments": 4,
+          "employees": 9
+        },
+        "L": {
+          "establishments": 4,
+          "employees": 4
+        },
+        "M": {
+          "establishments": 23,
+          "employees": 85
+        },
+        "N": {
+          "establishments": 13,
+          "employees": 70
+        },
+        "O": {
+          "establishments": 4,
+          "employees": 4
+        },
+        "P": {
+          "establishments": 13,
+          "employees": 221
+        },
+        "Q": {
+          "establishments": 5,
+          "employees": 19
+        },
+        "R": {
+          "establishments": 11,
+          "employees": 26
+        }
+      }
+    },
+    "23563": {
+      "name": "豊根村",
+      "values": {
+        "AB": {
+          "establishments": 6,
+          "employees": 64
+        },
+        "C": {
+          "establishments": 1,
+          "employees": 17
+        },
+        "D": {
+          "establishments": 11,
+          "employees": 115
+        },
+        "E": {
+          "establishments": 7,
+          "employees": 22
+        },
+        "F": {
+          "establishments": null,
+          "employees": null
+        },
+        "G": {
+          "establishments": null,
+          "employees": null
+        },
+        "H": {
+          "establishments": null,
+          "employees": null
+        },
+        "I": {
+          "establishments": 19,
+          "employees": 103
+        },
+        "J": {
+          "establishments": null,
+          "employees": null
+        },
+        "K": {
+          "establishments": 2,
+          "employees": 4
+        },
+        "L": {
+          "establishments": null,
+          "employees": null
+        },
+        "M": {
+          "establishments": 7,
+          "employees": 51
+        },
+        "N": {
+          "establishments": 3,
+          "employees": 3
+        },
+        "O": {
+          "establishments": null,
+          "employees": null
+        },
+        "P": {
+          "establishments": 4,
+          "employees": 72
+        },
+        "Q": {
+          "establishments": 4,
+          "employees": 13
+        },
+        "R": {
+          "establishments": 3,
+          "employees": 18
+        }
+      }
+    }
+  }
+}
