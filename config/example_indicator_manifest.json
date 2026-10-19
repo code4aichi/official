@@ -1,0 +1,15 @@
+{
+  "_comment": "TEMPLATE ONLY: replace statsDataId, areaDimension, selectors with actual values read from e-Stat getMetaInfo. Do not publish without validating.",
+  "slug": "industry_example",
+  "statsDataId": "0000000000",
+  "label": "事業所数（例：設定未完了）",
+  "year": 2021,
+  "unit": "事業所",
+  "sourceTitle": "経済センサス（例：実際の統計表に変更してください）",
+  "sourceUrl": "https://www.e-stat.go.jp/",
+  "areaDimension": "area",
+  "selectors": {},
+  "valueConstraint": "nonnegative",
+  "definition": "データ表の定義と分母を入力",
+  "limitations": "データ表ごとの注釈を入力"
+}

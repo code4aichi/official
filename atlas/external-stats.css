@@ -1,0 +1,9 @@
+.external-stats-panel{min-width:0;max-width:100%;padding:12px 4px}
+.external-stats-panel label{display:grid;gap:7px;margin:12px 0;font-weight:700}
+.external-stats-panel select{width:100%;max-width:100%;min-width:0}
+.external-stat-list{display:grid;gap:7px;margin:12px 0}
+.external-stat-item{font:inherit;display:flex;justify-content:space-between;gap:10px;align-items:center;text-align:left;padding:12px;border-radius:11px;border:1px solid #d5e4eb;background:#fff;color:#193b59;cursor:pointer}
+.external-stat-item:hover,.external-stat-item:focus-visible,.external-stat-item.is-selected{border-color:#167cb8;background:#e9f6fc}
+.external-city-name{font-weight:700}.external-city-value{font-variant-numeric:tabular-nums;white-space:nowrap}
+.external-source{padding:10px 0;font-size:.8rem;line-height:1.6;overflow-wrap:anywhere}
+.external-source a{color:#12698d}
