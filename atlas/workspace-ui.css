@@ -73,6 +73,44 @@ body:has(.workspace-nav) #panel-report,body:has(.workspace-nav) #panel-discovery
  .workspace-nav-button{font-size:10px}
 }
 @media(max-width:420px){.workspace-nav{grid-template-columns:repeat(2,minmax(0,1fr))}.workspace-nav-button{font-size:9px;padding:7px 3px}}
+/* r3: prevent the flex layout from compressing the statistic cards into each other.
+   The detail panel is a scroll container, not a fixed-height card layout. */
+body:has(.workspace-nav) .info-column > .detail{
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:flex-start!important;
+  align-content:normal!important;
+  min-height:0!important;
+  height:auto!important;
+  overflow-y:auto!important;
+  overflow-x:hidden!important;
+}
+body:has(.workspace-nav) .info-column > .detail > *{
+  flex-grow:0!important;
+  flex-shrink:0!important;
+  height:auto!important;
+  max-height:none!important;
+  min-height:0;
+  position:static;
+}
+body:has(.workspace-nav) .info-column > .detail > .city-detail-content{
+  flex:0 0 auto!important;
+  min-height:0!important;
+  height:auto!important;
+  overflow:visible!important;
+}
+body:has(.workspace-nav) .info-column > .detail :is(.city-detail-pane,.extra-stats,.extra-stat,.metric-grid,.metric-card,.insight-card,.active-metric-card){
+  position:static!important;
+  max-height:none!important;
+  height:auto!important;
+  overflow:visible;
+}
+body:has(.workspace-nav) .info-column > .detail .detail-actions{margin-top:12px!important;flex:0 0 auto!important}
+body:has(.workspace-nav) .info-column > .detail .city-detail-pane[hidden]{display:none!important}
+body:has(.workspace-nav) .info-column > .detail .extra-stats{display:grid;grid-template-columns:minmax(0,1fr)!important;grid-auto-rows:max-content;align-items:stretch}
+body:has(.workspace-nav) .info-column > .detail .extra-stat{min-height:72px;display:flex;flex-direction:column;justify-content:center;gap:6px}
+body:has(.workspace-nav) .info-column > .detail .active-metric-card{flex-shrink:0;display:block;margin-top:12px;margin-bottom:4px}
+
 @media print{
  body:has(.workspace-nav) .intro--poster{display:block!important}
  .workspace-nav{display:none!important}
