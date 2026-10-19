@@ -1,0 +1,47 @@
+name: MIERU AICHI external domains research (staging only)
+
+on:
+  workflow_dispatch:
+    inputs:
+      theme:
+        description: 'Find candidate e-Stat tables; nothing is published'
+        type: choice
+        options:
+          - all
+          - employment
+          - migration
+        default: all
+      limit:
+        description: 'Maximum catalog entries per keyword (1-100)'
+        type: number
+        default: 50
+
+permissions:
+  contents: read
+
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      E_STAT_APP_ID: ${{ secrets.E_STAT_APP_ID }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check API app ID exists
+        run: test -n "$E_STAT_APP_ID" || (echo 'Missing E_STAT_APP_ID secret' && exit 1)
+      - name: Discover non-census data tables
+        env:
+          THEME: ${{ inputs.theme }}
+          LIMIT: ${{ inputs.limit }}
+        run: python tools/external_domain_discovery.py --theme "$THEME" --limit "$LIMIT"
+      - name: Upload review candidates (never published)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mieru-external-domain-candidates
+          path: staging/external_domain_candidates.json
+          if-no-files-found: warn
+          retention-days: 14
