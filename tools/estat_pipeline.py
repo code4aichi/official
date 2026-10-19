@@ -8,6 +8,9 @@ import json
 import os
 import re
 import sys
+import time
+import socket
+from urllib.error import HTTPError, URLError
 from pathlib import Path
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
@@ -28,8 +31,24 @@ def api_get(kind, args):
         raise ValueError('E_STAT_APP_ID is not set. Use an environment variable or Actions Secret.')
     params = {'appId': secret, **args}
     req = Request(API + kind + '?' + urlencode(params), headers={'User-Agent':'MIERU-AICHI-v2.7/1.0'})
-    with urlopen(req, timeout=40) as resp:
-        result = json.load(resp)
+    # e-Stat occasionally takes longer to return catalog responses.
+    # Retry transient network failures only, never authentication or API errors.
+    retryable_http = {429, 500, 502, 503, 504}
+    for attempt in range(3):
+        try:
+            with urlopen(req, timeout=90) as resp:
+                result = json.load(resp)
+            break
+        except HTTPError as exc:
+            if exc.code not in retryable_http or attempt == 2:
+                raise
+            print(f'e-Stat temporary HTTP {exc.code}; retry {attempt + 1}/2', file=sys.stderr)
+        except (TimeoutError, socket.timeout, URLError, ConnectionError) as exc:
+            # URLError may also represent DNS or network failures; retries are bounded.
+            if attempt == 2:
+                raise RuntimeError('e-Stat API unavailable after 3 attempts (90s timeout each). Retry later.') from exc
+            print(f'e-Stat network error ({type(exc).__name__}); retry {attempt + 1}/2', file=sys.stderr)
+        time.sleep(3 * (2 ** attempt))
     outer = {'getStatsList':'GET_STATS_LIST','getMetaInfo':'GET_META_INFO','getStatsData':'GET_STATS_DATA'}[kind]
     payload = result.get(outer, {})
     status = payload.get('RESULT', {})
@@ -58,23 +77,75 @@ def search(args):
     print(f'Search results {len(entries)} saved to {path.relative_to(ROOT)}. Nothing published.')
 
 def fetch(args):
-    if not re.fullmatch(r'\d{6,20}',args.stats_id):raise ValueError('Invalid statsDataId')
-    meta = api_get('getMetaInfo',{'statsDataId':args.stats_id})
-    path = ROOT / 'staging' / f'{args.stats_id}_meta.json'
-    saved(path,meta)
+    if not re.fullmatch(r'\d{6,20}', args.stats_id):
+        raise ValueError('Invalid statsDataId')
+    meta = api_get('getMetaInfo', {'statsDataId': args.stats_id})
+    saved(ROOT / 'staging' / f'{args.stats_id}_meta.json', meta)
     if args.metadata_only:
-        print('Saved metadata only:',path.relative_to(ROOT));return
-    raw = api_get('getStatsData',{'statsDataId':args.stats_id,'limit':100000, 'startPosition':1})
-    body=raw['GET_STATS_DATA']['STATISTICAL_DATA']
-    inf=body.get('RESULT_INF',{})
-    total=int(inf.get('TOTAL_NUMBER', 0))
-    values=body.get('DATA_INF',{}).get('VALUE',[])
-    if isinstance(values,dict):values=[values]
-    if total>len(values) or body.get('RESULT_INF',{}).get('NEXT_KEY'):
-        raise ValueError(f'Large dataset incomplete ({len(values)}/{total}); split or filter at API level before ingesting.')
-    path=ROOT/'staging'/f'{args.stats_id}_data.json'
-    saved(path,raw)
-    print(f'Saved metadata and {len(values)} raw values in staging. Nothing published.')
+        print('Saved metadata only; no data published.')
+        return
+
+    filters = {'statsDataId': args.stats_id, 'limit': 100000}
+    expected_areas = None
+    if args.aichi_only:
+        # cdArea accepts up to 100 comma-separated codes. Exactly 54 cities are
+        # defined by the project's canonical municipality code reference.
+        expected_areas = set(municipalities())
+        filters['cdArea'] = ','.join(sorted(expected_areas))
+        print(f'Filtering at API level to {len(expected_areas)} Aichi municipality codes.')
+
+    all_values = []
+    next_start = 1
+    seen_pages = set()
+    result = None
+    expected_total = None
+    # Cap total pages to avoid infinite/broken API loops or accidental huge jobs.
+    for page in range(1, 21):
+        if next_start in seen_pages:
+            raise ValueError(f'e-Stat returned repeated startPosition {next_start}')
+        seen_pages.add(next_start)
+        raw = api_get('getStatsData', {**filters, 'startPosition': next_start})
+        body = raw['GET_STATS_DATA']['STATISTICAL_DATA']
+        info = body.get('RESULT_INF', {})
+        total = int(info.get('TOTAL_NUMBER', 0))
+        rows = body.get('DATA_INF', {}).get('VALUE', [])
+        if isinstance(rows, dict):
+            rows = [rows]
+        if not isinstance(rows, list):
+            raise ValueError('Unexpected e-Stat response VALUE format')
+        if result is None:
+            result = raw
+            expected_total = total
+        elif expected_total != total:
+            raise ValueError('e-Stat total count changed between pages; retry later')
+        if expected_areas is not None:
+            invalid = [str(r.get('@area','')) for r in rows if str(r.get('@area','')) not in expected_areas]
+            if invalid:
+                raise ValueError(f'Unexpected area outside 54 municipalities: {invalid[:5]}')
+        all_values.extend(rows)
+        next_key = info.get('NEXT_KEY')
+        print(f'Page {page}: +{len(rows)} values, total collected {len(all_values)}/{expected_total}.')
+        if not next_key:
+            if expected_total != len(all_values):
+                raise ValueError(f'e-Stat incomplete after last page ({len(all_values)}/{expected_total})')
+            break
+        try:
+            follow = int(next_key)
+        except (ValueError, TypeError):
+            raise ValueError(f'Invalid e-Stat NEXT_KEY: {next_key}') from None
+        if follow <= next_start:
+            raise ValueError('e-Stat NEXT_KEY did not advance')
+        next_start = follow
+    else:
+        raise ValueError('Exceeded 20 API pages; tighten metadata-based filters')
+
+    if not result:
+        raise ValueError('e-Stat returned no data')
+    result['GET_STATS_DATA']['STATISTICAL_DATA']['DATA_INF']['VALUE'] = all_values
+    result['GET_STATS_DATA']['STATISTICAL_DATA']['RESULT_INF'].pop('NEXT_KEY', None)
+    path = ROOT / 'staging' / f'{args.stats_id}_data.json'
+    saved(path, result)
+    print(f'Saved {len(all_values)} validated raw values to {path.relative_to(ROOT)}. Nothing published.')
 
 def classes(meta):
     block=meta['GET_META_INFO']['METADATA_INF']['CLASS_INF'].get('CLASS_OBJ',[])
@@ -158,7 +229,7 @@ def publish(args):
 def main():
     p=argparse.ArgumentParser(description=__doc__);sub=p.add_subparsers(dest='command',required=True)
     s=sub.add_parser('search');s.add_argument('--keyword',required=True);s.add_argument('--limit',type=int,default=30);s.set_defaults(func=search)
-    s=sub.add_parser('fetch');s.add_argument('--stats-id',required=True);s.add_argument('--metadata-only',action='store_true');s.set_defaults(func=fetch)
+    s=sub.add_parser('fetch');s.add_argument('--stats-id',required=True);s.add_argument('--metadata-only',action='store_true');s.add_argument('--aichi-only',action='store_true',help='Filter API request to exactly 54 municipality area codes');s.set_defaults(func=fetch)
     s=sub.add_parser('prepare');s.add_argument('--manifest',required=True);s.set_defaults(func=prepare)
     s=sub.add_parser('publish');s.add_argument('--slug',required=True);s.add_argument('--approve',required=True);s.set_defaults(func=publish)
     args=p.parse_args()
