@@ -1,0 +1,53 @@
+/* v2.4.1 Map Workspace: adaptive, map-first viewport layout. */
+:root{--ws-header:68px}
+html{scroll-behavior:smooth}
+body:has(.workspace-nav) .intro--poster{display:none}
+body:has(.workspace-nav) .atlas-wrap{padding-top:12px;padding-bottom:24px}
+body:has(.workspace-nav) .atlas-heading{margin:0 0 9px;display:flex;align-items:center;gap:12px}
+body:has(.workspace-nav) .atlas-heading h2{font-size:clamp(1.1rem,1.6vw,1.55rem);margin:0}
+body:has(.workspace-nav) .atlas-heading .eyebrow{display:none}
+body:has(.workspace-nav) .city-picker{margin-bottom:9px;padding-block:8px}
+body:has(.workspace-nav) .workspace{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(360px,1fr);align-items:stretch;gap:14px;min-height:0}
+body:has(.workspace-nav) .map-column{min-width:0;position:sticky;top:8px;height:calc(100dvh - 140px);min-height:530px;overflow:auto;overscroll-behavior:contain;display:flex;flex-direction:column}
+body:has(.workspace-nav) .map-column .map-stage{flex:1;min-height:230px;display:flex;align-items:stretch}
+body:has(.workspace-nav) .map-column .map-view{height:100%;min-height:230px;width:100%}
+body:has(.workspace-nav) .info-column{min-width:0;height:calc(100dvh - 140px);min-height:530px;display:flex;flex-direction:column;overflow:auto;overscroll-behavior:contain;gap:0}
+body:has(.workspace-nav) .info-column > .detail{flex:1;min-height:0;overflow:auto}
+body:has(.workspace-nav) .info-column > .detail[hidden],body:has(.workspace-nav) #tools[hidden]{display:none!important}
+body:has(.workspace-nav) #tools{min-height:0;flex:1;overflow:auto;padding:12px 0 10px;margin:0;width:auto;max-width:none}
+body:has(.workspace-nav) #tools .tool-content{max-width:none;min-width:0}
+body:has(.workspace-nav) .workspace-legacy-tabs{display:none!important}
+.workspace-nav{display:flex;flex-wrap:nowrap;gap:6px;overflow-x:auto;padding:4px 3px 10px;scrollbar-width:thin;position:sticky;top:0;z-index:5;background:var(--surface,#fff)}
+.workspace-nav-button{font:inherit;cursor:pointer;flex:0 0 auto;border:1px solid #cbd9e6;color:#344b63;background:#fff;border-radius:11px;padding:10px 12px;font-size:12px;font-weight:700;white-space:nowrap}
+.workspace-nav-button:hover,.workspace-nav-button:focus-visible{border-color:#2a80ad;outline-offset:2px}
+.workspace-nav-button.is-current{background:#0d4976;border-color:#0d4976;color:#fff}
+body:has(.workspace-nav) .discovery-controls{grid-template-columns:1fr 1fr}
+body:has(.workspace-nav) .discovery-city-search-label{display:flex;flex-direction:column;gap:5px;margin:10px 0;font-size:.82rem;font-weight:700}
+body:has(.workspace-nav) #discovery-city-search{width:100%;max-width:100%;min-height:40px;padding:8px;border:1px solid #bbcbd8;border-radius:9px;background:#fff}
+body:has(.workspace-nav) .discovery-chart svg{width:100%;height:auto;max-height:360px}
+.discovery-floating-label rect{fill:#163d62;stroke:#fff;stroke-width:1.4}
+.discovery-floating-label text{fill:#fff;font-size:15px;font-weight:700}
+.discovery-selected.is-hovered:after{content:attr(data-hover);display:block;border-top:1px solid #d5e0eb;margin-top:6px;padding-top:6px;font-size:.8rem}
+body:has(.workspace-nav) .tool-panel:not([hidden]){max-width:100%}
+body:has(.workspace-nav) #panel-report,body:has(.workspace-nav) #panel-discovery{overflow-x:auto}
+@media(max-width:950px){
+ body:has(.workspace-nav) .workspace{grid-template-columns:minmax(0,1fr) minmax(290px,.9fr);gap:8px}
+ body:has(.workspace-nav) .map-column,body:has(.workspace-nav) .info-column{height:calc(100dvh - 150px);min-height:460px}
+ body:has(.workspace-nav) .map-column{padding:12px}
+}
+@media(max-width:720px){
+ body:has(.workspace-nav) .atlas-heading .data-pill{font-size:10px}
+ body:has(.workspace-nav) .workspace{display:flex;flex-direction:column;gap:6px}
+ body:has(.workspace-nav) .map-column{position:sticky;top:0;z-index:7;height:37dvh;min-height:205px;max-height:360px;flex-shrink:0;padding:8px;overflow:hidden}
+ body:has(.workspace-nav) .map-column .map-heading,body:has(.workspace-nav) .map-column .metric-meta,body:has(.workspace-nav) .map-column .map-source,body:has(.workspace-nav) .map-column .map-under{display:none}
+ body:has(.workspace-nav) .map-column .metric-picker{display:grid;grid-template-columns:1fr 1fr;gap:6px;font-size:11px}
+ body:has(.workspace-nav) .map-column .metric-picker select{min-width:0;width:100%;font-size:12px}
+ body:has(.workspace-nav) .map-column .map-stage{min-height:0;flex:1}
+ body:has(.workspace-nav) .map-column .map-view{min-height:0}
+ body:has(.workspace-nav) .info-column{height:auto;min-height:48dvh;max-height:none;overflow:visible}
+ body:has(.workspace-nav) .info-column>.detail{overflow:visible}
+ body:has(.workspace-nav) #tools{overflow:visible}
+ .workspace-nav{top:37dvh;max-width:100%;}
+ body:has(.workspace-nav) .discovery-chart svg{max-height:310px}
+}
+@media print{.workspace-nav{display:none!important}body:has(.workspace-nav) .map-column{position:static!important;height:auto!important}body:has(.workspace-nav) .info-column{height:auto!important;overflow:visible!important}}
