@@ -1,0 +1,20 @@
+/* v2.6 challenge discovery: scoped, no changes to pre-existing layout rules */
+.challenge-panel{min-width:0;max-width:100%;padding:8px 4px 18px;box-sizing:border-box}
+.challenge-head h3{font-size:1.25rem;line-height:1.35;margin:3px 0 8px}
+.challenge-label{display:flex;flex-direction:column;gap:7px;font-weight:700;font-size:.88rem;margin:14px 0}
+.challenge-label select{max-width:100%;width:100%;min-width:0;min-height:43px}
+.challenge-axis{display:grid;grid-template-columns:1fr;gap:8px}
+.challenge-axis-item{border-left:4px solid #28a8b4;background:#edf8fa;border-radius:8px;padding:9px 11px;overflow-wrap:anywhere;font-size:.82rem;line-height:1.65}
+.challenge-status{margin:12px 0;line-height:1.7}
+.challenge-results h4{margin:16px 0 8px;font-size:1rem}
+.challenge-intro,.challenge-empty{font-size:.85rem;line-height:1.65;margin:5px 0 12px;color:#42576d}
+.challenge-result{border:1px solid #d9e6ef;background:#fff;border-radius:12px;padding:13px;margin:10px 0;min-width:0}
+.challenge-city{display:block;width:100%;text-align:left;border:0;background:none;color:#125f86;cursor:pointer;font:inherit;font-size:1rem;font-weight:800;margin:0 0 9px;padding:3px 0;white-space:normal}
+.challenge-city:hover,.challenge-city:focus-visible{color:#0d2b57;text-decoration:underline}
+.challenge-city.is-selected{color:#c36a26}
+.challenge-value{display:flex;justify-content:space-between;gap:12px;align-items:baseline;border-top:1px solid #edf2f5;padding:7px 0;margin:0;font-size:.82rem}
+.challenge-value span{flex:1;min-width:0}.challenge-value strong{white-space:nowrap;color:#15395c;font-size:.94rem}
+.challenge-source{font-size:.7rem;line-height:1.6;color:#61738b;margin:8px 0 0;overflow-wrap:anywhere}
+.challenge-caveat{font-size:.75rem;line-height:1.8;color:#56677d;background:#f1f6f9;padding:12px;border-radius:9px;margin:20px 0 0}
+@media(max-width:420px){.challenge-value{align-items:start;flex-direction:column;gap:2px}}
+@media print{.challenge-panel{break-inside:auto}}
