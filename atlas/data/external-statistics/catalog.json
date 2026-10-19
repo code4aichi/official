@@ -1,4 +1,19 @@
 {
   "schema_version": 1,
-  "indicators": []
+  "indicators": [
+    {
+      "id": "economic_2021_private_establishments",
+      "label": "民営事業所数",
+      "year": 2021,
+      "unit": "事業所",
+      "file": "economic_2021_private_establishments.json"
+    },
+    {
+      "id": "economic_2021_private_employees",
+      "label": "民営事業所の従業者数（男女計）",
+      "year": 2021,
+      "unit": "人",
+      "file": "economic_2021_private_employees.json"
+    }
+  ]
 }
