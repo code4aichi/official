@@ -40,7 +40,7 @@
     tabs.setAttribute('role','tablist'); tabs.setAttribute('aria-label','追加統計の表示切替');
     const views = make('div', 'v283-stat-views');
     const keys = [
-      ['list','指標一覧'],['compare','産業・雇用'],['sectors','産業別構成'],['source','出典・注意']
+      ['list','指標一覧'],['compare','産業・雇用'],['sectors','産業別構成'],['migration','人口移動'],['source','出典・注意']
     ];
     const areas = new Map(); const buttons = new Map();
     for (const [key,title] of keys) {
