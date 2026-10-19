@@ -1,51 +1,38 @@
-name: Update AICHI DATA ATLAS boundaries
-
+name: MIERU AICHI e-Stat staging (no publishing)
 on:
-  schedule:
-    - cron: '17 2 1 * *' # Every 1st day of month (UTC)
   workflow_dispatch:
-
+    inputs:
+      keyword:
+        description: 'Search e-Stat statistics table by Japanese keyword'
+        required: true
+        default: '経済センサス'
+      stats_id:
+        description: 'Optional e-Stat statsDataId to fetch raw data and metadata'
+        required: false
+        default: ''
 permissions:
-  contents: write
-  pull-requests: write
-
-concurrency:
-  group: aichi-atlas-boundary-update
-  cancel-in-progress: false
-
+  contents: read
 jobs:
-  update:
+  staging:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 15
+    env:
+      E_STAT_APP_ID: ${{ secrets.E_STAT_APP_ID }}
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-      - name: Setup Python
-        uses: actions/setup-python@v5
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Install geometry processing dependency
-        run: python -m pip install "shapely>=2.0,<3"
-      - name: Validate existing statistics
-        run: python atlas/tools/validate.py
-      - name: Fetch and verify boundaries
-        run: python atlas/tools/fetch_boundaries.py
-      - name: Check final GeoJSON
-        run: python atlas/tools/fetch_boundaries.py --check
-      - name: Unit tests
-        run: python -m unittest discover -s atlas/tests -v
-      # Pull request instead of direct token commit: merging via human user
-      # triggers the existing GitHub Pages branch-based deployment.
-      - name: Open update pull request when changed
-        uses: peter-evans/create-pull-request@v7
+      - name: Validate secret
+        run: test -n "$E_STAT_APP_ID" || (echo 'Configure E_STAT_APP_ID secret' && exit 1)
+      - name: Search statistics catalog
+        run: python tools/estat_pipeline.py search --keyword "${{ inputs.keyword }}"
+      - name: Fetch optional table snapshot
+        if: ${{ inputs.stats_id != '' }}
+        run: python tools/estat_pipeline.py fetch --stats-id "${{ inputs.stats_id }}"
+      - name: Upload staging files (not public site)
+        uses: actions/upload-artifact@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          add-paths: atlas/data/aichi-boundaries.geojson
-          branch: automation/atlas-boundaries
-          delete-branch: true
-          commit-message: 'data: update AICHI DATA ATLAS boundaries'
-          title: 'data: update AICHI DATA ATLAS boundaries'
-          body: |
-            GeoJSON auto-refresh for AICHI DATA ATLAS.
-            Contains 54 municipality boundaries. Nagoya ward borders are dissolved into a single city geometry.
-            Please review and merge to trigger the existing GitHub Pages deployment.
+          name: e-stat-staging
+          path: staging/*.json
+          retention-days: 7
