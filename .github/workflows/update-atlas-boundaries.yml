@@ -10,6 +10,11 @@ on:
         description: 'Optional e-Stat statsDataId to fetch raw data and metadata'
         required: false
         default: ''
+      aichi_only:
+        description: 'Filter stats table to the 54 Aichi municipalities (recommended for large tables)'
+        type: boolean
+        required: false
+        default: false
 permissions:
   contents: read
 jobs:
@@ -25,11 +30,20 @@ jobs:
           python-version: '3.12'
       - name: Validate secret
         run: test -n "$E_STAT_APP_ID" || (echo 'Configure E_STAT_APP_ID secret' && exit 1)
-      - name: Search statistics catalog
+      - name: Search statistics catalog (only when no stats_id)
+        if: ${{ inputs.stats_id == '' }}
         run: python tools/estat_pipeline.py search --keyword "${{ inputs.keyword }}"
       - name: Fetch optional table snapshot
         if: ${{ inputs.stats_id != '' }}
-        run: python tools/estat_pipeline.py fetch --stats-id "${{ inputs.stats_id }}"
+        env:
+          STATS_ID: ${{ inputs.stats_id }}
+          AICHI_ONLY: ${{ inputs.aichi_only }}
+        run: |
+          if [ "$AICHI_ONLY" = "true" ]; then
+            python tools/estat_pipeline.py fetch --stats-id "$STATS_ID" --aichi-only
+          else
+            python tools/estat_pipeline.py fetch --stats-id "$STATS_ID"
+          fi
       - name: Upload staging files (not public site)
         uses: actions/upload-artifact@v4
         with:
