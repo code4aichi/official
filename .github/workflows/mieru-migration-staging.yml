@@ -1,0 +1,58 @@
+name: MIERU AICHI migration 2025 staging (no publishing)
+on:
+  workflow_dispatch:
+    inputs:
+      direction:
+        description: '2025 migration table to fetch (in / out / both)'
+        required: true
+        type: choice
+        options:
+          - in
+          - out
+          - both
+        default: both
+permissions:
+  contents: read
+jobs:
+  staging:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      E_STAT_APP_ID: ${{ secrets.E_STAT_APP_ID }}
+      DIRECTION: ${{ inputs.direction }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate API secret
+        run: test -n "$E_STAT_APP_ID" || (echo 'Configure E_STAT_APP_ID secret' && exit 1)
+      - name: Check migration selection logic
+        run: python -m unittest discover -s tests -p 'test_migration_fetch.py' -v
+      - name: Fetch and validate migration tables (no publication)
+        run: |
+          set -euo pipefail
+          if [[ "$DIRECTION" == "in" || "$DIRECTION" == "both" ]]; then
+            python tools/estat_pipeline.py fetch-migration --direction in
+          fi
+          if [[ "$DIRECTION" == "out" || "$DIRECTION" == "both" ]]; then
+            python tools/estat_pipeline.py fetch-migration --direction out
+          fi
+      - name: Upload staging results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mieru-migration-2025-staging
+          path: staging/*_review.json
+          if-no-files-found: warn
+          retention-days: 7
+      - name: Upload raw evidence and metadata
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mieru-migration-2025-raw
+          path: |
+            staging/0004044293_*.json
+            staging/0004044294_*.json
+          if-no-files-found: warn
+          retention-days: 7
