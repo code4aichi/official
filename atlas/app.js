@@ -256,7 +256,7 @@ boot();
 // v2.2 自治体比較レポート: 既存統計を参照し、JSONを改変しない。
 const reportSections=[
  {heading:'人口・年齢',metrics:[['population','総人口'],['change','2020〜2025年人口増減率'],['elderly','高齢化率']]},
- {heading:'世帯・子育て',metrics:[['households','一般世帯を含む世帯数'],['single_rate','単身世帯率'],['under18_households_rate','18歳未満がいる世帯率']]},
+ {heading:'世帯・子育て',metrics:[['households','世帯数（総世帯）'],['single_rate','単身世帯率'],['under18_households_rate','18歳未満がいる世帯率']]},
  {heading:'住宅・高齢者',metrics:[['owner_rate','持ち家率'],['apartment_rate','共同住宅率'],['elderly_single_rate','高齢単身世帯率'],['elderly_owner_rate','高齢者世帯の持ち家率']]},
  {heading:'教育・学校',metrics:[['primary_schools','小学校数'],['primary_students','小学校児童数'],['junior_schools','中学校数'],['junior_students','中学校生徒数'],['primary_students_per_school','小学校1校当たり児童数'],['junior_students_per_school','中学校1校当たり生徒数']]}
 ];
@@ -275,6 +275,13 @@ function setupReport(){
   const cities=reportCities();let lines=[['分類','指標',...cities.map(c=>c.name)].join('\t')];
   for(const section of reportSections){for(const [k,label] of section.metrics){lines.push([section.heading,label,...cities.map(c=>reportFormat(c,k))].join('\t'))}}
   try{await navigator.clipboard.writeText(lines.join('\n'));toast('比較表をコピーしました')}catch{toast('コピーに失敗しました')}
+ });
+ document.getElementById('report-json').addEventListener('click',()=>{
+  if(!reportCitiesValid())return;
+  const payload=buildAnalysisPayload(reportCities());
+  const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json;charset=utf-8'});
+  const link=document.createElement('a');const url=URL.createObjectURL(blob);
+  link.href=url;link.download='mieru-aichi-report-2025.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
  });
  renderReport();
 }
@@ -296,7 +303,87 @@ function reportValue(c,k){
  return null;
 }
 function reportFormat(c,k){const v=reportValue(c,k);if(!Number.isFinite(v))return '未収録';if(k==='population')return num(v)+'人';if(k==='households')return num(v)+'世帯';if(educationKinds.includes(k))return num(v)+(k.endsWith('schools')?'校':'人');if(k.endsWith('_per_school'))return v.toFixed(1)+'人/校';if(k==='change')return (v>0?'+':'')+v.toFixed(2)+'%';return v.toFixed(1)+'%'}
-function renderReport(){if(!document.getElementById('report-table'))return;const host=document.getElementById('report-table');if(!reportCitiesValid()){host.replaceChildren();return}const cities=reportCities();const subtitle=document.getElementById('report-subtitle');subtitle.textContent=cities.map(c=>c.name).join(' ／ ');document.getElementById('report-date').textContent=new Date().toLocaleDateString('ja-JP');
- const table=document.createElement('table');table.className='report-data';const thead=document.createElement('thead'),head=document.createElement('tr');for(const s of ['指標',...cities.map(c=>c.name)]){const th=document.createElement('th');th.textContent=s;head.append(th)}thead.append(head);table.append(thead);const tbody=document.createElement('tbody');
- for(const section of reportSections){const group=document.createElement('tr');group.className='report-group';const th=document.createElement('th');th.colSpan=cities.length+1;th.textContent=section.heading;group.append(th);tbody.append(group);for(const [k,label] of section.metrics){const tr=document.createElement('tr');const metricName=document.createElement('th');metricName.scope='row';metricName.textContent=label;tr.append(metricName);for(const city of cities){const cell=document.createElement('td');cell.textContent=reportFormat(city,k);tr.append(cell)}tbody.append(tr)}}table.append(tbody);host.replaceChildren(table)
+// v2.3: 県計から算出した値だけを県平均として使う。市町村平均は代替しない。
+function reportPrefValue(k){
+ const pref={
+  population:prefTotal(2025),
+  change:(()=>{const before=prefTotal(2020),after=prefTotal(2025);return before>0?(after-before)/before*100:null})(),
+  households:municipalities.reduce((sum,c)=>sum+(households(c,2025)||0),0),
+  single_rate:householdsPref.single_rate,
+  under18_households_rate:familyPref.under18_households_rate,
+  owner_rate:housingPref.owner_rate,
+  apartment_rate:housingPref.apartment_rate,
+  elderly_single_rate:seniorPref.elderly_single_rate,
+  elderly_owner_rate:seniorHousingPref.elderly_owner_rate,
+  primary_schools:educationPref.primary_schools,
+  primary_students:educationPref.primary_students,
+  junior_schools:educationPref.junior_schools,
+  junior_students:educationPref.junior_students,
+  primary_students_per_school:educationPref.primary_schools>0?educationPref.primary_students/educationPref.primary_schools:null,
+  junior_students_per_school:educationPref.junior_schools>0?educationPref.junior_students/educationPref.junior_schools:null
+ };
+ if(k==='elderly')return null; // 県全体の年齢不詳を除く分母がこのデータ構造にないため非表示
+ return Number.isFinite(pref[k])?pref[k]:null;
 }
+function reportSources(k){
+ if(['primary_schools','primary_students','junior_schools','junior_students','primary_students_per_school','junior_students_per_school'].includes(k))return {title:'愛知県 2025年度学校基本調査',period:'2025-05-01'};
+ return {title:'総務省・愛知県 2025年国勢調査',period:'2025-10-01'};
+}
+function reportDirection(k){return ['change','single_rate','under18_households_rate','owner_rate','apartment_rate','elderly_single_rate','elderly_owner_rate'].includes(k)}
+function reportDiff(c,k){const a=reportValue(c,k),b=reportPrefValue(k);return reportDirection(k)&&Number.isFinite(a)&&Number.isFinite(b)?a-b:null}
+function reportFacts(cities){return reportSections.flatMap(section=>section.metrics.map(([id,label])=>({id,label,section:section.heading,source:reportSources(id),prefecture:reportPrefValue(id),municipalities:cities.map(c=>({code:c.code,name:c.name,value:reportValue(c,id),differencePoints:reportDiff(c,id)}))})))}
+function buildAnalysisPayload(cities){return {
+ schema_version:1,report_version:'2.3',generated_at:new Date().toISOString(),target_year:2025,
+ municipalities:cities.map(c=>({code:c.code,name:c.name})),
+ indicators:reportFacts(cities),
+ notes:['2025年人口・国勢調査は10月1日、学校基本調査は5月1日現在。','割合の差はパーセントポイント。','県値の算出根拠が得られない指標はnull。','単身世帯率は一般世帯、持ち家率は住宅に住む一般世帯を分母とする。','年齢構成が異なる年度間の単純比較に注意。','特徴は記述統計であり原因や政策効果を示さない。']
+ }}
+function reportTopObservations(cities){
+ const candidates=[['change','人口増減率'],['single_rate','単身世帯率'],['under18_households_rate','18歳未満がいる世帯率'],['owner_rate','持ち家率'],['elderly_single_rate','高齢単身世帯率'],['elderly_owner_rate','高齢者世帯の持ち家率']];
+ return cities.map(c=>{
+  const rows=candidates.map(([id,label])=>({id,label,diff:reportDiff(c,id),value:reportValue(c,id)}))
+   .filter(x=>Number.isFinite(x.diff)&&Math.abs(x.diff)>=1).sort((a,b)=>Math.abs(b.diff)-Math.abs(a.diff)).slice(0,2);
+  return {city:c.name,code:c.code,observations:rows.map(x=>({id:x.id,label:x.label,value:x.value,differencePoints:x.diff,text:`${x.label}は${x.value.toFixed(1)}%で、愛知県全体より${Math.abs(x.diff).toFixed(1)}ポイント${x.diff>=0?'高い':'低い'}。`}))};
+ });
+}
+function renderReportInsights(cities){
+ const panel=document.getElementById('report-insights');panel.replaceChildren();
+ const title=make('h4','','数字から読み取れる特徴（自動整理）');panel.append(title);
+ for(const row of reportTopObservations(cities)){
+  const card=make('div','report-insight-card');card.append(make('h5','',row.city));
+  if(!row.observations.length){card.append(make('p','','県平均との差が1ポイント以上の対象指標はありません（または未収録）。'));}
+  for(const v of row.observations)card.append(make('p','',v.text));
+  panel.append(card);
+ }
+ panel.append(make('p','report-caveat','※ 差の大きさに基づく機械的な抽出です。良し悪しや原因を判断するものではありません。'));
+}
+function renderReportHighlights(cities){
+ const host=document.getElementById('report-highlights');host.replaceChildren();
+ for(const [k,label] of [['change','人口増減率'],['single_rate','単身世帯率'],['owner_rate','持ち家率']]){
+  const values=cities.map(c=>({name:c.name,value:reportValue(c,k)})).filter(o=>Number.isFinite(o.value));
+  if(!values.length)continue;
+  const card=make('div','report-highlight');card.append(make('h5','',label));
+  const max=Math.max(1,...values.map(o=>Math.abs(o.value)));
+  for(const item of values){
+   const row=make('div','report-highlight-row');row.append(make('span','',item.name));
+   const track=make('div','report-highlight-track');const bar=make('div','report-highlight-bar');bar.style.width=(Math.abs(item.value)/max*100).toFixed(1)+'%';track.append(bar);
+   row.append(track,make('strong','',`${item.value>0&&k==='change'?'+':''}${item.value.toFixed(1)}%`));card.append(row);
+  }
+  card.append(make('small','','棒は選択自治体間で最大の絶対値を100%とする相対表示。負値は数値の符号を参照。'));
+  host.append(card);
+ }
+}
+function renderReport(){if(!document.getElementById('report-table'))return;const host=document.getElementById('report-table');if(!reportCitiesValid()){host.replaceChildren();for(const id of ['report-highlights','report-insights','report-pref'])document.getElementById(id)?.replaceChildren();return}const cities=reportCities();const subtitle=document.getElementById('report-subtitle');subtitle.textContent=cities.map(c=>c.name).join(' ／ ');document.getElementById('report-date').textContent=new Date().toLocaleDateString('ja-JP');
+ const table=document.createElement('table');table.className='report-data';const thead=document.createElement('thead'),head=document.createElement('tr');for(const s of ['指標',...cities.map(c=>c.name)]){const th=document.createElement('th');th.textContent=s;head.append(th)}thead.append(head);table.append(thead);const tbody=document.createElement('tbody');
+ for(const section of reportSections){const group=document.createElement('tr');group.className='report-group';const th=document.createElement('th');th.colSpan=cities.length+1;th.textContent=section.heading;group.append(th);tbody.append(group);for(const [k,label] of section.metrics){const tr=document.createElement('tr');const metricName=document.createElement('th');metricName.scope='row';metricName.textContent=label;tr.append(metricName);for(const city of cities){const cell=document.createElement('td');cell.textContent=reportFormat(city,k);tr.append(cell)}tbody.append(tr)}}table.append(tbody);host.replaceChildren(table);
+ // 県全体の参考値と割合指標の差（pt）を表の後半に追加
+ const prefSection=make('section','report-pref-section');prefSection.append(make('h4','','愛知県全体との比較（差：ポイント）'));
+ const prefTable=make('table','report-data');const hd=make('tr');for(const h of ['指標','愛知県全体',...cities.map(c=>c.name)])hd.append(make('th','',h));prefTable.append(hd);
+ for(const [k,label] of [['change','人口増減率'],['single_rate','単身世帯率'],['under18_households_rate','18歳未満がいる世帯率'],['owner_rate','持ち家率'],['apartment_rate','共同住宅率'],['elderly_single_rate','高齢単身世帯率'],['elderly_owner_rate','高齢者世帯の持ち家率']]){
+  const r=make('tr');r.append(make('th','',label));const pv=reportPrefValue(k);r.append(make('td','',Number.isFinite(pv)?pv.toFixed(1)+'%':'未収録'));
+  for(const city of cities){const d=reportDiff(city,k);r.append(make('td','',Number.isFinite(d)?(d>=0?'+':'')+d.toFixed(1)+' pt':'未収録'));}prefTable.append(r);
+ }
+ prefSection.append(prefTable);document.getElementById('report-pref').replaceChildren(prefSection);
+ renderReportHighlights(cities);renderReportInsights(cities);
+}
+
