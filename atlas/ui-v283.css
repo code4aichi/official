@@ -1,0 +1,69 @@
+/* MIERU AICHI 2.8.3 responsive controls. Loaded AFTER all older styles. */
+body:has(.v283-mode) .workspace,body:has(.v283-mode) .workspace *{box-sizing:border-box}
+body:has(.v283-mode) .workspace{grid-template-columns:minmax(0,1.75fr) minmax(360px,1fr);gap:14px;min-width:0}
+body:has(.v283-mode) .map-column,body:has(.v283-mode) .info-column{min-width:0}
+.v283-mode{padding:9px 12px 11px;background:#fff;border:1px solid #dbe7f0;border-radius:14px;margin-bottom:8px;flex:0 0 auto}
+.v283-mode label{display:block;font-size:12px;font-weight:750;color:#254661}
+.v283-mode-select{display:block;appearance:auto!important;width:100%;max-width:100%;margin-top:6px;font:inherit;font-weight:700;font-size:15px;min-height:42px;padding:8px 10px;border:1px solid #a8c1d3;border-radius:9px;color:#173d61;background:#f5fbff}
+.workspace-nav.v283-hidden-nav{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;border:0!important;opacity:0!important;overflow:hidden!important;clip-path:inset(50%)!important;pointer-events:none!important}
+body:has(.v283-mode) .info-column{display:flex;flex-direction:column;min-height:0}
+body:has(.v283-mode) .info-column>.detail,body:has(.v283-mode) #tools{flex:1 1 auto;min-height:0;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain}
+body:has(.v283-mode) .info-column .metric-grid,body:has(.v283-mode) .info-column .extra-stats{grid-template-columns:1fr!important;min-width:0}
+body:has(.v283-mode) .info-column :is(.metric-card,.extra-stat,.active-metric-card,.insight-card){position:relative;min-height:max-content;flex-shrink:0}
+body:has(.v283-mode) .info-column :is(input,select,button){max-width:100%;min-width:0}
+/* Compact external data tabs */
+.v283-external-controls{position:sticky;top:-11px;z-index:5;background:#fff;padding:9px 0 10px;margin-bottom:8px;border-bottom:1px solid #e1e9f0}
+.v283-stat-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+.v283-stat-tab{border:1px solid #b9cedf;background:#f5f9fc;border-radius:9px;min-height:39px;padding:8px 5px;font-size:12px;font-weight:700;cursor:pointer;color:#28506c;white-space:normal}
+.v283-stat-tab[aria-selected="true"]{background:#0d4976;color:#fff;border-color:#0d4976}
+.v283-stat-tab:focus-visible,.v283-mode-select:focus-visible{outline:3px solid #71bedc;outline-offset:2px}
+.v283-stat-view[hidden]{display:none!important}
+.v283-stat-view{min-width:0;max-width:100%;padding-bottom:12px}
+.v283-stat-view :is(.industry-sector,.economic-analysis,.economic-bars,.industry-sector-bars){min-width:0;max-width:100%}
+.v283-stat-view .external-stat-list{display:grid;gap:5px;min-width:0}
+.v283-stat-view .external-stat-item{flex:0 0 auto;min-width:0;max-width:100%;min-height:37px;padding:7px 10px}
+.v283-stat-view .external-stat-item[hidden]{display:none!important}
+.v283-list-tools{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:10px 0}
+.v283-list-search{flex:1 1 140px;width:100%;min-height:40px;border:1px solid #a8c1d3;border-radius:8px;padding:7px 9px;font-size:14px}
+.v283-list-count{font-size:11px;color:#526779}
+.v283-list-more{width:100%;margin:9px 0;padding:9px;border:1px solid #b3cada;background:#f2f8fc;color:#1d5074;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer}
+body:has(.v283-mode) .info-column :is(.economic-summary,.report-controls,.industry-sector-controls,.discovery-controls){grid-template-columns:1fr!important}
+body:has(.v283-mode) .info-column :is(.economic-stat,.economic-bar,.industry-sector-line){min-width:0;max-width:100%;overflow-wrap:anywhere}
+body:has(.v283-mode) .info-column :is(table,pre){max-width:100%;overflow-x:auto}
+/* Tablet and mobile: map and controls must never squeeze into narrow side columns */
+@media(max-width:1020px){
+ body:has(.v283-mode) .workspace{display:flex!important;flex-direction:column!important;gap:12px}
+ body:has(.v283-mode) .map-column{position:relative!important;top:auto!important;height:auto!important;min-height:0!important;max-height:none!important;overflow:visible!important;width:100%!important;z-index:auto!important}
+ body:has(.v283-mode) .map-column .map-stage{min-height:400px!important;height:clamp(400px,55vw,620px)!important;flex:none!important}
+ body:has(.v283-mode) .map-column .map-view{min-height:0!important;height:100%!important;width:100%!important}
+ body:has(.v283-mode) .info-column{width:100%!important;height:auto!important;min-height:0!important;overflow:visible!important;display:flex!important}
+ body:has(.v283-mode) .info-column>.detail,body:has(.v283-mode) #tools{height:auto!important;max-height:none!important;overflow:visible!important;flex:none!important}
+ body:has(.v283-mode) .info-column :is(.metric-grid,.extra-stats){grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .v283-stat-tabs{grid-template-columns:repeat(4,minmax(0,1fr))}
+ .v283-external-controls{position:relative;top:auto}
+}
+@media(max-width:620px){
+ body:has(.v283-mode) .atlas-wrap{padding-left:10px!important;padding-right:10px!important}
+ body:has(.v283-mode) .city-picker{display:flex!important;flex-wrap:wrap!important;align-items:stretch;gap:8px;padding:10px}
+ body:has(.v283-mode) .city-picker-intro{flex:1 1 100%!important}
+ body:has(.v283-mode) .city-picker-control{flex:1 1 100%!important;min-width:0}
+ body:has(.v283-mode) .city-picker select{width:100%;max-width:100%;min-height:42px}
+ body:has(.v283-mode) .year-picker-label{flex:1 1 auto;min-width:0}
+ body:has(.v283-mode) .map-column{padding:10px!important}
+ body:has(.v283-mode) .map-column .map-heading{display:flex!important;flex-wrap:wrap}
+ body:has(.v283-mode) .map-column .metric-picker{display:grid!important;grid-template-columns:1fr!important;gap:8px!important}
+ body:has(.v283-mode) .map-column .metric-meta{display:block!important;font-size:11px}
+ body:has(.v283-mode) .map-column .map-stage{height:clamp(280px,92vw,430px)!important;min-height:280px!important}
+ body:has(.v283-mode) .map-column .map-under{display:flex!important;flex-wrap:wrap;gap:6px}
+ body:has(.v283-mode) .map-column .map-source{display:block!important}
+ body:has(.v283-mode) .info-column{gap:8px!important}
+ body:has(.v283-mode) .info-column>.detail,body:has(.v283-mode) #tools{width:100%!important;min-width:0!important;padding:12px!important}
+ body:has(.v283-mode) .info-column :is(.metric-grid,.extra-stats,.industry-sector-controls,.report-controls,.discovery-controls,.economic-summary){display:grid;grid-template-columns:1fr!important}
+ body:has(.v283-mode) .info-column :is(.report-toolbar,.report-actions,.ai-nav-input-line){display:flex;flex-wrap:wrap;gap:8px}
+ body:has(.v283-mode) .info-column :is(.discovery-chart svg,.industry-sector-bars,.economic-bars){max-width:100%;height:auto}
+ body:has(.v283-mode) .info-column :is(.comparison,.report-sheet,.report-table){max-width:100%;overflow-x:auto}
+ .v283-stat-tab{font-size:11px;min-height:38px}
+ .v283-stat-tabs{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .v283-mode{padding:9px 10px}
+}
+@media print{.v283-mode,.v283-external-controls,.v283-list-tools,.v283-list-more{display:none!important}}
