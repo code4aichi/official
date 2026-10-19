@@ -387,3 +387,16 @@ function renderReport(){if(!document.getElementById('report-table'))return;const
  renderReportHighlights(cities);renderReportInsights(cities);
 }
 
+
+// v2.4: 既存の検証済み統計計算を読み取り専用でAIナビゲーターに公開。
+window.MieruAiData = Object.freeze({
+ ready: () => municipalities.length === 54 && !!catalog,
+ municipalities: () => municipalities.map(c=>({code:c.code,name:c.name})),
+ metric: id => {const m=metricDef(id);return m?{id:m.id,label:m.label,source:m.source,description:m.description||'',unit:m.unit||'',years:m.years}:null},
+ value2025: (code,id) => {if(year!==2025)return null;const c=getCity(code);const m=metricDef(id);if(!c||!m||!m.years.includes(2025))return null;const v=value(c,id);return Number.isFinite(v)?v:null},
+ format: (value,id) => formatValue(value,id),
+ selectedCity: () => selected,
+ currentYear: () => year,
+ selectCity: code => {if(getCity(code))choose(code)},
+ selectMetric: id => {if(metricDef(id))setMetric(id)}
+});
