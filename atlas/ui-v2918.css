@@ -65,3 +65,65 @@
  #explore .v2918-controls select{min-height:44px}
 }
 @media print{#explore .v2918-header .v2918-tabs{display:none!important}#explore .v2918-shell{border:0;box-shadow:none;padding:0}}
+
+/* v2.9.18.1: prevent a legacy condition strip from remaining below the unified card.
+   Its information is already present in .v2918-controls. */
+#explore:has(#v2918-shell) > #v287-context {
+  display: none !important;
+}
+
+/* Map view retains the v2.9.6 map-driven 2-column geometry. Analytic views
+   must instead be full-width in normal document flow, with no map-height limit. */
+#explore .v2918-shell[data-v2918-view]:not([data-v2918-view="map"]) > .workspace {
+  display: block !important;
+  grid-template-columns: none !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+#explore .v2918-shell[data-v2918-view]:not([data-v2918-view="map"]) > .workspace > .map-column {
+  display: none !important;
+}
+#explore .v2918-shell[data-v2918-view]:not([data-v2918-view="map"]) > .workspace > .info-column {
+  display: block !important;
+  position: static !important;
+  float: none !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow: visible !important;
+  align-self: auto !important;
+}
+#explore .v2918-shell[data-v2918-view]:not([data-v2918-view="map"]) .info-column > .detail:not([hidden]),
+#explore .v2918-shell[data-v2918-view]:not([data-v2918-view="map"]) .info-column > #tools:not([hidden]) {
+  display: block !important;
+  position: static !important;
+  float: none !important;
+  flex: none !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+#explore .v2918-shell[data-v2918-view]:not([data-v2918-view="map"]) #tools .tool-content,
+#explore .v2918-shell[data-v2918-view]:not([data-v2918-view="map"]) #tools .tool-panel:not([hidden]) {
+  position: static !important;
+  width: 100% !important;
+  height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+#explore .v2918-shell .tool-panel[hidden],
+#explore .v2918-shell .detail[hidden],
+#explore .v2918-shell #tools[hidden] {
+  display: none !important;
+}
+#explore .v2918-shell .chart,
+#explore .v2918-shell .comparison,
+#explore .v2918-shell .comparison-bars {
+  max-width: 100%;
+  min-width: 0;
+}
