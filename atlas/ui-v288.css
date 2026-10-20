@@ -1,0 +1,13 @@
+/* v2.8.8: map, graph and statistical reading guidance */
+.v288-map-guide{margin:10px 0 6px;padding:12px 14px;border:1px solid #d5e6ef;border-radius:11px;background:#f6fbfe;color:#23445b;overflow-wrap:anywhere}
+.v288-guide-heading{display:flex;gap:8px;justify-content:space-between;align-items:baseline;flex-wrap:wrap;font-size:12px}
+.v288-guide-heading strong{font-size:13px;color:#153e61}
+.v288-guide-heading span{color:#4b687f}
+.v288-map-guide p{margin:6px 0 0;line-height:1.55;font-size:12px}
+.v288-map-guide .v288-guide-caution{font-size:11px;color:#5c7484}
+.v288-chart-guide{margin:10px 0 12px;border:1px solid #d6e6ed;border-radius:9px;background:#f8fbfd;color:#274761}
+.v288-chart-guide summary{cursor:pointer;list-style:revert;padding:10px 12px;font-weight:650;font-size:12px;min-height:42px;display:list-item;list-style-position:inside}
+.v288-chart-guide summary:focus-visible{outline:2px solid #126eab;outline-offset:2px}
+.v288-chart-guide p{margin:0;padding:0 12px 11px;line-height:1.65;font-size:12px}
+.v288-unit-reminder{margin:5px 0 11px;color:#546f82;font-size:11px;line-height:1.5}
+@media(max-width:620px){.v288-map-guide{padding:11px 12px}.v288-guide-heading{display:block}.v288-guide-heading span{display:block;margin-top:3px}.v288-chart-guide summary{font-size:13px}}
