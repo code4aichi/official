@@ -1,0 +1,101 @@
+/* MIERU AICHI v2.9.4 - desktop equal-height cards and visibly larger SVG map.
+   Overrides original workspace-ui.css fixed-height rules and v2.9.3 inline min-heights.
+   No changes to geographic coordinates, viewBox, datasets or click handlers. */
+@media (min-width:1021px) {
+  body:has(.workspace-nav) #explore .workspace {
+    --v294-card-height: clamp(700px, calc(100dvh - 95px), 900px);
+    display: grid !important;
+    grid-template-columns: minmax(0, 2.12fr) minmax(340px, .95fr) !important;
+    align-items: stretch !important;
+    gap: clamp(12px, 1.35vw, 20px) !important;
+  }
+  /* Both outer blocks share ONE actual height, not just a min-height. */
+  body:has(.workspace-nav) #explore .workspace > .map-column,
+  body:has(.workspace-nav) #explore .workspace > .info-column {
+    box-sizing: border-box !important;
+    height: var(--v294-card-height) !important;
+    min-height: 0 !important;
+    max-height: var(--v294-card-height) !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    align-self: stretch !important;
+  }
+  body:has(.workspace-nav) #explore .workspace > .map-column {
+    position: relative !important;
+    top: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 13px 16px !important;
+    overflow: hidden !important;
+  }
+  body:has(.workspace-nav) #explore .map-column .map-heading,
+  body:has(.workspace-nav) #explore .map-column .metric-picker,
+  body:has(.workspace-nav) #explore .map-column .map-under,
+  body:has(.workspace-nav) #explore .map-column .map-source {
+    flex: 0 0 auto !important;
+  }
+  body:has(.workspace-nav) #explore .map-column .map-stage {
+    display: flex !important;
+    flex: 1 1 0 !important;
+    min-height: 0 !important;
+    height: auto !important;
+    max-height: none !important;
+    width: 100% !important;
+    align-items: stretch !important;
+    overflow: hidden !important;
+  }
+  body:has(.workspace-nav) #explore #map-view {
+    display: flex !important;
+    flex: 1 1 0 !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    width: 100% !important;
+    overflow: hidden !important;
+  }
+  body:has(.workspace-nav) #explore #map-view > svg {
+    display: block !important;
+    flex: 0 0 100% !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    max-height: none !important;
+    object-fit: contain !important;
+  }
+  body:has(.workspace-nav) #explore .workspace > .info-column {
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+  body:has(.workspace-nav) #explore .info-column > :is(.workspace-nav,.v291-quick-nav,.v291-nav,.v283-purpose-navigation) {
+    flex-shrink: 0 !important;
+  }
+  /* Long statistics scroll INSIDE the right block, keeping both card bottoms aligned. */
+  body:has(.workspace-nav) #explore .info-column > .detail:not([hidden]),
+  body:has(.workspace-nav) #explore .info-column > #tools:not([hidden]) {
+    box-sizing: border-box !important;
+    display: block;
+    flex: 1 1 0 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    width: 100% !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    scrollbar-gutter: stable;
+    overscroll-behavior: contain;
+  }
+  body:has(.workspace-nav) #explore .info-column > .detail[hidden],
+  body:has(.workspace-nav) #explore .info-column > #tools[hidden] {
+    display: none !important;
+  }
+  body:has(.workspace-nav) #explore .info-column #tools > .tool-content {
+    min-width: 0;
+    max-width: 100%;
+  }
+}
+/* Existing <=1020px mobile/tablet flow is intentionally unchanged. */
