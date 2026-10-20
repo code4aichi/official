@@ -8,29 +8,74 @@
     const nav = $('.workspace-nav');
     const aside = $('.info-column');
     if (!nav || !aside || !window.MIERU_WORKSPACE) return;
+    // Purpose-first navigation. The existing workspace buttons remain the single source
+    // of mode IDs and the existing workspace controller still owns all panel state.
     const old = all('.workspace-nav-button', nav);
-    const bar = make('div', 'v283-mode');
-    const label = make('label', '', '表示する情報');
-    label.htmlFor = 'v283-mode-select';
-    const select = make('select', 'v283-mode-select');
-    select.id = 'v283-mode-select';
-    for (const button of old) {
-      const title = button.textContent.trim();
-      const option = new Option(title, button.dataset.workspace);
-      select.add(option);
+    if (!old.length) return;
+    const purposeGroups = [
+      {id:'know', name:'まちを知る', items:[
+        ['city','まちの基本情報','人口・世帯・高齢化など、選択したまちの基本情報を確認します。'],
+        ['trend','人口の推移','2015年・2020年・2025年の人口の変化を見ます。'],
+        ['story','まちの特徴を読む','選んだまちの特徴をまとめて確認します。']]},
+      {id:'compare', name:'まちを比べる', items:[
+        ['compare','2つのまちを比較','自治体を選んで数値を並べて比較します。'],
+        ['ranking','まちのランキング','選んだ統計指標で54市町村を並べ替えます。']]},
+      {id:'discover', name:'地域を深掘りする', items:[
+        ['external','産業・雇用・人口移動','経済センサスや人口移動の追加統計を調べます。'],
+        ['discovery','2つの指標で分析','散布図で自治体ごとの違いや関係を探索します。'],
+        ['challenge','地域の注目点を探す','複数の指標から地域の特徴や課題のヒントを探します。']]},
+      {id:'use', name:'結果を活用する', items:[
+        ['report','比較レポートを作成','選んだ自治体の比較レポートを作成します。'],
+        ['ai-nav','AIで地域データを調べる','質問から登録済みの地域統計を調べます。']]}
+    ];
+    const present = new Set(old.map(b=>b.dataset.workspace));
+    const groups = purposeGroups.map(g=>({...g,items:g.items.filter(i=>present.has(i[0]))})).filter(g=>g.items.length);
+    const lookup = new Map(groups.flatMap(g=>g.items.map(i=>[i[0],{group:g,...{label:i[1],description:i[2]}}])));
+    const bar = make('div', 'v283-mode v285-purpose-nav');
+    const title = make('p','v285-purpose-heading','何を調べたいですか？');
+    const fields = make('div','v285-purpose-fields');
+    const groupLabel=make('label','','目的を選ぶ');groupLabel.htmlFor='v285-purpose-select';
+    const groupSelect=make('select','v285-purpose-select');groupSelect.id='v285-purpose-select';
+    const featureLabel=make('label','','使う機能');featureLabel.htmlFor='v283-mode-select';
+    const select=make('select','v283-mode-select');select.id='v283-mode-select';
+    const description=make('p','v285-purpose-description');description.id='v285-purpose-description';
+    description.setAttribute('role','status');description.setAttribute('aria-live','polite');
+    select.setAttribute('aria-describedby', description.id);
+    for(const g of groups) groupSelect.add(new Option(g.name,g.id));
+    function populate(groupId, modeId){
+      const group=groups.find(g=>g.id===groupId)||groups[0];
+      select.replaceChildren();
+      for(const [id,label] of group.items)select.add(new Option(label,id));
+      select.value=group.items.some(i=>i[0]===modeId)?modeId:group.items[0][0];
+      description.textContent=lookup.get(select.value)?.description||'';
     }
-    select.value = (old.find(b => b.classList.contains('is-current')) || old[0]).dataset.workspace;
-    select.addEventListener('change', () => window.MIERU_WORKSPACE.open(select.value));
-    const observe = new MutationObserver(() => {
-      const active = old.find(b => b.classList.contains('is-current'));
-      if (active && select.value !== active.dataset.workspace) select.value = active.dataset.workspace;
+    const initial=(old.find(b=>b.classList.contains('is-current'))||old[0]).dataset.workspace;
+    const initialGroup=lookup.get(initial)?.group||groups[0];
+    groupSelect.value=initialGroup.id;populate(initialGroup.id,initial);
+    groupSelect.addEventListener('change',()=>{
+      populate(groupSelect.value);
+      window.MIERU_WORKSPACE.open(select.value);
     });
-    observe.observe(nav, {subtree:true, attributes:true, attributeFilter:['class']});
-    label.append(select); bar.append(label);
-    nav.parentNode.insertBefore(bar, nav);
-    nav.classList.add('v283-hidden-nav'); // original buttons remain functional for legacy JS callers
+    select.addEventListener('change',()=>{
+      description.textContent=lookup.get(select.value)?.description||'';
+      window.MIERU_WORKSPACE.open(select.value);
+    });
+    const observe = new MutationObserver(() => {
+      const active=old.find(b=>b.classList.contains('is-current'));
+      const mode=active?.dataset.workspace;
+      const entry=lookup.get(mode);
+      if(!entry)return;
+      if(groupSelect.value!==entry.group.id){groupSelect.value=entry.group.id;populate(entry.group.id,mode);}
+      else if(select.value!==mode)select.value=mode;
+      description.textContent=entry.description;
+    });
+    observe.observe(nav,{subtree:true,attributes:true,attributeFilter:['class']});
+    groupLabel.append(groupSelect);featureLabel.append(select);
+    fields.append(groupLabel,featureLabel);bar.append(title,fields,description);
+    nav.parentNode.insertBefore(bar,nav);
+    nav.classList.add('v283-hidden-nav');
     nav.setAttribute('aria-hidden','true');
-    old.forEach(b => { b.tabIndex=-1; });
+    old.forEach(b=>{b.tabIndex=-1;});
 
     // Replace never-ending external statistics column with four focused views.
     const panel = $('#panel-external');
