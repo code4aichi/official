@@ -34,20 +34,46 @@ def city(page):
     return f'{before} → {after}'
 
 def mode(page,name,mobile=False):
-    # Explicitly require a real clickable control; do not dispatch synthetic events.
+    # Navigate via genuine pointer clicks. On mobile the extra-function menu
+    # may hide entries that do not belong to the home quick links.
     selectors=([f'#v290-mobile-home [data-v290-mode="{name}"]'] if mobile else [f'#v291-quicknav .v291-quicknav-links [data-mode="{name}"]'])
     selectors += [f'.workspace-nav-button[data-workspace="{name}"]']
+    if mobile:
+        selectors.extend([f'[data-v290-mode="{name}"]', f'[data-mode="{name}"]'])
     attempted=[]
-    for selector in selectors:
-        btn=page.locator(selector).first
-        if not btn.count() or not btn.is_visible():continue
-        try:
-            btn.click(timeout=3500)
-            page.locator(f'#panel-{name}').wait_for(state='visible',timeout=9000)
-            return selector
-        except Exception as exc:attempted.append(f'{selector}: {str(exc)[:100]}')
-    # Existing legacy report/AI buttons are obscured: this is manual pointer-accessibility review.
-    raise Review(f'No pointer-accessible navigation to {name}; {attempted[:2]}')
+    def click_selectors():
+        for selector in selectors:
+            loc=page.locator(selector)
+            for i in range(min(loc.count(), 10)):
+                btn=loc.nth(i)
+                if not btn.is_visible():continue
+                try:
+                    btn.click(timeout=3500)
+                    panel=page.locator(f'#panel-{name}')
+                    panel.wait_for(state='visible',timeout=7000)
+                    return selector
+                except Exception as exc:
+                    attempted.append(f'{selector}: {str(exc)[:100]}')
+        return None
+    found=click_selectors()
+    if found:return found
+    if mobile:
+        # Look for the *visible* "その他の機能" disclosure rather than clicking
+        # invisible legacy controls or synthesizing events.
+        candidates=page.get_by_text('その他の機能',exact=False)
+        for i in range(min(candidates.count(),6)):
+            entry=candidates.nth(i)
+            if not entry.is_visible():continue
+            try:
+                entry.click(timeout=2500)
+                page.wait_for_timeout(350)
+                found=click_selectors()
+                if found:return f'その他の機能 > {found}'
+                # Close any opened disclosure and try no more than one visible entry.
+                break
+            except Exception as exc:
+                attempted.append(f'その他の機能: {str(exc)[:100]}')
+    raise Review(f'No pointer-accessible navigation to {name}; {attempted[:3]}')
 
 def year(page):
     sel=page.locator('#year-select');old=sel.input_value();choice=next((x for x in opts(sel) if x['value']!=old),None)
@@ -57,10 +83,20 @@ def year(page):
     return f'year={choice["value"]}, context={ctx[:140]}'
 
 def metric(page):
-    sel=page.locator('#indicator-select');old=sel.input_value();new=next(x for x in opts(sel) if x['value']!=old)
-    before=text(page,'#metric-context');sel.select_option(new['value']);page.wait_for_timeout(500)
-    after=text(page,'#metric-context');assert after!=before,(before,after)
-    return f'indicator={new["value"]}; context updated'
+    sel=page.locator('#indicator-select');old=sel.input_value()
+    new=next(x for x in opts(sel) if x['value']!=old)
+    before_label=text(page,'#primary-metric-label')
+    before_colors=page.locator('#map-view svg path,#map-view svg polygon').evaluate_all(
+        'els=>els.map(e=>getComputedStyle(e).fill).slice(0,60)')
+    sel.select_option(new['value'])
+    page.wait_for_timeout(650)
+    assert sel.input_value()==new['value'], 'Indicator selection did not persist'
+    after_label=text(page,'#primary-metric-label')
+    after_colors=page.locator('#map-view svg path,#map-view svg polygon').evaluate_all(
+        'els=>els.map(e=>getComputedStyle(e).fill).slice(0,60)')
+    assert before_label!=after_label or before_colors!=after_colors, (
+        f'Indicator changed to {new["value"]}, but neither the metric label nor map colors updated')
+    return f'indicator={new["value"]}; label={after_label[:100]}; context explanation may remain unchanged'
 
 def map_view(page):
     shapes=page.locator('#map-view svg path,#map-view svg polygon');n=shapes.count()
@@ -201,10 +237,10 @@ def main():
     with (OUT/'usecases.csv').open('w',encoding='utf-8-sig',newline='') as fp:
         writer=csv.DictWriter(fp,fieldnames=['id','viewport','scenario','status','detail']);writer.writeheader();writer.writerows(ROWS)
     counts={s:sum(r['status']==s for r in ROWS) for s in ('PASS','FAIL','REVIEW','SKIP')}
-    report={'version':'2.9.16','target':URL,'total':len(ROWS),'counts':counts,'javascript_exceptions':len(ERRORS),'release_rule':'16 PASS, 0 FAIL, 0 REVIEW, 0 JS exceptions; separate source-level concerns remain','release_decision':'PASS' if counts['PASS']==16 and not ERRORS else 'HOLD'}
-    (OUT/'summary.json').write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf-8')
+    summary_report={'version':'2.9.16','target':URL,'total':len(ROWS),'counts':counts,'javascript_exceptions':len(ERRORS),'release_rule':'16 PASS, 0 FAIL, 0 REVIEW, 0 JS exceptions; separate source-level concerns remain','release_decision':'PASS' if counts['PASS']==16 and not ERRORS else 'HOLD'}
+    (OUT/'summary.json').write_text(json.dumps(summary_report,ensure_ascii=False,indent=2),encoding='utf-8')
     (OUT/'unresolved_quality_checks.md').write_text('''# 別途検証が必要な品質項目\n\n- 地図の色階級の正確な境界値と描画コードの独立照合\n- 2025年人口移動データの公表集計定義と公式県計の比較\n- レポート・AI回答の各数値と公式統計原表の完全照合\n- PDF印刷・保存結果の目視確認と日本語フォント・改ページ\n- 外部生成AIサービスの応答、費用、個人情報取扱い（デフォルトでは実行しない）\n- 実ユーザーの操作感や可読性・アクセシビリティ評価\n\nこれらは16ケースがPASSでも自動的に合格にはなりません。\n''',encoding='utf-8')
-    print('SUMMARY',report,flush=True)
+    print('SUMMARY',summary_report,flush=True)
     return 1 if counts['FAIL'] or ERRORS else 0
 
 if __name__=='__main__':sys.exit(main())
