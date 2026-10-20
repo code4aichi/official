@@ -1,0 +1,20 @@
+/* MIERU AICHI v2.8.7: shared condition summary. No controls are duplicated. */
+.v287-context{box-sizing:border-box;margin:10px 0 13px;padding:12px 15px;border:1px solid #c8dfea;border-radius:12px;background:#f7fbfe;color:#163a56}
+.v287-context *{box-sizing:border-box}
+.v287-context-title{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:8px}
+.v287-context-title strong{font-size:13px;font-weight:800}
+.v287-context-title span{font-size:11px;color:#567285}
+.v287-context-values{display:grid;grid-template-columns:1fr 1fr minmax(0,1.6fr);gap:9px}
+.v287-context-values>div{min-width:0;background:#fff;border:1px solid #e3edf3;padding:8px 10px;border-radius:8px}
+.v287-context-values span{display:block;color:#607c8c;font-size:11px;margin-bottom:3px}
+.v287-context-values strong{display:block;font-size:13px;line-height:1.4;overflow-wrap:anywhere}
+.v287-context-note{margin:8px 0 0!important;font-size:11px!important;line-height:1.55!important;color:#536f81!important}
+.v287-context-external{border-color:#9dcad9}
+@media(max-width:620px){
+ .v287-context{padding:10px;margin:8px 0 12px}
+ .v287-context-values{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+ .v287-context-values>div:last-child{grid-column:1/-1}
+ .v287-context-values>div{padding:7px 9px}
+ .v287-context-title span{font-size:10px}
+}
+@media print{.v287-context{break-inside:avoid}}
