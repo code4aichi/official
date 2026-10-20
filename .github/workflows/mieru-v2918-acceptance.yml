@@ -1,0 +1,31 @@
+name: MIERU AICHI v2.9.18 unified workspace acceptance
+on:
+  workflow_dispatch:
+    inputs:
+      site_url:
+        description: Public Atlas URL
+        required: true
+        default: https://code4aichi.org/atlas/
+jobs:
+  acceptance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install Playwright
+        run: |
+          pip install playwright
+          python -m playwright install --with-deps chromium
+      - name: Check unified workspace
+        env:
+          MIERU_URL: ${{ inputs.site_url }}
+        run: python tests/atlas_v2918_acceptance.py
+      - name: Preserve results and screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mieru-v2918-results
+          path: atlas-v2918-results/
+          if-no-files-found: warn
