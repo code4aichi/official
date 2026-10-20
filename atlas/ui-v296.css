@@ -1,0 +1,83 @@
+/* MIERU AICHI v2.9.6 : Map-first desktop layout.
+   The actual SVG aspect ratio determines the map height. No cropping/scaling transform.
+   The information column tracks the map column measured height (see ui-v296.js). */
+@media (min-width: 1021px) {
+  body:has(.workspace-nav) #explore .workspace {
+    display: grid !important;
+    grid-template-columns: minmax(0, 2.25fr) minmax(305px, .95fr) !important;
+    align-items: start !important;
+    gap: clamp(12px, 1.2vw, 18px) !important;
+    min-width: 0 !important;
+  }
+  body:has(.workspace-nav) #explore .workspace > .map-column {
+    position: relative !important;
+    top: auto !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    align-self: start !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: visible !important;
+    padding: 12px 14px !important;
+    min-width: 0 !important;
+  }
+  body:has(.workspace-nav) #explore .map-column .map-stage {
+    display: block !important;
+    flex: none !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: visible !important;
+    margin: 8px 0 !important;
+  }
+  body:has(.workspace-nav) #explore #map-view {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    flex: none !important;
+    overflow: visible !important;
+  }
+  body:has(.workspace-nav) #explore #map-view > svg {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-width: 100% !important;
+    max-height: none !important;
+    flex: none !important;
+    transform: none !important;
+    transform-origin: initial !important;
+    object-fit: contain !important;
+    overflow: visible !important;
+  }
+  /* The sidebar cannot define the grid row height. Its interior scrolls instead. */
+  body:has(.workspace-nav) #explore .workspace > .info-column {
+    height: var(--v296-map-card-height, 660px) !important;
+    min-height: 0 !important;
+    max-height: var(--v296-map-card-height, 660px) !important;
+    align-self: start !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    min-width: 0 !important;
+  }
+  body:has(.workspace-nav) #explore .info-column > .detail:not([hidden]),
+  body:has(.workspace-nav) #explore .info-column > #tools:not([hidden]) {
+    flex: 1 1 0 !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    overscroll-behavior: contain;
+  }
+}
+/* Maintain the previously approved mobile flow without map zoom overrides. */
+@media (max-width: 1020px) {
+  #explore #map-view > svg {
+    transform: none !important;
+  }
+}
