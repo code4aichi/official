@@ -1,0 +1,42 @@
+name: MIERU AICHI v2.9.17 navigation acceptance (read-only)
+on:
+  workflow_dispatch:
+    inputs:
+      site_url:
+        description: Public site URL
+        required: true
+        default: https://code4aichi.org/atlas/
+permissions:
+  contents: read
+jobs:
+  acceptance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Playwright
+        run: |
+          python -m pip install playwright==1.55.0
+          python -m playwright install --with-deps chromium
+      - name: Test actual v2.9.17 navigation buttons
+        id: test
+        continue-on-error: true
+        env:
+          MIERU_URL: ${{ inputs.site_url }}
+        run: python tests/atlas_v2917_navigation_acceptance.py
+      - name: Upload detailed acceptance evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mieru-v2917-navigation-results
+          path: atlas-v2917-navigation-results/
+          if-no-files-found: warn
+          retention-days: 14
+      - name: Mark failure when checks do not pass
+        if: always()
+        env:
+          OUTCOME: ${{ steps.test.outcome }}
+        run: test "$OUTCOME" = "success"
