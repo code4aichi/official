@@ -11,7 +11,7 @@ permissions:
 jobs:
   check-ui:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -21,10 +21,18 @@ jobs:
         run: |
           python -m pip install playwright==1.55.0
           python -m playwright install --with-deps chromium
-      - name: Test the deployed site without modifying it
+      - name: Basic layout and navigation checks
+        id: smoke
+        continue-on-error: true
         env:
           MIERU_URL: ${{ inputs.site_url }}
         run: python tests/ui_smoke.py
+      - name: Data-linked interaction checks
+        id: interaction
+        continue-on-error: true
+        env:
+          MIERU_URL: ${{ inputs.site_url }}
+        run: python tests/ui_interaction.py
       - name: Upload screenshots and test results
         if: always()
         uses: actions/upload-artifact@v4
@@ -33,3 +41,12 @@ jobs:
           path: ui-test-results/
           retention-days: 14
           if-no-files-found: warn
+      - name: Mark failure if any test suite failed
+        if: always()
+        env:
+          SMOKE: ${{ steps.smoke.outcome }}
+          INTERACTION: ${{ steps.interaction.outcome }}
+        run: |
+          echo "Layout tests: $SMOKE"
+          echo "Interaction tests: $INTERACTION"
+          test "$SMOKE" = "success" && test "$INTERACTION" = "success"
