@@ -1,0 +1,30 @@
+/* v2.9.19.3: single authoritative, non-overlapping Map / Basic views. */
+#explore #v2918-shell .v2918-controls.v29193-controls {display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:12px!important;align-items:end!important;width:100%!important}
+#explore #v2918-shell .v29193-controls .city-picker{display:contents!important}
+#explore #v2918-shell .v29193-controls .city-picker-control{grid-column:1!important;grid-row:1!important}
+#explore #v2918-shell .v29193-controls .year-picker-label{grid-column:2!important;grid-row:1!important}
+#explore #v2918-shell .v29193-controls .metric-picker{display:contents!important}
+#explore #v2918-shell .v29193-controls .metric-picker>label:first-child{grid-column:3!important;grid-row:1!important}
+#explore #v2918-shell .v29193-controls .metric-picker>label:nth-child(2){grid-column:4!important;grid-row:1!important}
+#explore #v2918-shell .v29193-controls .city-picker-count{display:none!important}
+#explore #v2918-shell .v29193-controls #data-error:not([hidden]){grid-column:1/-1!important;grid-row:2!important}
+/* Map tab always owns the live map. Basic tab contains only detailed facts. */
+body #explore #v2918-shell[data-v2918-view="map"]>.workspace{display:grid!important;grid-template-columns:minmax(0,1.25fr) minmax(320px,.75fr)!important;gap:14px!important;align-items:start!important;min-height:500px!important;overflow:visible!important}
+body #explore #v2918-shell[data-v2918-view="map"]>.workspace>.map-column{display:block!important;visibility:visible!important;position:relative!important;width:100%!important;min-height:460px!important;max-height:none!important;overflow:visible!important}
+body #explore #v2918-shell[data-v2918-view="map"] .map-stage{display:block!important;visibility:visible!important;min-height:380px!important;height:auto!important;overflow:visible!important}
+body #explore #v2918-shell[data-v2918-view="map"] #map-view{display:flex!important;visibility:visible!important;width:100%!important;min-height:370px!important;height:auto!important;align-items:center!important;justify-content:center!important;overflow:visible!important}
+body #explore #v2918-shell[data-v2918-view="map"] #map-view svg{display:block!important;visibility:visible!important;width:100%!important;height:auto!important;max-height:580px!important;object-fit:contain!important}
+body #explore #v2918-shell[data-v2918-view="map"]>.workspace>.info-column{display:block!important;visibility:visible!important;min-width:0!important;width:100%!important}
+body #explore #v2918-shell[data-v2918-view="basic"]>.workspace{display:block!important;min-height:0!important;height:auto!important;overflow:visible!important}
+body #explore #v2918-shell[data-v2918-view="basic"]>.workspace>.map-column{display:none!important}
+body #explore #v2918-shell[data-v2918-view="basic"]>.workspace>.info-column{display:block!important;width:100%!important;min-height:0!important;height:auto!important;overflow:visible!important}
+body #explore #v2918-shell[data-v2918-view="basic"] .info-column>.detail:not([hidden]){display:block!important;width:100%!important;height:auto!important;max-height:none!important;overflow:visible!important}
+body #explore #v2918-shell[data-v2918-view="basic"] .v29191-map-inset,
+body #explore #v2918-shell[data-v2918-view="basic"] .v2919-basic-reference,
+body #explore #v2918-shell[data-v2918-view="basic"] .detail>.metric-grid,
+body #explore #v2918-shell[data-v2918-view="basic"] .detail>.active-metric-card{display:none!important}
+body #explore #v2918-shell[data-v2918-view="basic"] .detail>.detail-section-control,
+body #explore #v2918-shell[data-v2918-view="basic"] .detail>.city-detail-content{width:100%!important;max-width:none!important;grid-column:auto!important}
+@media(max-width:1050px){#explore #v2918-shell .v2918-controls.v29193-controls{grid-template-columns:repeat(2,minmax(0,1fr))!important}#explore #v2918-shell .v29193-controls .metric-picker>label:first-child{grid-column:1!important;grid-row:2!important}#explore #v2918-shell .v29193-controls .metric-picker>label:nth-child(2){grid-column:2!important;grid-row:2!important}}
+@media(max-width:900px){body #explore #v2918-shell[data-v2918-view="map"]>.workspace{display:flex!important;flex-direction:column!important;min-height:0!important}body #explore #v2918-shell[data-v2918-view="map"]>.workspace>.map-column,body #explore #v2918-shell[data-v2918-view="map"]>.workspace>.info-column{width:100%!important}body #explore #v2918-shell[data-v2918-view="map"] #map-view{min-height:280px!important}}
+@media(max-width:540px){#explore #v2918-shell .v2918-controls.v29193-controls{grid-template-columns:minmax(0,1fr)!important}#explore #v2918-shell .v29193-controls .city-picker-control{grid-column:1!important;grid-row:1!important}#explore #v2918-shell .v29193-controls .year-picker-label{grid-column:1!important;grid-row:2!important}#explore #v2918-shell .v29193-controls .metric-picker>label:first-child{grid-column:1!important;grid-row:3!important}#explore #v2918-shell .v29193-controls .metric-picker>label:nth-child(2){grid-column:1!important;grid-row:4!important}}
