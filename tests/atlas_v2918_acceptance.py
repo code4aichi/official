@@ -41,6 +41,26 @@ def verify(page,device):
             page.locator('#'+panel).wait_for(state='visible',timeout=10000)
             return f'{panel} visible'
         case(device,mode+' tab',go)
+    def no_legacy_overlay():
+        el=page.locator('#explore > #v287-context')
+        assert not el.count() or not el.is_visible(), 'Old viewing conditions remain below unified card'
+        return 'No duplicate current-conditions strip'
+    case(device,'No duplicate conditions',no_legacy_overlay)
+    def ranking_containment():
+        page.locator('.v2918-tab[data-v2918-view="ranking"]').click()
+        page.locator('#panel-ranking').wait_for(state='visible',timeout=10000)
+        dimensions=page.evaluate("""() => {
+            const workspace=document.querySelector('#v2918-shell > .workspace');
+            const panel=document.querySelector('#panel-ranking');
+            const a=workspace.getBoundingClientRect(), b=panel.getBoundingClientRect();
+            return {width:a.width,panelWidth:b.width,right:a.right,panelRight:b.right,
+                    bottom:a.bottom,panelBottom:b.bottom};
+        }""")
+        assert dimensions['panelWidth'] >= dimensions['width']*0.85, str(dimensions)
+        assert dimensions['panelRight'] <= dimensions['right']+6, str(dimensions)
+        assert dimensions['panelBottom'] <= dimensions['bottom']+8, str(dimensions)
+        return str(dimensions)
+    case(device,'Ranking contained inside card',ranking_containment)
     def more():
         dropdown=page.locator('#v2918-shell .v2918-more > summary')
         dropdown.click()
@@ -72,5 +92,5 @@ with sync_playwright() as p:
     browser.close()
 with (OUT/'results.csv').open('w',newline='',encoding='utf-8-sig') as f:
     w=csv.DictWriter(f,fieldnames=['device','case','status','detail']);w.writeheader();w.writerows(rows)
-(OUT/'summary.json').write_text(json.dumps({'version':'2.9.18','pass':sum(r['status']=='PASS' for r in rows),'fail':sum(r['status']=='FAIL' for r in rows),'rows':len(rows)},ensure_ascii=False,indent=2),encoding='utf-8')
+(OUT/'summary.json').write_text(json.dumps({'version':'2.9.18.1','pass':sum(r['status']=='PASS' for r in rows),'fail':sum(r['status']=='FAIL' for r in rows),'rows':len(rows)},ensure_ascii=False,indent=2),encoding='utf-8')
 raise SystemExit(1 if any(r['status']=='FAIL' for r in rows) else 0)
