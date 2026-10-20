@@ -1,0 +1,110 @@
+/* v2.9.19.1: Compact, scan-first information cards without empty map canvases.
+ * Scoped to unified workspace. No changes to actual map or statistical calculations. */
+#explore .v2918-shell.v29191-ready[data-v2918-view='basic'] .info-column>.detail {
+  display:block!important;min-height:0!important;height:auto!important;max-height:none!important;
+  padding:clamp(12px,2vw,20px)!important;
+}
+#explore .v2918-shell.v29191-ready[data-v2918-view='basic'] .detail>.detail-head {
+  display:grid!important;grid-template-columns:minmax(0,1fr) 148px!important;
+  align-items:center!important;gap:10px 18px!important;margin-bottom:12px!important;
+  padding-bottom:10px!important;border-bottom:1px solid #e3edf4;
+}
+#explore .v2918-shell.v29191-ready .detail-head>.v29191-map-inset {
+  display:block!important;position:static!important;grid-column:2!important;
+  grid-row:1!important;align-self:stretch!important;width:148px!important;max-width:100%!important;
+  padding:6px!important;margin:0!important;min-height:0!important;
+  background:#eef7fc!important;border-color:#daecf5!important;border-radius:10px!important;
+}
+#explore .v2918-shell.v29191-ready .v29191-map-inset .v2919-reference-head {font-size:10px!important;line-height:1.2!important;margin:0 0 3px!important}
+#explore .v2918-shell.v29191-ready .v29191-map-inset .v2919-reference-map {
+  height:86px!important;min-height:0!important;max-height:86px!important;
+  margin:0!important;padding:0!important;background:transparent!important;
+}
+#explore .v2918-shell.v29191-ready .v29191-map-inset .v2919-reference-map svg {
+  width:100%!important;height:100%!important;min-height:0!important;max-height:86px!important;
+  object-fit:contain!important;
+}
+#explore .v2918-shell.v29191-ready[data-v2918-view='basic'] .detail>.metric-grid {
+  display:grid!important;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr)!important;
+  align-items:stretch!important;gap:9px!important;margin-bottom:10px!important;
+}
+#explore .v2918-shell.v29191-ready[data-v2918-view='basic'] .metric-grid>.metric-card {
+  min-height:100px!important;height:auto!important;margin:0!important;padding:12px 14px!important;
+}
+#explore .v2918-shell.v29191-ready[data-v2918-view='basic'] .detail>.detail-section-control {
+  margin:0 0 9px!important;
+}
+#explore .v2918-shell.v29191-ready[data-v2918-view='basic'] .detail-section-control label {
+  margin:0!important;
+}
+#explore .v2918-shell.v29191-ready[data-v2918-view='basic'] .detail-section-control select {
+  min-height:36px!important;height:36px!important;
+}
+#explore .v2918-shell.v29191-ready[data-v2918-view='basic'] .detail>.city-detail-content {margin:0!important}
+#explore .v2918-shell.v29191-ready[data-v2918-view='basic'] #city-pane-overview:not([hidden]) {
+  display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1.35fr)!important;
+  gap:10px!important;align-items:stretch!important;
+}
+#explore .v2918-shell.v29191-ready[data-v2918-view='basic'] #city-pane-overview .insight-card {
+  margin:0!important;padding:12px!important;height:100%!important;min-width:0;
+}
+#explore .v2918-shell.v29191-ready[data-v2918-view='basic'] #city-pane-overview .extra-stats {
+  display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:8px!important;margin:0!important;min-width:0;
+}
+#explore .v2918-shell.v29191-ready[data-v2918-view='basic'] #city-pane-overview .extra-stat {
+  margin:0!important;padding:12px!important;min-width:0;
+}
+#explore .v2918-shell.v29191-ready[data-v2918-view='basic'] .detail>.active-metric-card {
+  margin-top:9px!important;min-height:0!important;padding:10px 12px!important;
+}
+#explore .v2918-shell.v29191-ready[data-v2918-view='basic'] .detail>.detail-actions {
+  margin-top:9px!important;min-height:0!important;
+}
+/* The large cloned map below the comparison chart repeated what the map tab already shows. */
+#explore .v2918-shell.v29191-ready #panel-compare .v29191-compare-note {
+  display:flex!important;align-items:center!important;gap:10px!important;
+  padding:9px 12px!important;margin:10px 0 0!important;
+  border-radius:8px!important;background:#f4f9fc!important;
+}
+#explore .v2918-shell.v29191-ready #panel-compare .v29191-compare-note .v2919-reference-head,
+#explore .v2918-shell.v29191-ready #panel-compare .v29191-compare-note .v2919-reference-selection {
+  display:block!important;grid-column:auto!important;grid-row:auto!important;margin:0!important;
+  font-size:11px!important;line-height:1.5!important;
+}
+#explore .v2918-shell.v29191-ready #panel-discovery .v29191-discovery-note {
+  padding:9px 11px!important;margin:8px 0!important;
+  grid-template-columns:1fr 115px!important;min-height:0!important;
+}
+#explore .v2918-shell.v29191-ready #panel-discovery .v29191-discovery-note .v2919-reference-map {
+  min-height:75px!important;height:75px!important;max-height:75px!important;
+}
+#explore .v2918-shell.v29191-ready #panel-discovery .v29191-discovery-note .v2919-reference-map svg {
+  min-height:0!important;max-height:75px!important;
+}
+@media(max-width:690px){
+  #explore .v2918-shell.v29191-ready[data-v2918-view='basic'] .detail>.detail-head {
+    grid-template-columns:minmax(0,1fr) 118px!important;gap:10px!important;
+  }
+  #explore .v2918-shell.v29191-ready .detail-head>.v29191-map-inset {width:118px!important}
+  #explore .v2918-shell.v29191-ready .v29191-map-inset .v2919-reference-map,
+  #explore .v2918-shell.v29191-ready .v29191-map-inset .v2919-reference-map svg {height:72px!important;max-height:72px!important}
+  #explore .v2918-shell.v29191-ready[data-v2918-view='basic'] #city-pane-overview:not([hidden]) {
+    display:block!important;
+  }
+  #explore .v2918-shell.v29191-ready[data-v2918-view='basic'] #city-pane-overview .extra-stats {
+    margin-top:8px!important;
+  }
+}
+@media(max-width:440px){
+  #explore .v2918-shell.v29191-ready[data-v2918-view='basic'] .detail>.metric-grid {
+    grid-template-columns:minmax(0,1fr) minmax(0,.82fr)!important;
+  }
+  #explore .v2918-shell.v29191-ready[data-v2918-view='basic'] .metric-grid>.metric-card {
+    padding:10px!important;min-height:92px!important;
+  }
+  #explore .v2918-shell.v29191-ready[data-v2918-view='basic'] .metric-grid .number {font-size:clamp(22px,6vw,30px)!important}
+  #explore .v2918-shell.v29191-ready[data-v2918-view='basic'] #city-pane-overview .extra-stats {
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+}
