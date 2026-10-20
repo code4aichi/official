@@ -1,0 +1,43 @@
+name: MIERU AICHI deep data and UI audit (read-only)
+on:
+  workflow_dispatch:
+    inputs:
+      site_url:
+        description: 'Deployed atlas URL'
+        type: string
+        required: true
+        default: 'https://code4aichi.org/atlas/'
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      MIERU_URL: ${{ inputs.site_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Playwright Chromium
+        run: |
+          python -m pip install 'playwright>=1.52,<2'
+          python -m playwright install --with-deps chromium
+      - name: Check map, external statistics, exports and specialization
+        id: deep
+        continue-on-error: true
+        run: python tests/atlas_deep_audit.py
+      - name: Upload audit results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mieru-deep-data-ui-results
+          path: deep-audit-results/
+          retention-days: 14
+          if-no-files-found: warn
+      - name: Fail only on confirmed checks failing
+        if: always()
+        env:
+          STATUS: ${{ steps.deep.outcome }}
+        run: test "$STATUS" = success
