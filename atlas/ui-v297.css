@@ -1,0 +1,47 @@
+/* MIERU AICHI v2.9.7: external statistics only. The map-driven layout
+   (ui-v296.css / ui-v296.js) is deliberately untouched. */
+#panel-external.v297-external{min-width:0}
+#panel-external.v297-external .v283-stat-tabs{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:6px;margin:7px 0 0;
+}
+#panel-external.v297-external .v283-stat-tab{
+  min-width:0;min-height:42px;padding:7px 5px;
+  font-size:12px;line-height:1.3;text-align:center;
+}
+#panel-external.v297-external .v297-guide-compact{
+  padding:8px 10px;margin:7px 0 10px;
+  background:#f3f9fd;border-color:#d4e6ef;
+}
+#panel-external.v297-external .v289-guide-top{
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:3px 8px;
+}
+#panel-external.v297-external .v289-guide-title{font-size:13px;line-height:1.35}
+#panel-external.v297-external .v289-guide-year{font-size:11px;line-height:1.4}
+#panel-external.v297-external .v289-guide-city{
+  border:0;margin:3px 0 0;padding:0;font-size:11px;line-height:1.4;
+}
+#panel-external.v297-external .v297-guide-details{
+  border-top:1px solid #dbe8f0;margin-top:6px;padding-top:5px;
+  color:#35566b;
+}
+#panel-external.v297-external .v297-guide-details summary{
+  cursor:pointer;font-size:11px;font-weight:600;line-height:1.5;
+  min-height:24px;list-style-position:inside;
+}
+#panel-external.v297-external .v297-guide-details summary:focus-visible{
+  outline:2px solid #1976ad;outline-offset:2px;
+}
+#panel-external.v297-external .v297-guide-details .v289-guide-desc{
+  margin:6px 0 2px;font-size:12px;line-height:1.6;
+}
+#panel-external.v297-external .v283-stat-view{min-width:0;max-width:100%}
+#panel-external.v297-external .v283-stat-view label,
+#panel-external.v297-external .v283-stat-view input,
+#panel-external.v297-external .v283-stat-view select{max-width:100%;min-width:0}
+#panel-external.v297-external .v283-stat-view[hidden]{display:none!important}
+@media(max-width:620px){
+  #panel-external.v297-external .v283-stat-tab{min-height:44px}
+  #panel-external.v297-external .v297-guide-details summary{min-height:36px;display:flex;align-items:center}
+}
