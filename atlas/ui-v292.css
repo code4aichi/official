@@ -1,0 +1,42 @@
+/* MIERU AICHI v2.9.2: simplify visual hierarchy, retain all source material. */
+.v292-disclosure{border:1px solid #d7e7ef;border-radius:9px;background:#f7fbfd;color:#214b67;padding:0;margin:8px 0;min-width:0}
+.v292-disclosure>summary{cursor:pointer;list-style-position:inside;padding:10px 12px;font-size:12px;font-weight:700;line-height:1.5;min-height:42px}
+.v292-disclosure>summary:focus-visible{outline:3px solid #48a5ce;outline-offset:2px}
+.v292-disclosure[open]>summary{border-bottom:1px solid #d7e7ef}
+.v292-disclosure>p,.v292-disclosure>#v288-legend-note{margin:10px 12px!important;max-width:none}
+#v292-map-explanation #v288-legend-note{border:0!important;box-shadow:none!important;padding:0!important;background:transparent!important}
+#v292-map-explanation .v288-guide-heading{margin-bottom:4px}
+#guide #v292-guide-toggle{grid-column:1/-1}
+#guide #v292-guide-toggle p{line-height:1.65}
+/* The upper conditions are already editable in the row immediately above. */
+.v287-context{padding:7px 10px!important;margin:6px 0 10px!important}
+.v287-context-title{margin-bottom:3px!important}
+.v287-context-title>span{font-size:10px!important}
+.v287-context-values{gap:5px!important}
+.v287-context-values>div{padding:4px 8px!important}
+.v287-context-values span{font-size:10px!important}
+.v287-context-values strong{font-size:12px!important}
+.v287-context-note{margin:3px 0 0!important;font-size:10px!important;line-height:1.4!important}
+/* Avoid a second very large card for precisely the same data. */
+.active-metric-card.v292-exact-duplicate{display:none!important}
+.map-column .map-under{margin-bottom:4px!important}
+.map-column .map-source{margin:6px 0!important}
+.info-column .detail-head{margin-bottom:7px!important}
+.info-column .metric-grid{gap:7px!important}
+.info-column .detail-section-control{margin-top:8px!important}
+.v292-external .v289-stat-guide{padding:9px 11px!important;margin:6px 0!important}
+.v292-external .v289-guide-desc{line-height:1.5!important;margin:4px 0!important}
+@media(max-width:1020px){
+ /* The mobile lead summary already states the city and key indicator. */
+ .v287-context{display:none!important}
+ .v290-mobile-home{margin:8px 0 10px!important}
+ .info-column .detail-head .eyebrow{display:none}
+ .v292-disclosure>summary{min-height:44px;font-size:13px}
+}
+@media(max-width:620px){
+ .map-column .metric-context{margin:4px 0!important}
+ .map-column .metric-meta{margin:4px 0!important}
+ .v290-mobile-home{gap:8px!important}
+ .v292-disclosure>summary{padding:11px 12px}
+}
+@media print{.v292-disclosure{break-inside:avoid}}
