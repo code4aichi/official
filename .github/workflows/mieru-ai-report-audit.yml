@@ -1,0 +1,48 @@
+name: MIERU AICHI AI and report audit (read-only)
+on:
+  workflow_dispatch:
+    inputs:
+      site_url:
+        description: 'Public site URL'
+        required: true
+        default: 'https://code4aichi.org/atlas/'
+      test_generative_ai:
+        description: 'Opt-in: invoke configured generative AI service (may incur cost)'
+        type: boolean
+        required: false
+        default: false
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Chromium and Playwright
+        run: |
+          python -m pip install playwright==1.55.0
+          python -m playwright install --with-deps chromium
+      - name: Check AI navigator and municipal reports
+        id: check
+        continue-on-error: true
+        env:
+          MIERU_URL: ${{ inputs.site_url }}
+          MIERU_TEST_GENERATIVE_AI: ${{ inputs.test_generative_ai }}
+        run: python tests/atlas_ai_report_audit.py
+      - name: Upload evidence even if tests fail
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mieru-ai-report-audit-results
+          path: ai-report-audit-results/
+          retention-days: 14
+          if-no-files-found: warn
+      - name: Fail workflow if browser tests failed
+        if: always()
+        env:
+          RESULT: ${{ steps.check.outcome }}
+        run: test "$RESULT" = "success"
