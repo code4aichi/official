@@ -1,0 +1,29 @@
+name: MIERU AICHI v2.9.19.2 live-map acceptance (read-only)
+on:
+  workflow_dispatch:
+    inputs:
+      site_url:
+        description: Public atlas URL
+        required: true
+        default: https://code4aichi.org/atlas/
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install playwright
+      - run: python -m playwright install --with-deps chromium
+      - name: Verify actual map is available in Basic tab
+        env:
+          MIERU_URL: ${{ inputs.site_url }}
+        run: python tests/atlas_v29192_acceptance.py
+      - name: Upload evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mieru-v29192-layout-results
+          path: artifacts/v29192/
+          if-no-files-found: warn
