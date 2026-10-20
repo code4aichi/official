@@ -1,0 +1,53 @@
+/* v2.9.0: fewer repeated controls, mobile-first orientation. */
+.v290-mobile-home{display:none}
+@media(min-width:1021px){
+ .v287-context{padding:8px 12px!important;margin:8px 0!important}
+ .v287-context-title{margin-bottom:3px!important}
+ .v287-context-values{gap:8px!important}
+ .v287-context-values>div{padding:5px 8px!important}
+ .v287-context-note{font-size:11px!important;line-height:1.4!important;margin:5px 0 0!important}
+}
+@media(max-width:1020px){
+ /* The leading city summary is always directly after the chooser. */
+ .v290-mobile-home{display:grid;gap:10px;padding:14px;background:#fff;border:1px solid #d5e5ee;border-radius:12px;margin:10px 0 13px;color:#173d5b;min-width:0}
+ .v290-summary-top{display:flex;gap:8px;align-items:baseline;justify-content:space-between;flex-wrap:wrap}
+ .v290-summary-top span{color:#59768b;font-size:12px}
+ .v290-summary-top strong{font-size:19px;overflow-wrap:anywhere}
+ .v290-summary-stats{display:grid;grid-template-columns:1fr auto;gap:3px 8px;align-items:baseline;padding:12px;background:#eaf7fb;border-radius:10px;min-width:0}
+ .v290-summary-stats span:first-child{font-size:12px;color:#42647c}
+ .v290-summary-stats strong{grid-column:1/-1;color:#123a65;font-size:clamp(21px,6vw,31px);font-variant-numeric:tabular-nums;line-height:1.15;overflow-wrap:anywhere}
+ .v290-summary-stats span:last-child{grid-column:1/-1;font-size:11px;color:#5a7587}
+ .v290-shortcuts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ .v290-shortcuts button,.v290-map-link{min-height:44px;border:1px solid #c0d8e8;border-radius:9px;background:#f5faff;color:#154b75;font:inherit;font-weight:700;font-size:13px;line-height:1.35;cursor:pointer;padding:10px;min-width:0;white-space:normal}
+ .v290-shortcuts button:focus-visible,.v290-map-link:focus-visible{outline:3px solid #47a7d7;outline-offset:2px}
+ .v290-map-link{background:#fff;text-align:center;width:100%}
+ /* Remove the oversized landing artwork on phones; keep the original accessible on desktop. */
+ .hero,.hero-section,.hero-banner,.main-hero{max-height:none}
+ .v287-context{padding:7px 10px!important;margin:0 0 9px!important}
+ .v287-context-title{margin:0!important}
+ .v287-context-title>span,.v287-context-values,.v287-context-note{display:none!important}
+ .v287-context-title strong{font-size:12px!important}
+ .map-column,.info-column,.workspace{min-width:0!important;max-width:100%!important}
+ .map-column{scroll-margin-top:12px}
+ .info-column{scroll-margin-top:12px}
+ .info-column .detail{scroll-margin-top:12px}
+ /* Avoid showing the floating jump CTA when a summary with direct navigation is already available. */
+ .v286-city-jump{display:none!important}
+ .workspace-nav{min-width:0}
+}
+@media(max-width:620px){
+ /* Hide the decorative hero, not the site heading, selection or essential information. */
+ main :is(.hero,.hero-section,.hero-banner) img[src*="mieru-hero"]{display:none!important}
+ .v290-mobile-home{padding:12px}
+ .v290-shortcuts button{font-size:12px}
+ .map-column .map-stage{max-width:100%!important}
+}
+@media print{.v290-mobile-home{display:none!important}}
+@media(max-width:620px){
+ /* Actual current hero markup is .intro--poster, not .hero. */
+ .intro--poster .intro-image{display:none!important}
+ .intro--poster .intro-art{min-height:0!important;padding:0!important;margin:0!important}
+ .intro--poster .intro-bottom{padding-block:7px!important}
+ .intro--poster .intro-sub{display:none}
+ .atlas-heading{margin-top:6px!important}
+}
