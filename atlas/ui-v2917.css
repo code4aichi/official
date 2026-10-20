@@ -1,0 +1,11 @@
+/* v2.9.17: only the expandable navigation items. No map/card sizing changes. */
+#v2917-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:9px 0 12px;min-width:0}
+#v2917-actions .v2917-action{appearance:none;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:4px;box-sizing:border-box;min-width:0;min-height:58px;width:100%;padding:11px 12px;background:#f1f8fc;border:1px solid #bdd8e9;border-radius:10px;color:#173d5d;cursor:pointer;text-align:left;font:inherit;white-space:normal;overflow-wrap:anywhere}
+#v2917-actions .v2917-action strong{font-size:14px;line-height:1.4;font-weight:700;color:inherit}
+#v2917-actions .v2917-action span{font-size:11px;line-height:1.4;color:#4b6e83}
+#v2917-actions .v2917-action:hover{border-color:#157eac;background:#e9f5fb}
+#v2917-actions .v2917-action.is-current{border-color:#10517f;background:#10517f;color:#fff}
+#v2917-actions .v2917-action.is-current span{color:#eaf5fb}
+#v2917-actions .v2917-action:focus-visible{outline:3px solid #42a4cf;outline-offset:3px}
+@media(max-width:600px){#v2917-actions{grid-template-columns:1fr}#v2917-actions .v2917-action{min-height:54px}}
+@media print{#v2917-actions{display:none}}
