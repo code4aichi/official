@@ -1,0 +1,65 @@
+/* MIERU AICHI 2.9.19: filter alignment and informative use of whitespace.
+   Scoped to v2918 shell. Does not resize the original map-column/map-view. */
+#explore .v2918-shell.v2919-ready .v2918-controls{display:grid!important;grid-template-columns:minmax(0,1.42fr) minmax(136px,.64fr) minmax(0,1.22fr) minmax(0,1.22fr);align-items:stretch;column-gap:12px;row-gap:8px;padding:13px 14px;position:relative}
+#explore .v2918-shell.v2919-ready .v2918-controls .city-picker{display:contents!important}
+#explore .v2918-shell.v2919-ready .v2918-controls .city-picker-control{grid-column:1;grid-row:1;min-width:0;display:flex;flex-direction:column;justify-content:end}
+#explore .v2918-shell.v2919-ready .v2918-controls .city-picker-control::before{content:'市町村を選択';display:block;font-size:11px;font-weight:700;color:#37617c;line-height:1.5;margin-bottom:6px}
+#explore .v2918-shell.v2919-ready .v2918-controls .year-picker-label{grid-column:2;grid-row:1;margin:0;min-width:0;display:flex;flex-direction:column;justify-content:end;font-size:11px;font-weight:700;color:#37617c;line-height:1.5;gap:6px}
+#explore .v2918-shell.v2919-ready .v2918-controls .metric-picker{display:contents!important}
+#explore .v2918-shell.v2919-ready .v2918-controls .metric-picker>label:first-child{grid-column:3;grid-row:1}
+#explore .v2918-shell.v2919-ready .v2918-controls .metric-picker>label:nth-child(2){grid-column:4;grid-row:1}
+#explore .v2918-shell.v2919-ready .v2918-controls .metric-picker label{display:flex;min-width:0;flex-direction:column;justify-content:end;gap:6px;font-size:11px;font-weight:700;color:#37617c;line-height:1.5;margin:0}
+#explore .v2918-shell.v2919-ready .v2918-controls select{height:44px!important;min-height:44px!important;max-height:44px!important;box-sizing:border-box!important;margin:0!important;border-radius:8px!important;font-size:13px!important;width:100%!important}
+#explore .v2918-shell.v2919-ready .v2918-controls .city-picker-count{grid-column:1/-1;grid-row:2;justify-self:start;font-size:10px;color:#47738d;padding:0;line-height:1.3;align-self:center}
+#explore .v2918-shell.v2919-ready .v2918-controls #data-error:not([hidden]){grid-column:1/-1;grid-row:3}
+/* Only the basic-information tab gets an additional content column. */
+@media (min-width:800px){
+ #explore .v2918-shell[data-v2918-view='basic'] .info-column>.detail{display:grid!important;grid-template-columns:minmax(0,1.5fr) minmax(260px,.85fr);column-gap:16px;align-items:start}
+ #explore .v2918-shell[data-v2918-view='basic'] .detail>.detail-head{grid-column:1/-1;grid-row:1}
+ #explore .v2918-shell[data-v2918-view='basic'] .detail>.v2919-basic-reference{grid-column:2;grid-row:2/span 6;align-self:stretch}
+ #explore .v2918-shell[data-v2918-view='basic'] .detail>.metric-grid,
+ #explore .v2918-shell[data-v2918-view='basic'] .detail>.detail-section-control,
+ #explore .v2918-shell[data-v2918-view='basic'] .detail>.city-detail-tabs,
+ #explore .v2918-shell[data-v2918-view='basic'] .detail>.city-detail-content,
+ #explore .v2918-shell[data-v2918-view='basic'] .detail>.active-metric-card,
+ #explore .v2918-shell[data-v2918-view='basic'] .detail>.detail-actions{grid-column:1;min-width:0}
+}
+#explore .v2919-reference{background:#f3f9fd;border:1px solid #d7e8f3;border-radius:12px;padding:15px;min-width:0;color:#123e5a}
+#explore .v2919-reference-head{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:14px}
+#explore .v2919-reference-head>span{font-size:10px;border-radius:999px;padding:5px 9px;background:#e1eff9;color:#356780;white-space:nowrap}
+#explore .v2919-reference-map{display:flex;align-items:center;justify-content:center;min-height:160px;margin-top:10px;background:linear-gradient(155deg,#e9f6fd,#ffffff);border-radius:10px;overflow:hidden;font-size:11px;text-align:center;color:#5c7d90;padding:8px}
+#explore .v2919-reference-map svg{display:block;width:100%;height:100%;max-height:240px;min-height:145px;object-fit:contain;pointer-events:none!important}
+#explore .v2919-reference-map svg *{pointer-events:none!important}
+#explore .v2919-reference-selection{font-size:12px;font-weight:600;line-height:1.65;margin:10px 0 4px;color:#12456e}
+#explore .v2919-reference-desc{font-size:11px;line-height:1.75;color:#52758a;margin:9px 0 0}
+#explore .v2919-basic-reference{display:none}
+#explore .v2918-shell[data-v2918-view='basic'] .v2919-basic-reference{display:block}
+#explore .v2919-compare-reference{margin-top:16px}
+#explore .v2919-compare-reference .v2919-reference-map{min-height:180px}
+#explore #panel-compare .v2919-compare-reference{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);column-gap:18px;align-items:center}
+#explore #panel-compare .v2919-compare-reference .v2919-reference-head{grid-column:1;grid-row:1}
+#explore #panel-compare .v2919-compare-reference .v2919-reference-selection{grid-column:1;grid-row:2}
+#explore #panel-compare .v2919-compare-reference .v2919-reference-desc{grid-column:1;grid-row:3}
+#explore #panel-compare .v2919-compare-reference .v2919-reference-map{grid-column:2;grid-row:1/span 3}
+#explore .v2919-discovery-reference{display:grid;grid-template-columns:1fr minmax(150px,.55fr);gap:6px 16px;align-items:center;margin:14px 0}
+#explore .v2919-discovery-reference .v2919-reference-head,#explore .v2919-discovery-reference .v2919-reference-desc{grid-column:1}
+#explore .v2919-discovery-reference .v2919-reference-map{grid-column:2;grid-row:1/span 2;min-height:115px;margin:0}
+#explore .v2919-discovery-reference .v2919-reference-map svg{max-height:155px;min-height:105px}
+#explore .v2919-external-note{margin:12px 0 18px;padding:13px 16px;background:#eef7fb;border-left:3px solid #2385ba;border-radius:8px;color:#18496c}
+#explore .v2919-external-note strong{font-size:13px}
+#explore .v2919-external-note p{font-size:12px;line-height:1.7;margin:5px 0 0;color:#49738e}
+#explore .v2918-shell #panel-external{max-width:100%}
+@media(max-width:1050px){
+ #explore .v2918-shell.v2919-ready .v2918-controls{grid-template-columns:minmax(0,1.1fr) minmax(120px,.65fr);gap:10px}
+ #explore .v2918-shell.v2919-ready .v2918-controls .metric-picker>label:first-child{grid-column:1;grid-row:2}
+ #explore .v2918-shell.v2919-ready .v2918-controls .metric-picker>label:nth-child(2){grid-column:2;grid-row:2}
+ #explore .v2918-shell.v2919-ready .v2918-controls .city-picker-count{grid-row:3}
+}
+@media(max-width:640px){
+ #explore .v2918-shell.v2919-ready .v2918-controls{grid-template-columns:minmax(0,1fr) minmax(100px,.65fr);padding:10px;gap:9px}
+ #explore .v2918-shell.v2919-ready .v2918-controls .metric-picker>label:first-child{grid-column:1;grid-row:2}
+ #explore .v2918-shell.v2919-ready .v2918-controls .metric-picker>label:nth-child(2){grid-column:2;grid-row:2}
+ #explore .v2919-reference{padding:11px}
+ #explore #panel-compare .v2919-compare-reference,#explore .v2919-discovery-reference{display:block}
+ #explore #panel-compare .v2919-compare-reference .v2919-reference-map{margin-top:10px}
+}
