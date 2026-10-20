@@ -1,0 +1,32 @@
+/* v2.9.19.4: restore live map in BOTH city tabs, remove duplicate headline metrics */
+#explore #v2918-shell.v2919-ready .v2918-controls {display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:12px!important;width:100%!important;align-items:end!important}
+#explore #v2918-shell.v2919-ready .v2918-controls>.city-picker,#explore #v2918-shell.v2919-ready .v2918-controls>.metric-picker{display:contents!important}
+#explore #v2918-shell.v2919-ready .v2918-controls .city-picker-control{grid-column:1!important;grid-row:1!important;width:100%!important}
+#explore #v2918-shell.v2919-ready .v2918-controls .year-picker-label{grid-column:2!important;grid-row:1!important;width:100%!important}
+#explore #v2918-shell.v2919-ready .v2918-controls .metric-picker>label:first-child{grid-column:3!important;grid-row:1!important}
+#explore #v2918-shell.v2919-ready .v2918-controls .metric-picker>label:nth-child(2){grid-column:4!important;grid-row:1!important}
+#explore #v2918-shell.v2919-ready .v2918-controls .city-picker-count{display:none!important}
+#explore #v2918-shell.v2919-ready .v2918-controls #data-error:not([hidden]){grid-column:1/-1!important;grid-row:2!important}
+/* Keep the original live SVG and its event listeners in the layout for either city tab. */
+body #explore #v2918-shell[data-v2918-view="map"]>.workspace,
+body #explore #v2918-shell[data-v2918-view="basic"]>.workspace {display:grid!important;grid-template-columns:minmax(0,1.27fr) minmax(320px,0.73fr)!important;gap:14px!important;align-items:start!important;height:auto!important;min-height:0!important;max-height:none!important;overflow:visible!important}
+body #explore #v2918-shell[data-v2918-view="map"]>.workspace>.map-column,
+body #explore #v2918-shell[data-v2918-view="basic"]>.workspace>.map-column {display:block!important;visibility:visible!important;position:relative!important;grid-column:1!important;width:100%!important;height:auto!important;min-height:420px!important;max-height:none!important;overflow:visible!important}
+body #explore #v2918-shell[data-v2918-view="map"]>.workspace>.info-column,
+body #explore #v2918-shell[data-v2918-view="basic"]>.workspace>.info-column {display:block!important;visibility:visible!important;position:relative!important;grid-column:2!important;width:100%!important;min-width:0!important;height:auto!important;max-height:none!important;overflow:visible!important}
+body #explore #v2918-shell[data-v2918-view="map"] .map-stage,
+body #explore #v2918-shell[data-v2918-view="basic"] .map-stage {display:block!important;visibility:visible!important;min-height:330px!important;height:auto!important;overflow:visible!important}
+body #explore #v2918-shell[data-v2918-view="map"] #map-view,
+body #explore #v2918-shell[data-v2918-view="basic"] #map-view {display:flex!important;visibility:visible!important;align-items:center!important;justify-content:center!important;min-height:330px!important;width:100%!important;height:auto!important;overflow:visible!important}
+body #explore #v2918-shell[data-v2918-view="map"] #map-view svg,
+body #explore #v2918-shell[data-v2918-view="basic"] #map-view svg {display:block!important;visibility:visible!important;width:100%!important;height:auto!important;max-height:600px!important;object-fit:contain!important}
+/* Basic data are secondary to map; avoid repeating large map metric cards. */
+body #explore #v2918-shell[data-v2918-view="basic"] .info-column>.detail:not([hidden]){display:block!important;width:100%!important;max-height:none!important;height:auto!important;overflow:visible!important}
+body #explore #v2918-shell[data-v2918-view="basic"] .detail>.metric-grid,
+body #explore #v2918-shell[data-v2918-view="basic"] .detail>.active-metric-card,
+body #explore #v2918-shell[data-v2918-view="basic"] .v2919-basic-reference,
+body #explore #v2918-shell[data-v2918-view="basic"] .v29191-map-inset{display:none!important}
+/* Map tab: show key figure and current map; Basic tab: supplementary summary and drill-down. */
+@media(max-width:1050px){#explore #v2918-shell.v2919-ready .v2918-controls{grid-template-columns:repeat(2,minmax(0,1fr))!important}#explore #v2918-shell.v2919-ready .v2918-controls .metric-picker>label:first-child{grid-column:1!important;grid-row:2!important}#explore #v2918-shell.v2919-ready .v2918-controls .metric-picker>label:nth-child(2){grid-column:2!important;grid-row:2!important}}
+@media(max-width:900px){body #explore #v2918-shell[data-v2918-view="map"]>.workspace,body #explore #v2918-shell[data-v2918-view="basic"]>.workspace{display:flex!important;flex-direction:column!important;gap:12px!important}body #explore #v2918-shell[data-v2918-view="map"]>.workspace>.map-column,body #explore #v2918-shell[data-v2918-view="basic"]>.workspace>.map-column,body #explore #v2918-shell[data-v2918-view="map"]>.workspace>.info-column,body #explore #v2918-shell[data-v2918-view="basic"]>.workspace>.info-column{width:100%!important;min-height:0!important}}
+@media(max-width:540px){#explore #v2918-shell.v2919-ready .v2918-controls{grid-template-columns:1fr!important}#explore #v2918-shell.v2919-ready .v2918-controls .city-picker-control{grid-column:1!important;grid-row:1!important}#explore #v2918-shell.v2919-ready .v2918-controls .year-picker-label{grid-column:1!important;grid-row:2!important}#explore #v2918-shell.v2919-ready .v2918-controls .metric-picker>label:first-child{grid-column:1!important;grid-row:3!important}#explore #v2918-shell.v2919-ready .v2918-controls .metric-picker>label:nth-child(2){grid-column:1!important;grid-row:4!important}}
