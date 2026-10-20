@@ -1,0 +1,40 @@
+/* MIERU AICHI UI improvement phase 2: mobile wayfinding + desktop map visibility. */
+/* The map should not be cropped by legacy fixed-height/sticky workspace rules. */
+@media (min-width:1021px){
+  body:has(.v283-mode) .workspace{height:auto!important;max-height:none!important;min-height:0!important;align-items:start!important;overflow:visible!important}
+  body:has(.v283-mode) .map-column{position:relative!important;top:auto!important;height:auto!important;max-height:none!important;min-height:0!important;overflow:visible!important;align-self:start!important}
+  body:has(.v283-mode) .map-column .map-stage{height:clamp(430px,55vw,660px)!important;min-height:430px!important;max-height:none!important;flex:none!important;overflow:hidden!important}
+  body:has(.v283-mode) .map-column .map-view{width:100%!important;height:100%!important;min-height:0!important;overflow:hidden!important}
+  body:has(.v283-mode) .map-column .map-under,body:has(.v283-mode) .map-column .map-source{position:relative!important;bottom:auto!important;visibility:visible!important}
+  body:has(.v283-mode) .info-column{height:auto!important;max-height:none!important;min-height:0!important;align-self:stretch!important}
+  body:has(.v283-mode) .info-column>.detail,body:has(.v283-mode) #tools{max-height:none!important;overflow:visible!important;flex:0 1 auto!important}
+}
+/* When a viewport is short, preserve a usable full map and scroll the document. */
+@media(min-width:1021px) and (max-height:760px){
+  body:has(.v283-mode) .map-column .map-stage{height:clamp(410px,48vw,540px)!important;min-height:410px!important}
+}
+/* Provide breathing room and predictable scrolling between map and details. */
+@media(max-width:1020px){
+ body:has(.v283-mode) .workspace{scroll-margin-top:10px}
+ body:has(.v283-mode) .info-column{scroll-margin-top:12px}
+ body:has(.v283-mode) .map-column .map-stage{overflow:hidden!important}
+ body:has(.v283-mode) .map-column .map-view{overflow:hidden!important}
+}
+@media(max-width:620px){
+ body:has(.v283-mode) .map-column .map-stage{height:clamp(295px,90vw,420px)!important;min-height:295px!important}
+ body:has(.v283-mode) .info-column{scroll-margin-top:8px}
+ body:has(.v283-mode) .v285-purpose-nav select{min-height:44px}
+ body:has(.v283-mode) .map-column .map-under{padding-bottom:4px}
+}
+.v286-city-jump{display:none}
+@media(max-width:1020px){
+ .v286-city-jump{position:fixed;left:12px;right:12px;bottom:calc(10px + env(safe-area-inset-bottom,0px));z-index:90;display:flex;align-items:center;gap:9px;padding:9px 10px;background:#fff;color:#133957;border:1px solid #9dc9dd;box-shadow:0 7px 26px rgba(14,44,70,.18);border-radius:13px;max-width:580px;margin-inline:auto}
+ .v286-city-jump[hidden]{display:none!important}
+ .v286-city-jump-copy{min-width:0;flex:1}
+ .v286-city-jump-name{font-weight:800;font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+ .v286-city-jump-number{font-size:11px;color:#546b7c;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+ .v286-city-jump-go{flex:none;border:0;border-radius:8px;min-height:44px;padding:8px 13px;background:#0d4976;color:white;font-size:13px;font-weight:800;cursor:pointer}
+ .v286-city-jump-close{flex:none;border:0;border-radius:8px;background:#edf4f8;color:#23516b;width:44px;height:44px;font-size:22px;cursor:pointer}
+ .v286-city-jump :is(button):focus-visible{outline:3px solid #57b7df;outline-offset:2px}
+}
+@media print{.v286-city-jump{display:none!important}}
