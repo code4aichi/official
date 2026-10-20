@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""MIERU AICHI v2.9.16, 16 read-only end-user acceptance scenarios.
+"""MIERU AICHI v2.9.17.2, 16 read-only end-user acceptance scenarios.
 PASS means the asserted observable behavior passed; REVIEW/SKIP are not PASS.
 No external generative AI requests, production changes, or artificial JS clicks.
 """
@@ -34,8 +34,40 @@ def city(page):
     return f'{before} → {after}'
 
 def mode(page,name,mobile=False):
-    # Navigate via genuine pointer clicks. On mobile the extra-function menu
-    # may hide entries that do not belong to the home quick links.
+    # Report and AI use the new v2.9.17 accessible shortcuts.
+    # Clicking visible controls is deliberate: never force a click or synthesize
+    # a DOM click event merely to make this acceptance test pass.
+    if name in ('report', 'ai-nav'):
+        button=page.locator(f'#v2917-actions button[data-mode="{name}"]')
+        if button.count()!=1:
+            raise Review(f'v2.9.17 {name} shortcut missing (found {button.count()})')
+        if not button.is_visible():
+            disclosure=page.locator('#v291-quicknav .v291-more')
+            opened=False
+            for i in range(min(disclosure.count(),5)):
+                control=disclosure.nth(i)
+                if control.is_visible():
+                    try:
+                        control.click(timeout=4000)
+                        page.wait_for_timeout(250)
+                        opened=True
+                        break
+                    except Exception as exc:
+                        raise Review(f'Other-functions menu not pointer-clickable: {exc}')
+            if not opened:
+                raise Review('Visible その他の機能 disclosure not found')
+        if not button.is_visible():
+            raise Review(f'v2.9.17 {name} shortcut hidden after opening その他の機能')
+        size=button.bounding_box()
+        if not size or size['width']<100 or size['height']<40:
+            raise Review(f'v2.9.17 {name} shortcut has insufficient clickable size: {size}')
+        try:
+            button.click(timeout=6000)
+            page.locator(f'#panel-{name}').wait_for(state='visible',timeout=8000)
+        except Exception as exc:
+            raise Review(f'New {name} shortcut failed to open its panel: {exc}')
+        return f'v2.9.17 new shortcut for {name} (normal pointer click)'
+
     selectors=([f'#v290-mobile-home [data-v290-mode="{name}"]'] if mobile else [f'#v291-quicknav .v291-quicknav-links [data-mode="{name}"]'])
     selectors += [f'.workspace-nav-button[data-workspace="{name}"]']
     if mobile:
@@ -58,8 +90,6 @@ def mode(page,name,mobile=False):
     found=click_selectors()
     if found:return found
     if mobile:
-        # Look for the *visible* "その他の機能" disclosure rather than clicking
-        # invisible legacy controls or synthesizing events.
         candidates=page.get_by_text('その他の機能',exact=False)
         for i in range(min(candidates.count(),6)):
             entry=candidates.nth(i)
@@ -69,7 +99,6 @@ def mode(page,name,mobile=False):
                 page.wait_for_timeout(350)
                 found=click_selectors()
                 if found:return f'その他の機能 > {found}'
-                # Close any opened disclosure and try no more than one visible entry.
                 break
             except Exception as exc:
                 attempted.append(f'その他の機能: {str(exc)[:100]}')
@@ -237,7 +266,7 @@ def main():
     with (OUT/'usecases.csv').open('w',encoding='utf-8-sig',newline='') as fp:
         writer=csv.DictWriter(fp,fieldnames=['id','viewport','scenario','status','detail']);writer.writeheader();writer.writerows(ROWS)
     counts={s:sum(r['status']==s for r in ROWS) for s in ('PASS','FAIL','REVIEW','SKIP')}
-    summary_report={'version':'2.9.16','target':URL,'total':len(ROWS),'counts':counts,'javascript_exceptions':len(ERRORS),'release_rule':'16 PASS, 0 FAIL, 0 REVIEW, 0 JS exceptions; separate source-level concerns remain','release_decision':'PASS' if counts['PASS']==16 and not ERRORS else 'HOLD'}
+    summary_report={'version':'2.9.17.2','target':URL,'total':len(ROWS),'counts':counts,'javascript_exceptions':len(ERRORS),'release_rule':'16 PASS, 0 FAIL, 0 REVIEW, 0 JS exceptions; separate source-level concerns remain','release_decision':'PASS' if counts['PASS']==16 and not ERRORS else 'HOLD'}
     (OUT/'summary.json').write_text(json.dumps(summary_report,ensure_ascii=False,indent=2),encoding='utf-8')
     (OUT/'unresolved_quality_checks.md').write_text('''# 別途検証が必要な品質項目\n\n- 地図の色階級の正確な境界値と描画コードの独立照合\n- 2025年人口移動データの公表集計定義と公式県計の比較\n- レポート・AI回答の各数値と公式統計原表の完全照合\n- PDF印刷・保存結果の目視確認と日本語フォント・改ページ\n- 外部生成AIサービスの応答、費用、個人情報取扱い（デフォルトでは実行しない）\n- 実ユーザーの操作感や可読性・アクセシビリティ評価\n\nこれらは16ケースがPASSでも自動的に合格にはなりません。\n''',encoding='utf-8')
     print('SUMMARY',summary_report,flush=True)
