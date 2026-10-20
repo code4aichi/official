@@ -1,0 +1,43 @@
+name: MIERU AICHI map and prefecture scope audit (read-only)
+on:
+  workflow_dispatch:
+    inputs:
+      site_url:
+        description: 'Public atlas URL'
+        type: string
+        required: true
+        default: 'https://code4aichi.org/atlas/'
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      MIERU_URL: ${{ inputs.site_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Playwright
+        run: |
+          python -m pip install 'playwright>=1.52,<2'
+          python -m playwright install --with-deps chromium
+      - name: Run read-only audit
+        id: audit
+        continue-on-error: true
+        run: python tests/atlas_remaining_two_audit.py
+      - name: Upload audit evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mieru-remaining-two-results
+          path: remaining-two-results/
+          retention-days: 14
+          if-no-files-found: warn
+      - name: Fail on detected errors
+        if: always()
+        env:
+          RESULT: ${{ steps.audit.outcome }}
+        run: test "$RESULT" = success
