@@ -57,11 +57,27 @@ def inspect(page, label, mobile):
         'SVG inside map viewport (bounding rectangle only; geographic clipping needs visual review)'))
     for mode, target in [('city', '#city-pane-overview'),('compare', '#panel-compare'),('ranking','#panel-ranking'),('external','#panel-external')]:
         def run_mode(mode=mode, target=target):
-            # Use actual workspace buttons, which are stable across releases.
-            button=page.locator(f'[data-workspace="{mode}"]').first
-            button.click(force=True,timeout=8000)
-            page.wait_for_timeout(450)
-            return (page.locator(target).count()>0 and page.locator(target).first.is_visible(),f'{mode}: {target}')
+            # Click the actual visible control, rather than force-clicking the hidden
+            # legacy .workspace-nav-button. v2.9+ routes both controls to that source.
+            if mobile:
+                selector=f'#v290-mobile-home [data-v290-mode="{mode}"]'
+            else:
+                selector=f'#v291-quicknav .v291-quicknav-links [data-mode="{mode}"]'
+            trigger=page.locator(selector).first
+            if not trigger.count() or not trigger.is_visible():
+                return False, f'Visible navigation missing: {selector}'
+            trigger.click(timeout=8000)
+            # The underlying workspace controller sets the current mode and
+            # reveals #tools only for analysis views.
+            try:
+                page.wait_for_function('''mode => { const btn=document.querySelector(`.workspace-nav-button[data-workspace="${mode}"]`); return !!btn && btn.classList.contains('is-current'); }''', arg=mode,timeout=6000)
+                page.locator(target).first.wait_for(state='visible',timeout=6000)
+            except Exception as e:
+                current=page.locator('.workspace-nav-button.is-current').first
+                active=current.get_attribute('data-workspace') if current.count() else '(none)'
+                tools_hidden=page.locator('#tools').get_attribute('hidden') if page.locator('#tools').count() else '(missing)'
+                return False, f'{mode} active={active} tools_hidden={tools_hidden} target={target}: {str(e)[:200]}'
+            return True, f'{mode} visible: {target}'
         safe_test(label, f'switch to {mode}',run_mode)
         page.screenshot(path=str(OUTPUT/f'{label}_{mode}.png'),full_page=True,animations='disabled')
     page.screenshot(path=str(OUTPUT/f'{label}_full.png'),full_page=True,animations='disabled')
