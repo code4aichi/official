@@ -1,0 +1,20 @@
+/* v2.8.9 external statistics: one focus at a time, readable on narrow screens. */
+#panel-external.v289-external{min-width:0;max-width:100%;overflow-wrap:anywhere}
+.v289-external .v283-stat-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin:9px 0 0}
+.v289-external .v283-stat-tab{min-width:0;min-height:42px;white-space:normal;line-height:1.35;text-align:center;padding:8px 5px}
+.v289-stat-guide{background:#f1f8fd;border:1px solid #cce2ed;border-radius:10px;padding:11px 12px;margin:9px 0 13px;color:#1a425e}
+.v289-guide-top{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:5px}
+.v289-guide-title{font-size:13px}.v289-guide-year{font-size:11px;color:#54738a}
+.v289-guide-desc{margin:5px 0;font-size:12px;line-height:1.6}
+.v289-guide-city{font-size:11px;line-height:1.5;color:#536f85;margin:5px 0 0;border-top:1px solid #d7e5ed;padding-top:6px}
+.v289-external .v283-stat-view[hidden]{display:none!important}
+.v289-external .v283-stat-view{max-width:100%;min-width:0}
+.v289-external .v283-stat-view select,.v289-external .v283-stat-view input{max-width:100%;min-width:0}
+.v289-external .v283-stat-view details{max-width:100%;overflow-wrap:anywhere}
+.v289-external .v283-stat-view details summary{cursor:pointer;min-height:40px}
+.v289-rank-toggle{cursor:pointer;display:block;width:100%;min-height:40px;border:1px solid #bdd8e8;border-radius:8px;color:#14517b;background:#fff;font-size:12px;font-weight:650;margin:8px 0}
+.v289-ranks-compact:not(.v289-ranks-expanded) .migration-ranks{max-height:255px;overflow-y:auto;overscroll-behavior:contain;border-bottom:1px solid #dce9f0}
+.v289-ranks-expanded .migration-ranks{max-height:none;overflow:visible}
+.v289-external .migration-controls{min-width:0}
+@media(min-width:1100px){.v289-external .v283-stat-tabs{grid-template-columns:repeat(5,minmax(0,1fr))}}
+@media(max-width:620px){.v289-stat-guide{padding:10px}.v289-guide-desc{font-size:13px}.v289-external .v283-stat-tabs{grid-template-columns:repeat(2,minmax(0,1fr))}.v289-external .v283-stat-tab{font-size:12px;min-height:44px}}
