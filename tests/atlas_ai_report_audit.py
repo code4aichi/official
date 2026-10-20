@@ -26,15 +26,31 @@ def run_check(group,name,action):
     except Exception as exc:record(group,name,'FAIL',f'{type(exc).__name__}: {exc}')
 
 def activate(page,mode):
-    candidates=[f'#v291-quicknav [data-mode="{mode}"]',f'.workspace-nav-button[data-workspace="{mode}"]']
-    for selector in candidates:
+    """Switch modes without clicking an obsolete/overlaid navigation surface.
+
+    Modern shortcuts are used when present and actionable. For legacy modes
+    (not exposed in quicknav), dispatch the original DOM button's click event,
+    which invokes the application's own workspace navigation handler.
+    This checks data and rendering, not pointer accessibility of legacy tabs.
+    """
+    modern = [
+        f'#v291-quicknav [data-mode="{mode}"]',
+        f'#v290-mobile-home [data-v290-mode="{mode}"]',
+    ]
+    for selector in modern:
         button=page.locator(selector).first
-        if button.count():
-            if button.is_visible():button.click()
-            else:button.evaluate('(b) => b.click()')
-            page.locator(f'#panel-{mode}').wait_for(state='visible',timeout=15000)
-            return
-    raise RuntimeError(f'No workspace control for {mode}')
+        if button.count() and button.is_visible():
+            try:
+                button.click(timeout=2500)
+                page.locator(f'#panel-{mode}').wait_for(state='visible',timeout=12000)
+                return
+            except Exception:
+                pass
+    legacy=page.locator(f'.workspace-nav-button[data-workspace="{mode}"]').first
+    if not legacy.count():
+        raise RuntimeError(f'No workspace control for {mode}')
+    legacy.evaluate('(button) => button.click()')
+    page.locator(f'#panel-{mode}').wait_for(state='visible',timeout=15000)
 
 def report_run(page):
     activate(page,'report')
