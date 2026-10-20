@@ -1,0 +1,30 @@
+/* v2.9.1 PC-first navigation simplification; never change source data. */
+.v291-quicknav{border:1px solid #ccdfeb;background:#fff;border-radius:12px;padding:12px;margin:0 0 10px;min-width:0}
+.v291-quicknav-heading{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:9px;color:#173d5d;font-size:13px}
+.v291-more{border:0;background:transparent;color:#1a6090;font:inherit;font-size:12px;text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:7px 2px;min-height:38px}
+.v291-quicknav-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+.v291-quicknav-links button{border:1px solid #c4dbe9;border-radius:8px;color:#194c70;background:#f4f9fc;min-height:44px;padding:9px 6px;font:inherit;font-size:12px;font-weight:700;white-space:normal;overflow-wrap:anywhere;cursor:pointer}
+.v291-quicknav-links button.is-current{background:#10517f;color:#fff;border-color:#10517f}
+.v291-quicknav button:focus-visible{outline:3px solid #42a4cf;outline-offset:2px}
+.v291-all-features[hidden]{display:none!important}
+.v291-all-features{border-top:1px solid #dce9f1;margin-top:10px;padding-top:10px}
+.v291-advanced-hint{font-size:11px;color:#58788d;margin:0 0 5px}
+.v291-all-features .v285-purpose-nav{margin:0!important;padding:0!important;border:0!important;box-shadow:none!important}
+.v291-all-features .v285-purpose-heading{display:none!important}
+/* Keep a consistent hierarchy: selected city & primary metric before minor details. */
+@media(min-width:1021px){
+ .info-column .detail{min-width:0}
+ .info-column .detail-head{margin-bottom:10px}
+ .info-column .metric-grid{gap:8px}
+ .info-column .detail-section-control{margin-top:10px}
+ .v291-quicknav{padding:10px}
+}
+/* Existing v2.9.0 mobile shortcuts are already the direct entry points. Hide redundancy. */
+@media(max-width:1020px){
+ .v291-quicknav{padding:10px;margin:0 0 8px}
+ .v291-quicknav-links{display:none}
+ .v291-quicknav-heading{margin:0}
+ .v291-more{min-height:44px}
+ .v291-all-features{padding-top:8px}
+}
+@media print{.v291-quicknav{display:none}}
