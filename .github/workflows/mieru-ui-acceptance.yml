@@ -1,0 +1,35 @@
+name: MIERU AICHI UI acceptance (read-only)
+on:
+  workflow_dispatch:
+    inputs:
+      site_url:
+        description: "Deployed atlas URL to test"
+        required: true
+        default: "https://code4aichi.org/atlas/"
+permissions:
+  contents: read
+jobs:
+  check-ui:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install browser test dependencies
+        run: |
+          python -m pip install playwright==1.55.0
+          python -m playwright install --with-deps chromium
+      - name: Test the deployed site without modifying it
+        env:
+          MIERU_URL: ${{ inputs.site_url }}
+        run: python tests/ui_smoke.py
+      - name: Upload screenshots and test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mieru-ui-acceptance-results
+          path: ui-test-results/
+          retention-days: 14
+          if-no-files-found: warn
