@@ -1,0 +1,42 @@
+/* MIERU AICHI v2.9.5 | Restore full-width map drawing after v2.9.4.
+   Issue: forcing an SVG to both 100% width AND 100% height inside a tall
+   flex viewport makes viewBox content letterbox and appear smaller.
+   Keep v2.9.4's equal-height OUTER cards, but size the map by WIDTH.
+   No viewBox, municipal geometry, statistics, or click-handler changes. */
+@media (min-width: 1021px) {
+  body:has(.workspace-nav) #explore .map-column .map-stage {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex: 1 1 0 !important;
+    min-height: 0 !important;
+    width: 100% !important;
+    overflow: hidden !important;
+  }
+  body:has(.workspace-nav) #explore #map-view {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex: 1 1 auto !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-width: 0 !important;
+    overflow: visible !important;
+  }
+  /* SVG derives height from its own viewBox. Do not force a tall, 100%-height box. */
+  body:has(.workspace-nav) #explore #map-view > svg {
+    box-sizing: border-box !important;
+    display: block !important;
+    flex: 0 0 auto !important;
+    width: 100% !important;
+    height: auto !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    max-width: none !important;
+    max-height: 100% !important;
+    transform: scale(1.22) !important;
+    transform-origin: center center !important;
+    object-fit: contain !important;
+  }
+}
+/* Under 1021px, v2.9.4 is not applied and existing mobile layout is retained. */
