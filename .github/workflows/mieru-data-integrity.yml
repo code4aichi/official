@@ -1,0 +1,50 @@
+name: MIERU AICHI data integrity audit (read-only)
+on:
+  workflow_dispatch:
+    inputs:
+      site_url:
+        description: 'Deployed atlas URL'
+        required: true
+        default: 'https://code4aichi.org/atlas/'
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      MIERU_URL: ${{ inputs.site_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install headless Chromium
+        run: |
+          python -m pip install 'playwright>=1.52,<2'
+          python -m playwright install --with-deps chromium
+      - name: Audit JSON and CSV internal consistency
+        id: source_audit
+        continue-on-error: true
+        run: python tests/data_integrity.py
+      - name: Compare visible population against published CSV
+        id: display_audit
+        continue-on-error: true
+        run: python tests/display_data_audit.py
+      - name: Upload detailed results even when validation fails
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mieru-data-integrity-results
+          path: data-audit-results/
+          retention-days: 14
+          if-no-files-found: warn
+      - name: Fail job if either audit failed
+        if: always()
+        env:
+          SOURCE_RESULT: ${{ steps.source_audit.outcome }}
+          DISPLAY_RESULT: ${{ steps.display_audit.outcome }}
+        run: |
+          echo "Source audit: $SOURCE_RESULT"
+          echo "Display audit: $DISPLAY_RESULT"
+          test "$SOURCE_RESULT" = success && test "$DISPLAY_RESULT" = success
