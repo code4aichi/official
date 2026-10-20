@@ -1,0 +1,42 @@
+name: MIERU AICHI 16 use-case acceptance (read-only)
+on:
+  workflow_dispatch:
+    inputs:
+      site_url:
+        description: Public site URL
+        required: true
+        default: https://code4aichi.org/atlas/
+permissions:
+  contents: read
+jobs:
+  acceptance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install browser dependencies
+        run: |
+          python -m pip install playwright==1.55.0
+          python -m playwright install --with-deps chromium
+      - name: Execute 16 end-user use cases
+        id: acceptance
+        continue-on-error: true
+        env:
+          MIERU_URL: ${{ inputs.site_url }}
+        run: python tests/atlas_16_usecases.py
+      - name: Upload results and screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mieru-16-usecase-acceptance-results
+          path: atlas-acceptance-results/
+          retention-days: 14
+          if-no-files-found: warn
+      - name: Mark test failures
+        if: always()
+        env:
+          RESULT: ${{ steps.acceptance.outcome }}
+        run: test "$RESULT" = "success"
