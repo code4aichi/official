@@ -1,0 +1,29 @@
+﻿group,check,status,details
+reference,municipality uniqueness,PASS,"rows=54, unique=54"
+reference,municipality code format,PASS,5-digit Aichi municipality codes
+census,historical coverage,PASS,54 codes; missing=[] extra=[]
+census,2015 population in historical,PASS,issues=[]
+census,2025 population in historical,PASS,issues=[]
+census,2025 elderly share formula in historical,PASS,issues=[] (denominator excludes unknown age)
+census,2020 population in municipalities.json,PASS,issues=[]
+census,2025 CSV municipalities,PASS,54 codes; missing=[] extra=[]
+census,2025 CSV no duplicates,PASS,rows=54 unique=54
+census,2025 CSV-historical numerical agreement,PASS,issues=[]
+census,2020-2025 change percentage,PASS,issues=[]; tolerance 0.03 percentage points
+economic,economic_2021_private_establishments coverage,PASS,54 codes; missing=[] extra=[]
+economic,economic_2021_private_establishments values and names,PASS,bad=[]
+economic,economic_2021_private_establishments provenance,PASS,"year=2021, source=0004005640"
+economic,economic_2021_private_employees coverage,PASS,54 codes; missing=[] extra=[]
+economic,economic_2021_private_employees values and names,PASS,bad=[]
+economic,economic_2021_private_employees provenance,PASS,"year=2021, source=0004005640"
+economic,catalog references,PASS,"listed ids=['economic_2021_private_employees', 'economic_2021_private_establishments']"
+industry,industry municipalities,PASS,54 codes; missing=[] extra=[]
+industry,17 unique sector categories,PASS,"count=17, unique=17"
+industry,missing value discipline and categories,PASS,"bad=[], complete={'establishments': 17, 'employees': 17}"
+industry,composition comparison eligible count,REVIEW,"complete municipalities: {'establishments': 17, 'employees': 17}; independent source verification not included"
+migration,migration municipalities,PASS,54 codes; missing=[] extra=[]
+migration,in/out/net per municipality,PASS,bad=[]
+migration,municipality sums equal declared sums,PASS,"computed={'in': 335631, 'out': 337812, 'net': -2181}, declared={'in': 335631, 'out': 337812, 'net': -2181}"
+migration,source selectors and date,PASS,"year=2025, tables={'in': '0004044293', 'out': '0004044294'}"
+migration,external official Aichi-prefecture total,REVIEW,Municipal sum is NOT independently verified against prefectural official total
+provenance,independent primary-source comparison,REVIEW,"This audit validates internal consistency and published files, not every original official table"

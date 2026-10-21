@@ -1,0 +1,179 @@
+{
+  "site": "http://127.0.0.1:8765/atlas/",
+  "counts": {
+    "PASS": 25,
+    "FAIL": 0,
+    "REVIEW": 3,
+    "SKIP": 0
+  },
+  "results": [
+    {
+      "group": "reference",
+      "check": "municipality uniqueness",
+      "status": "PASS",
+      "details": "rows=54, unique=54"
+    },
+    {
+      "group": "reference",
+      "check": "municipality code format",
+      "status": "PASS",
+      "details": "5-digit Aichi municipality codes"
+    },
+    {
+      "group": "census",
+      "check": "historical coverage",
+      "status": "PASS",
+      "details": "54 codes; missing=[] extra=[]"
+    },
+    {
+      "group": "census",
+      "check": "2015 population in historical",
+      "status": "PASS",
+      "details": "issues=[]"
+    },
+    {
+      "group": "census",
+      "check": "2025 population in historical",
+      "status": "PASS",
+      "details": "issues=[]"
+    },
+    {
+      "group": "census",
+      "check": "2025 elderly share formula in historical",
+      "status": "PASS",
+      "details": "issues=[] (denominator excludes unknown age)"
+    },
+    {
+      "group": "census",
+      "check": "2020 population in municipalities.json",
+      "status": "PASS",
+      "details": "issues=[]"
+    },
+    {
+      "group": "census",
+      "check": "2025 CSV municipalities",
+      "status": "PASS",
+      "details": "54 codes; missing=[] extra=[]"
+    },
+    {
+      "group": "census",
+      "check": "2025 CSV no duplicates",
+      "status": "PASS",
+      "details": "rows=54 unique=54"
+    },
+    {
+      "group": "census",
+      "check": "2025 CSV-historical numerical agreement",
+      "status": "PASS",
+      "details": "issues=[]"
+    },
+    {
+      "group": "census",
+      "check": "2020-2025 change percentage",
+      "status": "PASS",
+      "details": "issues=[]; tolerance 0.03 percentage points"
+    },
+    {
+      "group": "economic",
+      "check": "economic_2021_private_establishments coverage",
+      "status": "PASS",
+      "details": "54 codes; missing=[] extra=[]"
+    },
+    {
+      "group": "economic",
+      "check": "economic_2021_private_establishments values and names",
+      "status": "PASS",
+      "details": "bad=[]"
+    },
+    {
+      "group": "economic",
+      "check": "economic_2021_private_establishments provenance",
+      "status": "PASS",
+      "details": "year=2021, source=0004005640"
+    },
+    {
+      "group": "economic",
+      "check": "economic_2021_private_employees coverage",
+      "status": "PASS",
+      "details": "54 codes; missing=[] extra=[]"
+    },
+    {
+      "group": "economic",
+      "check": "economic_2021_private_employees values and names",
+      "status": "PASS",
+      "details": "bad=[]"
+    },
+    {
+      "group": "economic",
+      "check": "economic_2021_private_employees provenance",
+      "status": "PASS",
+      "details": "year=2021, source=0004005640"
+    },
+    {
+      "group": "economic",
+      "check": "catalog references",
+      "status": "PASS",
+      "details": "listed ids=['economic_2021_private_employees', 'economic_2021_private_establishments']"
+    },
+    {
+      "group": "industry",
+      "check": "industry municipalities",
+      "status": "PASS",
+      "details": "54 codes; missing=[] extra=[]"
+    },
+    {
+      "group": "industry",
+      "check": "17 unique sector categories",
+      "status": "PASS",
+      "details": "count=17, unique=17"
+    },
+    {
+      "group": "industry",
+      "check": "missing value discipline and categories",
+      "status": "PASS",
+      "details": "bad=[], complete={'establishments': 17, 'employees': 17}"
+    },
+    {
+      "group": "industry",
+      "check": "composition comparison eligible count",
+      "status": "REVIEW",
+      "details": "complete municipalities: {'establishments': 17, 'employees': 17}; independent source verification not included"
+    },
+    {
+      "group": "migration",
+      "check": "migration municipalities",
+      "status": "PASS",
+      "details": "54 codes; missing=[] extra=[]"
+    },
+    {
+      "group": "migration",
+      "check": "in/out/net per municipality",
+      "status": "PASS",
+      "details": "bad=[]"
+    },
+    {
+      "group": "migration",
+      "check": "municipality sums equal declared sums",
+      "status": "PASS",
+      "details": "computed={'in': 335631, 'out': 337812, 'net': -2181}, declared={'in': 335631, 'out': 337812, 'net': -2181}"
+    },
+    {
+      "group": "migration",
+      "check": "source selectors and date",
+      "status": "PASS",
+      "details": "year=2025, tables={'in': '0004044293', 'out': '0004044294'}"
+    },
+    {
+      "group": "migration",
+      "check": "external official Aichi-prefecture total",
+      "status": "REVIEW",
+      "details": "Municipal sum is NOT independently verified against prefectural official total"
+    },
+    {
+      "group": "provenance",
+      "check": "independent primary-source comparison",
+      "status": "REVIEW",
+      "details": "This audit validates internal consistency and published files, not every original official table"
+    }
+  ]
+}

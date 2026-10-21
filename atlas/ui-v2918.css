@@ -38,11 +38,11 @@
 #explore .v2918-shell .v298-back-actions{display:none!important}
 /* Single workspace switched by mode: map is a full tab; analytic panels get full width. */
 @media(min-width:1021px){
- body:has(.workspace-nav) #explore .v2918-shell[data-v2918-view]:not([data-v2918-view='map']) .workspace{display:block!important;}
- body:has(.workspace-nav) #explore .v2918-shell[data-v2918-view]:not([data-v2918-view='map']) .workspace>.map-column{display:none!important}
- body:has(.workspace-nav) #explore .v2918-shell[data-v2918-view]:not([data-v2918-view='map']) .workspace>.info-column{height:auto!important;min-height:350px!important;max-height:none!important;overflow:visible!important;width:100%!important}
- body:has(.workspace-nav) #explore .v2918-shell[data-v2918-view]:not([data-v2918-view='map']) .info-column>.detail:not([hidden]),
- body:has(.workspace-nav) #explore .v2918-shell[data-v2918-view]:not([data-v2918-view='map']) .info-column>#tools:not([hidden]){max-height:none!important;overflow:visible!important;height:auto!important}
+ body:has(.workspace-nav) #explore .v2918-shell[data-v2918-view]:not([data-v2918-view='map']):not([data-v2918-view='basic']) .workspace{display:block!important;}
+ body:has(.workspace-nav) #explore .v2918-shell[data-v2918-view]:not([data-v2918-view='map']):not([data-v2918-view='basic']) .workspace>.map-column{display:none!important}
+ body:has(.workspace-nav) #explore .v2918-shell[data-v2918-view]:not([data-v2918-view='map']):not([data-v2918-view='basic']) .workspace>.info-column{height:auto!important;min-height:350px!important;max-height:none!important;overflow:visible!important;width:100%!important}
+ body:has(.workspace-nav) #explore .v2918-shell[data-v2918-view]:not([data-v2918-view='map']):not([data-v2918-view='basic']) .info-column>.detail:not([hidden]),
+ body:has(.workspace-nav) #explore .v2918-shell[data-v2918-view]:not([data-v2918-view='map']):not([data-v2918-view='basic']) .info-column>#tools:not([hidden]){max-height:none!important;overflow:visible!important;height:auto!important}
 }
 @media(max-width:1020px){
  #explore .v2918-header{flex-direction:column;align-items:stretch;gap:8px}
@@ -51,8 +51,8 @@
  #explore .v2918-controls{flex-wrap:wrap;align-items:end}
  #explore .v2918-controls .city-picker{flex:1 1 100%}
  #explore .v2918-controls .metric-picker{flex:1 1 100%}
- #explore .v2918-shell[data-v2918-view]:not([data-v2918-view='map']) .map-column{display:none!important}
- #explore .v2918-shell[data-v2918-view]:not([data-v2918-view='map']) .info-column{display:block!important;height:auto!important;max-height:none!important;overflow:visible!important}
+ #explore .v2918-shell[data-v2918-view]:not([data-v2918-view='map']):not([data-v2918-view='basic']) .map-column{display:none!important}
+ #explore .v2918-shell[data-v2918-view]:not([data-v2918-view='map']):not([data-v2918-view='basic']) .info-column{display:block!important;height:auto!important;max-height:none!important;overflow:visible!important}
 }
 @media(max-width:620px){
  #explore .v2918-shell{padding:9px;border-radius:12px}
@@ -74,7 +74,7 @@
 
 /* Map view retains the v2.9.6 map-driven 2-column geometry. Analytic views
    must instead be full-width in normal document flow, with no map-height limit. */
-#explore .v2918-shell[data-v2918-view]:not([data-v2918-view="map"]) > .workspace {
+#explore .v2918-shell[data-v2918-view]:not([data-v2918-view="map"]):not([data-v2918-view="basic"]) > .workspace {
   display: block !important;
   grid-template-columns: none !important;
   height: auto !important;
@@ -82,10 +82,10 @@
   max-height: none !important;
   overflow: visible !important;
 }
-#explore .v2918-shell[data-v2918-view]:not([data-v2918-view="map"]) > .workspace > .map-column {
+#explore .v2918-shell[data-v2918-view]:not([data-v2918-view="map"]):not([data-v2918-view="basic"]) > .workspace > .map-column {
   display: none !important;
 }
-#explore .v2918-shell[data-v2918-view]:not([data-v2918-view="map"]) > .workspace > .info-column {
+#explore .v2918-shell[data-v2918-view]:not([data-v2918-view="map"]):not([data-v2918-view="basic"]) > .workspace > .info-column {
   display: block !important;
   position: static !important;
   float: none !important;
@@ -96,8 +96,8 @@
   overflow: visible !important;
   align-self: auto !important;
 }
-#explore .v2918-shell[data-v2918-view]:not([data-v2918-view="map"]) .info-column > .detail:not([hidden]),
-#explore .v2918-shell[data-v2918-view]:not([data-v2918-view="map"]) .info-column > #tools:not([hidden]) {
+#explore .v2918-shell[data-v2918-view]:not([data-v2918-view="map"]):not([data-v2918-view="basic"]) .info-column > .detail:not([hidden]),
+#explore .v2918-shell[data-v2918-view]:not([data-v2918-view="map"]):not([data-v2918-view="basic"]) .info-column > #tools:not([hidden]) {
   display: block !important;
   position: static !important;
   float: none !important;
@@ -108,8 +108,8 @@
   max-height: none !important;
   overflow: visible !important;
 }
-#explore .v2918-shell[data-v2918-view]:not([data-v2918-view="map"]) #tools .tool-content,
-#explore .v2918-shell[data-v2918-view]:not([data-v2918-view="map"]) #tools .tool-panel:not([hidden]) {
+#explore .v2918-shell[data-v2918-view]:not([data-v2918-view="map"]):not([data-v2918-view="basic"]) #tools .tool-content,
+#explore .v2918-shell[data-v2918-view]:not([data-v2918-view="map"]):not([data-v2918-view="basic"]) #tools .tool-panel:not([hidden]) {
   position: static !important;
   width: 100% !important;
   height: auto !important;
