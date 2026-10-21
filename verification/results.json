@@ -1,0 +1,1352 @@
+[
+  {
+    "name": "1440px no reference-map DOM",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1440px 54 live map regions",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1440px equal full-width controls",
+    "status": "PASS",
+    "detail": "[{\"width\":321.5,\"x\":56,\"y\":907.75,\"height\":44},{\"width\":321.5,\"x\":391.5,\"y\":907.75,\"height\":44},{\"width\":321.5,\"x\":727,\"y\":907.75,\"height\":44},{\"width\":321.5,\"x\":1062.5,\"y\":907.75,\"height\":44}]"
+  },
+  {
+    "name": "1440px aligned control rows",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1440px dropdown highlights map",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1440px map updates city selector",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1440px map has compact summary",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1440px basic CTA opens profile",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1440px basic excludes map",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1440px basic sector control works",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1440px map selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1440px map no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1440px basic selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1440px basic no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1440px compare selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1440px compare single panel",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1440px compare no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1440px ranking selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1440px ranking single panel",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1440px ranking no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1440px external selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1440px external single panel",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1440px external no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1440px discovery selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1440px discovery single panel",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1440px discovery no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1440px challenge selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1440px challenge single panel",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1440px challenge no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1440px report selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1440px report single panel",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1440px report no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1440px ai-nav selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1440px ai-nav single panel",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1440px ai-nav no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1440px trend selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1440px trend single panel",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1440px trend no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1440px story selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1440px story single panel",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1440px story no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1440px comparison renders values",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1440px ranking renders results",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1440px statistical question returns result",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1440px no JS exceptions",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1060px no reference-map DOM",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1060px 54 live map regions",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1060px equal full-width controls",
+    "status": "PASS",
+    "detail": "[{\"width\":226.5,\"x\":56,\"y\":764.515625,\"height\":44},{\"width\":226.5,\"x\":296.5,\"y\":764.515625,\"height\":44},{\"width\":226.5,\"x\":537,\"y\":764.515625,\"height\":44},{\"width\":226.5,\"x\":777.5,\"y\":764.515625,\"height\":44}]"
+  },
+  {
+    "name": "1060px aligned control rows",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1060px dropdown highlights map",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1060px map updates city selector",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1060px map has compact summary",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1060px basic CTA opens profile",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1060px basic excludes map",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1060px basic sector control works",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1060px map selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1060px map no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1060px basic selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1060px basic no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1060px compare selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1060px compare single panel",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1060px compare no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1060px ranking selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1060px ranking single panel",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1060px ranking no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1060px external selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1060px external single panel",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1060px external no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1060px discovery selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1060px discovery single panel",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1060px discovery no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1060px challenge selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1060px challenge single panel",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1060px challenge no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1060px report selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1060px report single panel",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1060px report no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1060px ai-nav selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1060px ai-nav single panel",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1060px ai-nav no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1060px trend selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1060px trend single panel",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1060px trend no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1060px story selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1060px story single panel",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1060px story no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1060px comparison renders values",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1060px ranking renders results",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1060px statistical question returns result",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1060px no JS exceptions",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1024px no reference-map DOM",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1024px 54 live map regions",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1024px equal full-width controls",
+    "status": "PASS",
+    "detail": "[{\"width\":449,\"x\":56,\"y\":809.640625,\"height\":44},{\"width\":449,\"x\":519,\"y\":809.640625,\"height\":44},{\"width\":449,\"x\":56,\"y\":886.140625,\"height\":44},{\"width\":449,\"x\":519,\"y\":886.140625,\"height\":44}]"
+  },
+  {
+    "name": "1024px aligned control rows",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1024px dropdown highlights map",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1024px map updates city selector",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1024px map has compact summary",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1024px basic CTA opens profile",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1024px basic excludes map",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1024px basic sector control works",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1024px map selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1024px map no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1024px basic selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1024px basic no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1024px compare selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1024px compare single panel",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1024px compare no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1024px ranking selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1024px ranking single panel",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1024px ranking no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1024px external selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1024px external single panel",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1024px external no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1024px discovery selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1024px discovery single panel",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1024px discovery no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1024px challenge selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1024px challenge single panel",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1024px challenge no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1024px report selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1024px report single panel",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1024px report no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1024px ai-nav selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1024px ai-nav single panel",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1024px ai-nav no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1024px trend selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1024px trend single panel",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1024px trend no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1024px story selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1024px story single panel",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1024px story no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1024px comparison renders values",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1024px ranking renders results",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1024px statistical question returns result",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "1024px no JS exceptions",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "820px no reference-map DOM",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "820px 54 live map regions",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "820px equal full-width controls",
+    "status": "PASS",
+    "detail": "[{\"width\":347,\"x\":56,\"y\":746.734375,\"height\":44},{\"width\":347,\"x\":417,\"y\":746.734375,\"height\":44},{\"width\":347,\"x\":56,\"y\":823.234375,\"height\":44},{\"width\":347,\"x\":417,\"y\":823.234375,\"height\":44}]"
+  },
+  {
+    "name": "820px aligned control rows",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "820px dropdown highlights map",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "820px map updates city selector",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "820px map has compact summary",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "820px basic CTA opens profile",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "820px basic excludes map",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "820px basic sector control works",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "820px map selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "820px map no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "820px basic selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "820px basic no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "820px compare selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "820px compare single panel",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "820px compare no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "820px ranking selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "820px ranking single panel",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "820px ranking no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "820px external selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "820px external single panel",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "820px external no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "820px discovery selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "820px discovery single panel",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "820px discovery no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "820px challenge selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "820px challenge single panel",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "820px challenge no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "820px report selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "820px report single panel",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "820px report no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "820px ai-nav selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "820px ai-nav single panel",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "820px ai-nav no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "820px trend selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "820px trend single panel",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "820px trend no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "820px story selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "820px story single panel",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "820px story no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "820px comparison renders values",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "820px ranking renders results",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "820px statistical question returns result",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "820px no JS exceptions",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "390px no reference-map DOM",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "390px 54 live map regions",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "390px equal full-width controls",
+    "status": "PASS",
+    "detail": "[{\"width\":153,\"x\":35,\"y\":482.46875,\"height\":44},{\"width\":153,\"x\":202,\"y\":482.46875,\"height\":44},{\"width\":153,\"x\":35,\"y\":558.96875,\"height\":44},{\"width\":153,\"x\":202,\"y\":558.96875,\"height\":44}]"
+  },
+  {
+    "name": "390px aligned control rows",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "390px dropdown highlights map",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "390px map updates city selector",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "390px map has compact summary",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "390px basic CTA opens profile",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "390px basic excludes map",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "390px basic sector control works",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "390px map selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "390px map no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "390px basic selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "390px basic no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "390px compare selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "390px compare single panel",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "390px compare no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "390px ranking selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "390px ranking single panel",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "390px ranking no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "390px external selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "390px external single panel",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "390px external no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "390px discovery selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "390px discovery single panel",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "390px discovery no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "390px challenge selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "390px challenge single panel",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "390px challenge no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "390px report selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "390px report single panel",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "390px report no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "390px ai-nav selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "390px ai-nav single panel",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "390px ai-nav no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "390px trend selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "390px trend single panel",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "390px trend no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "390px story selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "390px story single panel",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "390px story no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "390px comparison renders values",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "390px ranking renders results",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "390px statistical question returns result",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "390px no JS exceptions",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "320px no reference-map DOM",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "320px 54 live map regions",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "320px equal full-width controls",
+    "status": "PASS",
+    "detail": "[{\"width\":118,\"x\":35,\"y\":521.734375,\"height\":44},{\"width\":118,\"x\":167,\"y\":521.734375,\"height\":44},{\"width\":118,\"x\":35,\"y\":598.234375,\"height\":44},{\"width\":118,\"x\":167,\"y\":598.234375,\"height\":44}]"
+  },
+  {
+    "name": "320px aligned control rows",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "320px dropdown highlights map",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "320px map updates city selector",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "320px map has compact summary",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "320px basic CTA opens profile",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "320px basic excludes map",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "320px basic sector control works",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "320px map selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "320px map no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "320px basic selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "320px basic no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "320px compare selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "320px compare single panel",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "320px compare no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "320px ranking selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "320px ranking single panel",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "320px ranking no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "320px external selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "320px external single panel",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "320px external no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "320px discovery selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "320px discovery single panel",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "320px discovery no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "320px challenge selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "320px challenge single panel",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "320px challenge no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "320px report selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "320px report single panel",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "320px report no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "320px ai-nav selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "320px ai-nav single panel",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "320px ai-nav no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "320px trend selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "320px trend single panel",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "320px trend no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "320px story selected",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "320px story single panel",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "320px story no horizontal overflow",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "320px comparison renders values",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "320px ranking renders results",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "320px statistical question returns result",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "name": "320px no JS exceptions",
+    "status": "PASS",
+    "detail": ""
+  }
+]
