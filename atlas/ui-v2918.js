@@ -52,24 +52,26 @@
       tabbar.append(createButton(label, view, mode, 'v2918-tab'));
     });
     const more = document.createElement('details');
-    more.className = 'v2918-more';
-    const summary = document.createElement('summary');
-    summary.textContent = 'その他の機能';
+    more.className = 'v2920-secondary-nav';
+    more.setAttribute('aria-label', '発見・まとめの機能');
+    const compactMenu = matchMedia('(max-width:620px)');
+    more.open = !compactMenu.matches;
+    compactMenu.addEventListener('change', () => { more.open = !compactMenu.matches; });
     const menu = document.createElement('div');
-    menu.className = 'v2918-menu';
+    menu.className = 'v2920-secondary-items';
     secondary.forEach(([mode,label]) => {
-      if (!sourceFor(mode)) return;
-      menu.append(createButton(label, mode, mode, 'v2918-menu-item'));
+      if (sourceFor(mode)) menu.append(createButton(label, mode, mode, 'v2918-menu-item'));
     });
-    more.append(summary,menu);
-    tabbar.append(more);
+    const groupTitle = document.createElement('summary');
+    groupTitle.textContent = '発見・まとめ';
+    more.append(groupTitle,menu);
     toolbar.append(title,tabbar);
     const controls = document.createElement('div');
     controls.className = 'v2918-controls';
     const metricPicker = $('.metric-picker',mapCard);
     // Keep the existing select elements and their listeners, do not clone them.
     explore.insertBefore(shell, chooser);
-    shell.append(toolbar, controls, workspace);
+    shell.append(toolbar, more, controls, workspace);
     controls.append(chooser);
     if (metricPicker) controls.append(metricPicker);
     const help = document.createElement('div');
@@ -107,7 +109,9 @@
       }
       const primaryActive = tabbar.querySelector('.v2918-tab.is-active');
       more.classList.toggle('is-active',!primaryActive);
-      if(requestSource) more.open=false;
+      groupTitle.textContent = primaryActive ? '発見・まとめ' : '発見・まとめ：' + (secondary.find(x=>x[0]===view)?.[1] || '');
+      if (requestSource && compactMenu.matches) more.open = false;
+
     };
     shell.addEventListener('click',e=>{
       const button=e.target.closest('button[data-v2918-view]');
