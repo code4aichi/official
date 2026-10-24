@@ -29,3 +29,18 @@
 .contact-form .is-success{background:#e7f8f2;color:#14634e}
 .contact-form .is-error{background:#fff1ee;color:#a33222}
 .contact-form button:disabled{opacity:.65;cursor:wait;transform:none;box-shadow:none}
+
+/* Project portfolio refresh 2026-10 */
+.project-group+.project-group{margin-top:42px}
+.project-group-title{font-size:19px;color:var(--navy);font-weight:800;margin:0 0 17px;display:flex;align-items:center;gap:12px}
+.project-group-title:before{content:'';width:8px;height:23px;border-radius:4px;background:var(--teal)}
+.project-cards.pickup-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.project-cards.archive-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.project .project-image img{transition:transform .3s;object-position:center}
+.project .project-image:hover img{transform:scale(1.035)}
+.project .card-content{display:flex;flex-direction:column;align-items:flex-start;min-height:205px}
+.project .card-content a{margin-top:auto;padding-top:16px}
+.project .card-content a+a{margin-top:0;padding-top:5px;margin-left:0}
+.project .card-content p{flex:1}
+@media(max-width:900px){.project-cards.pickup-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.project-cards.pickup-grid,.project-cards.archive-grid{grid-template-columns:1fr}.project-group+.project-group{margin-top:32px}.project .card-content{min-height:auto}.project .card-content a{margin-top:12px;padding-top:0}}
