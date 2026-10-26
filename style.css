@@ -97,3 +97,18 @@
 #members .member-content p:last-child{margin-bottom:0!important}
 #members .member-role{font-size:12px!important;color:#138399!important;font-weight:800!important}
 @media(max-width:700px){#members .member-grid{grid-template-columns:minmax(0,1fr)!important;gap:18px!important}#members .member-photo{height:260px!important;min-height:260px!important;max-height:260px!important;flex-basis:260px!important}#members .member-content{padding:19px 18px 23px!important}}
+
+/* Members accordion 2026-10-26 */
+#members .members-disclosure{display:block;width:100%}
+#members .members-toggle{display:flex;align-items:center;gap:18px;cursor:pointer;list-style:none;padding:3px 0 8px;user-select:none}
+#members .members-toggle::-webkit-details-marker{display:none}
+#members .members-toggle .section-heading{margin:0;flex:1}
+#members .members-toggle-note{font-size:13px;color:#397082;font-weight:700}
+#members .members-chevron{width:13px;height:13px;border-right:2px solid #138c97;border-bottom:2px solid #138c97;transform:rotate(45deg);transition:transform .2s;margin-right:8px;flex:0 0 13px}
+#members .members-disclosure[open] .members-chevron{transform:rotate(225deg)}
+#members .members-disclosure .member-grid{margin-top:24px}
+#members .member-photo-ureshino{background:#8bcdf3!important}
+#members .member-photo-ureshino img{height:100%!important;width:100%!important;object-fit:cover!important;object-position:center 28%!important;padding:0!important}
+#members .member-photo-hiruta{background:linear-gradient(125deg,#eff8fb,#daeaf8)!important}
+#members .member-photo-hiruta img{height:100%!important;width:auto!important;max-width:100%!important;object-fit:contain!important;object-position:center bottom!important;padding:8px 8px 0!important}
+@media(max-width:700px){#members .members-toggle{gap:10px;flex-wrap:wrap}#members .members-toggle-note{font-size:11px;order:3;width:100%;padding-left:43px}#members .members-chevron{margin-left:auto}}
