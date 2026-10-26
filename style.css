@@ -112,3 +112,17 @@
 #members .member-photo-hiruta{background:linear-gradient(125deg,#eff8fb,#daeaf8)!important}
 #members .member-photo-hiruta img{height:100%!important;width:auto!important;max-width:100%!important;object-fit:contain!important;object-position:center bottom!important;padding:8px 8px 0!important}
 @media(max-width:700px){#members .members-toggle{gap:10px;flex-wrap:wrap}#members .members-toggle-note{font-size:11px;order:3;width:100%;padding-left:43px}#members .members-chevron{margin-left:auto}}
+
+
+/* Member photo normalization v5: same aspect ratio, no cropping */
+#members .member-photo,#members .member-photo-ureshino,#members .member-photo-hiruta {
+  width:100%!important; height:auto!important; min-height:0!important; max-height:none!important;
+  aspect-ratio:25 / 14!important; flex:0 0 auto!important; display:block!important;
+  overflow:hidden!important; background:#dceefa!important;
+}
+#members .member-photo img,#members .member-photo-ureshino img,#members .member-photo-hiruta img {
+  display:block!important; width:100%!important; height:100%!important; max-width:100%!important;
+  max-height:none!important; object-fit:contain!important; object-position:center center!important;
+  padding:0!important; margin:0!important; border:0!important; border-radius:0!important;
+}
+@media(max-width:700px){#members .member-photo {aspect-ratio:25 / 14!important}}
