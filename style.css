@@ -126,3 +126,11 @@
   padding:0!important; margin:0!important; border:0!important; border-radius:0!important;
 }
 @media(max-width:700px){#members .member-photo {aspect-ratio:25 / 14!important}}
+
+/* Unified cutout portraits with matching background artwork - v6 */
+#members .member-photo, #members .member-photo-ureshino, #members .member-photo-hiruta {
+  width:100%!important; aspect-ratio:838 / 469!important; height:auto!important; min-height:0!important; max-height:none!important; background:#e5effa!important; display:block!important; overflow:hidden!important; flex:0 0 auto!important;
+}
+#members .member-photo img, #members .member-photo-ureshino img, #members .member-photo-hiruta img {
+  display:block!important; width:100%!important; height:100%!important; max-width:none!important; max-height:none!important; object-fit:cover!important; object-position:center center!important; padding:0!important; margin:0!important; border:0!important;
+}
